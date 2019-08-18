@@ -1,0 +1,303 @@
+\newpage\setcounter{section}{7}
+\section{Vector Fields}
+
+This next chapter is mainly concerned with a familiar object from Calc. III: vector fields. Unlike in Calc. III where we viewed vector field as a continuous map form an open subset $U\seq \Rn$ to $\Rn$, for a general smooth manifold, we will view a vector field as a particular type of continuous map from $M$ to its tangent bundle.
+
+\subsection{Vector Fields on Manifolds}\nl
+
+\dfn If $M$ is a smooth manifold \wowob, a \df{vector field on M} is a section of the map $\pi:TM\ra M$. More concretely, a vector field is a continuous map $X:M\ra TM$, usually written $p\mapsto X_p$, with the property that
+\[\pi\circ X = \Id_M,\]
+or equivalently, $X_p\in T_pM$ for each $p\in M$.
+
+\dfn $X$ is called a \df{smooth vector field} if it's smooth as a map from $M$ to $TM$. Otherwise, it is called a \df{rough vector field}.
+
+\dfn Let $X$ be a rough vector field on $M$, and let $(U, (x^i))$ be a chart on $M$. Given a vector field $X$, there exist functions $X^1,\ldots,X^n:U\ra \R$ such that
+\[X_p = X^i(p)\ev{\pdd{x^i}}{p}.\]
+These are called the \df{component functions of X}.
+
+\begin{prop}[Smoothness Criterion for Vector Fields]
+Let $M$ be a smooth manifold \wowob, and let $X:M\ra TM$ be a rough vector field. If $(U, (x^i))$ is any smooth coordinate chart on $M$, then the restriction of $X$ to $U$ is smooth if and only if its component functions with respect to this chart are smooth.
+\end{prop}
+
+\begin{ex}[Coordinate Vector Fields]
+If $(U, (x^i))$ is any smooth chart on $M$, the assignment 
+\[p\mapsto\ev{\pdd{x^i}}{p}\]
+determines a vector field on $U$, called the \df{i$^{\df{th}}$ coordinate vector field} and denoted by $\pdd{x^i}$. It is smooth because its component functions are constant.
+\end{ex}
+
+\setcounter{thm}{3}
+
+\begin{ex}[\hlo{The Angle Coordinate Vector Field on the Circle}]
+Let $\theta$ be any angle coordinate on a proper open subset $U\seq \BSS$, and let $d/d\theta$ denote the corresponding coordinate vector field. Because any other angle coordinate $\td\theta$ on $V\seq \BSS$ is related to $\theta$ on $U\cap V$ by $\td\theta = \theta + 2\pi n$. Then we have that 
+\[\frac{d}{d\td \theta} = \frac{d}{d\theta}\]
+so there is a \ul{globally defined} coordinate vector field even though there is no globally defined $\theta$.
+\end{ex}
+
+\setcounter{thm}{5}
+
+\begin{lem}[Extension Lemma for Vector Fields]
+Let $M$ be a smooth manifold \wowob, and let $A\seq M$ be a closed subset. Suppose $X$ is a smooth vector field along $A$. Given any open subset $U$ containing $A$, there exists a smooth global vector field $\td X$ on $M$ such that $\td X|_A$ and $\supp(\td X)\seq U$.
+\end{lem}
+
+\nb We will use the symbol $\fkX(M)$ to denote the set of all smooth vector fields on $M$. We sill note that $\fkX(M)$ is a vector space under pointwise addition and scalar multiplication.
+
+
+\setcounter{thm}{7}
+
+\begin{prop}
+Let $M$ be a smooth manifold \wowob
+\begin{enumerate}
+    \item If $X$ and $Y$ are smooth vector fields on $M$ and $f,g\in \Cin(M)$, then $fX + gY$ is a smooth vector field.
+    \item $\fkX(M)$ is a module over the ring $\Cin(M)$.
+\end{enumerate}
+\end{prop}
+
+\dfn Let $M$ be a smooth manifold. A $k$-tuple $(X_1,\ldots X_k)$ of vector fields on a subset $A\seq M$ is \df{linearly independent} if for all $p\in A$, the vectors $(X_1(p),\ldots,X_k(p))$ are linearly independent. And $(X_1,\ldots X_k)$ is said to \df{span the tangent bundle} if $(X_1(p),\ldots,X_k(p))$ spans $T_pM$ for all $p\in A$
+
+\dfn A \df{local frame field} for $M$ is an ordered $n$-tuple of vector fields $(E_1,\ldots,E_n)$ on an open subset $U\seq M$ such that $(E_1(p),\ldots,E_n(p))$ form a basis for $T_pM$ for all $p\in M$. A local frame field is called a \df{global frame field} if $U = M$ and a smooth frame field if $E_1,\ldots,E_n$ are all smooth.
+
+\setcounter{thm}{9}
+
+\begin{ex}[Local and Global Frames]\nl
+\begin{enumerate}
+    \item The standard coordinate vector fields form a smooth global frame for $\Rn$.
+    \item If $(U,(x^i))$ is any smooth coordinate chart for a smooth manifold $M$ (possibly with boundary), then the coordinate vector fields form a smooth local frame $(\partial/\partial x^i)$ on $U$, called a \df{coordinate frame}. Every point of $M$ is in the domain of such a frame.
+    \item The vector field $d/d\theta$ described in Example 8.4 constitutes a smooth global frame for the circle.
+\end{enumerate}
+\end{ex}
+
+\begin{prop}[\hlb{Completion of Local Frames}]
+Let $M$ be a smooth $n$-manifold \wowob.
+\begin{enumerate}
+    \item If $(X_1,\ldots,X_k)$ is a linearly independent $k$-tuple of smooth vector fields on an open subset $U\seq M$, with $1\leq k < n$, then for each $p\in U$ there exist smooth vector fields $X_{k + 1},\ldots,X_n$ in a neighborhood $V$ of $p$ such that $(X_1,\ldots,X_n)$ is a smooth local frame for $M$ on $U\cap V$.
+    \item If $(v_1,\ldots,v_k)$ is a linearly independent $k$-tuple of vectors in $T_pM$ for some $p\in M$, with $1\leq k\leq n$, then there exists a smooth local frame $(X_i)$ on a neighborhood of $p$ such that $X_i(p) = v_i$ for $i = 1,\ldots,k$.
+    \item If $(X_1,\ldots,X_n)$ is a linearly independent $n$-tuple of smooth vector fields along a closed subset $A\seq M$, then there exists a smooth local frame $(\td X_1,\ldots \td X_n)$ on some neighborhood of $A$ such that $\td X_i|_A = X_i$ for $i = 1,\ldots,n$.
+\end{enumerate}
+\end{prop}
+
+\setcounter{thm}{12}
+
+\begin{lem}[Gram-Schmidt Algorithm for Frames]
+Suppose $(X_j)$ is a smooth local frame for $T\Rn$ over an open subset $U\seq \Rn$. Then there is a smooth orthonormal frame $(E_j)$ over $U$ such that $\spn(E_1(p),\ldots,E_j(p)) = \spn(X_1(p),\ldots,X_j(p))$ for each $j = 1,\ldots,n$ and each $p\in U$.
+\end{lem}
+
+\dfn A smooth manifold is called parallelizable if it admits a smooth global frame field.
+
+\nb A vector field $X\in \fkX(M)$ defines a map
+\[X:\Cin(M)\ra \Cin(M)\]
+as you might expect $Xf\in \Cin(M)$ is defined by
+\[Xf(p) = X_p(f).\]
+
+\setcounter{thm}{13}
+
+\begin{prop}
+Let $M$ be a smooth manifold \wowob, and let $X:M\ra TM$ be a rough vector field. The following are equivalent:
+\begin{enumerate}
+    \item $X$ is smooth.
+    \item For every $f\in \Cin(M)$, the function $Xf$ is smooth on $M$.
+    \item For every ope subset $U\seq M$ and every $f\in \Cin(M)$, the function $Xf$ is smooth on $U$.
+\end{enumerate}
+\end{prop}
+
+\dfn A map $X\Cin(M)\ra \Cin(M)$ is called a \df{derivation} if it is linear over $\R$, and if 
+\[X(fg) = f\,Xg + g\,Xf\]
+for all $f,g\in \Cin(M)$.
+
+\nb All $X\in \fkX$ are derivations.
+
+\begin{prop}
+Let $M$ be a smooth manifold \wowob. A map $D:\Cin(M)\ra \Cin(M)$ is a derivation if and only if it is of the form $Df = Xf$ for some smooth vector field $X\in \fkX(M)$.
+\end{prop}
+
+
+\vs\hl{\textbf{A note on Vector Fields and Smooth Manifolds:}}
+
+Let $F:M\ra N$ be a smooth pan and let $X\in \fkX(M)$. For each $p\in M$ the differential of $F$ gives a vector
+\[dF_p(X_p)\in T_{F(p)}N.\]
+However, this does NOT generally produce a vector filed on $N$:
+\begin{itemize}
+    \item If $F$ is not surjective, then parts of the produce vector field will be undefined.
+    \item If $F$ is not injective, then $dF$ may assign multiple vectors to some points in $N$.
+\end{itemize}
+This leads us to the following definition:
+
+\dfn Let $F:M\ra N$ be smooth $X\in \fkX(M)$. For each $p\in M$, $dF$ gives a vector $dF_p(X_p)\in T_{F(p)}N$. If there exists a $Y\in \fkX(N)$ such that 
+\[dF_p(X_p) = Y_{F(p)}\]
+we say that $X$ and $Y$ are \df{F-related}.
+
+\setcounter{thm}{15}
+
+\begin{prop}
+Suppose $F:M\ra N$ is a smooth map between manifolds \wowob, $X\in \fkX(M)$, and $Y\in \fkX(N)$. \hl{Then $X$ and $Y$ are $F$-related if and only if for every smooth real-valued function $f$ defined on an open subset of $N$,}
+\[X(f\circ F) = (Yf)\circ F.)\]
+\end{prop}
+
+\setcounter{thm}{18}
+
+\begin{prop}
+Suppose $M$ and $N$ are smooth manifold \wowob, and $F:M\ra N$ is a diffeomorphism. For every $X\in \fkX(M)$, there is a unique smooth vector field on $N$ that is $F$-related to $X$.
+\end{prop}
+
+\dfn In the situation of the preceding proposition, we denote the unique vector field that is $F$-related to $X$ by $F_*X$, and call it the \df{pushforward of X by F}.
+
+
+\subsection{Lie Bracket and Lie Algebra}\nl
+
+The Lie Bracket is a way of introducing a product structure on the space of smooth vector fields $\fkX(M)$.
+
+\dfn Given $X,Y\in \fkX(M)$, the \df{Lie Bracket} of $X$ and $Y$ is the operation $[X,Y]:\Cin(M)\ra \Cin(M)$ defined by
+\[[X,Y](f) = X(Yf) - Y(Xf).\]
+
+\setcounter{thm}{24}
+
+\begin{lem}
+The Lie bracket of any pair of smooth vector fields is a smooth vector field.
+\end{lem}
+
+\begin{prop}[\hlb{Coordinate Formula for the Lie Bracket}]
+Let $X,Y$ be smooth vector fields on a smooth manifold $M$ \wowob, and let $X = X^i\pdd{x^i}$ and $Y = Y^j\pdd{x^j}$ be the coordinate expressions for $S$ and $Y$ in terms of some smooth local coordinates $(x^i)$ for $M$. Then $[X,Y]$ has the following coordinate expression:
+\[[X,Y] = \lp X^i\pd{Y^j}{x^i} - Y^i\pd{X^j}{x^i}\rp \pdd{x^j},\]
+or more concisely,
+\[[X,Y] = (XY^j - YX^j)\pdd{x^j}.\]
+\end{prop}
+
+\crly The condition that coordinate vector fields $\left\{\pdd{x^i}\right\}$ associated to any local coordinate chart satisfy
+\[\lb \pdd{x^i},\pdd{x^j}\rb = 0 \quad\forall i,j\]
+is equivalent to the statement that mixed partials commute.
+
+\setcounter{thm}{27}
+
+\begin{prop}[\hl{Properties of the Lie Bracket}]
+The Lie bracket satisfies the following identities for all $X,Y,Z\in \fkX(M)$:
+\begin{enumerate}
+    \item {\scshape Binlearity:} For $a,b\in \R$,
+    \begin{align*}
+        [aX + bY, Z] &= a[X,Z] + b[Y,Z],\\
+        [Z, aX + bY] &= a[Z,X] + b[Z,Y].
+    \end{align*}
+    \item {\scshape Antisymmetry:}
+    \[[X,Y] = [Y,X]\]
+    \item {\scshape Jacobi Identity:}
+    \[[X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0.\]
+    \item For $f,g\in \Cin(M)$,
+    \[[fX,gY] = fg [X,Y] + (fXg)Y - (gYf)X.\]
+\end{enumerate}
+\end{prop}
+
+\setcounter{thm}{29}
+
+\begin{prop}[Naturality of the Lie Bracket]
+Let $F:M\ra N$ be a smooth map between manifolds \wowob, and let $X_1,X_2\in \fkX(M)$ and $Y_1,Y_2\in \fkX(N)$ be vector fields such that $X_i$ is $F$-related to $Y_i$ for $i = 1,2$. Then $[X_1,X_2]$ if $F$-related to $[Y_1,Y_2]$.
+\end{prop}
+
+\begin{cor}[Pushforwards of Lie Brackets]
+Suppose $F:M\ra N$ is a diffeomorphism and $X_1,X_2\in \fkX(M)$. Then $F_*[X_1,X_2] = [F_*X_1,F_*X_2]$.
+\end{cor}
+
+\begin{cor}[Brackets of Vector Fields Tangent to Submanifolds]
+Let $M$ be a smooth manifold and let $S$ be an immersed submanifold \wowob in $M$. If $Y_1$ and $Y_2$ are smooth vector fields on $M$ that are tangent to $S$, then $[Y_1,Y_2]$ is also tangent to $S$.
+\end{cor}
+
+\dfn let $G$ be a Lie group. A vector field $X$ on $G$ is said to be \df{left-invariant} if it is invariant under all left translations, in the sense that it is $L_g$-related to itself for every $g\in G$. More explicitly, this means
+\[d(L_g)_{g\p}(X_{g\p}) = X_{gg\p},\quad\text{for all }g,g\p\in G.\]
+
+\begin{prop}
+Let $G$ be a Lie group, and suppose $X$ and $Y$ are smooth left-invariant vector fields on $G$. Then $[X,Y]$ is also left-invariant.
+\end{prop}
+
+\dfn A \df{Lie algebra} (over $\R$) is a real vector space $\fkg$ endowed with a map called the \df{bracket} from $\fkg\x\fkg\ra\fkg$, usually denoted by $(X,Y)\mapsto[X,Y]$, that satisfies the following properties for all $X,Y,Z\in \fkg$:
+\begin{enumerate}[(i)]
+    \item {\scshape Binlearity:} For $a,b\in \R$,
+    \begin{align*}
+        [aX + bY, Z] &= a[X,Z] + b[Y,Z],\\
+        [Z, aX + bY] &= a[Z,X] + b[Z,Y].
+    \end{align*}
+    \item {\scshape Antisymmetry:}
+    \[[X,Y] = [Y,X]\]
+    \item {\scshape Jacobi Identity:}
+    \[[X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0.\]
+\end{enumerate}
+
+\dfn if $\fkg$ is a Lie algebra, a linear subspace $\fkh\seq g$ is called a \df{Lie subalgebra of $\boldsymbol{\fkg}$} if it is closed under brackets.
+
+\dfn If $\fkg$ and $\fkh$ are Lie algebras, a linear map $A:\fkg \ra \fkh$ is called a \df{Lie algebra homomorphism} if it preserves brackets. An invertible Lie algebra homomorphism is called a \df{Lie algebra isomorphism}.
+
+\setcounter{thm}{35}
+
+\begin{ex}[Lie Algebras]\nl
+\begin{enumerate}
+    \item The space $\fkX(M)$ of all smooth vector fields on a smooth manifold $M$ is a Lie algebra under the Lie bracket.
+    \item \hlo{If $G$ is a Lie group, the set of all smooth left-invariant vector field on $G$ is a Lie subalgebra of $\fkX(G)$ and is therefore a Lie algebra.}
+    \item The vector space $M_n(|R)$ of $n\x n$ matrices becomes an $n^2$-dimensional Le algebra under the \df{commutator bracket}:
+    \[[A,B] = AB - BA.\]
+    Bilinearity and antisymmetry are obvious from the definition, and the Jacobi identity follows from a straightforward calculation. When we are regarding $M_n(\R)$ as a Lie algebra with this bracket, we denote it by $\fkgl_n(\R)$
+\end{enumerate}
+\end{ex}
+
+\dfn Any vector space becomes a Lie algebra if we define all brackets to be zero. Such a Lie algebra is said to be \df{abelian}.
+
+\dfn The Lie algebra of all smooth left-invariant vector on a Lie group $G$ is called the \df{Lie algebra of G}, and is denoted by $\Lie(G)$.
+
+\begin{thm}
+\hlb{Let $G$ e a Lie group. The evaluation map $\vep:\Lie(G)\ra T_eG$, given by $\vep(X) = X_e$, is a vector space isomorphism. Thus, $\Lie(G)$ is finite-dimensional, with dimension equal to $\dim(G)$.}
+\end{thm}
+
+\begin{cor}
+Every left-invariant rough vector field on a Lie group is smooth.
+\end{cor}
+
+\dfn If $G$ is a Lie group, a local or global frame consisting of left-invariant vector fields is called a \df{left-invariant frame}.
+
+\begin{thm}
+\hlb{Every Lie group admits a left-invariant smooth global frame, and therefore every Lie group is parallelizable.}
+\end{thm}
+
+\setcounter{thm}{40}
+
+\begin{prop}[Lie Algebra of the General Linear Group]
+The composition of the natural maps
+\[\Lie(GL_n(\R))\ra T_{I_n}GL_n(\R)\ra \fkgl_n(\R)\]
+gives a Lie algebra isomorphism between $\Lie(GL_n(\R))$ and the matrix algebra $\fkgl_n(\R)$.
+\end{prop}
+
+\begin{prop}
+If $V$ is any finite-dimensional real vector space, the composition of canonical isomorphisms given by
+\[\Lie(GL(V))\ra T_{\Id}GL(V)\ra \fkgl(V)\]
+yields a Lie algebra isomorphism between $\Lie(GL(V))$ and $\fkgl(V)$.
+\end{prop}
+
+\setcounter{thm}{43}
+
+\begin{thm}[Induced Lie Algebra Homomorphism]
+Let $G$ and $H$ be Lie groups, and let $\fkg$ and $\fkh$ be their Lie algebras. Suppose $F:G\ra H$ is a Lie group homomorphism. For every $X\in \fkg$, there is a unique vector field in $\fkh$ that is $F$-related to $X$. With this vector field denoted by $F_*X$, the map $F_*:\fkg\ra \fkh$ so defined is a Lie algebra homomorphism.
+\end{thm}
+
+\dfn The map $F_*:\fkg\ra\fkh$ is called the \df{induced Lie algebra homomorphism}.
+
+\begin{prop}[Properties of Induced Homomorphisms]\nl
+\begin{enumerate}
+    \item The homomorphism $(\Id_G)_*:\Lie(G)\ra \Lie(G)$ induced by the identity map of $G$ is the identity of $\Lie(G)$.
+    \item If $F_1:G\ra H$ and $F_2:H\ra K$ are Lie group homomorphisms, then
+    \[(F_2\circ F_2)_* = (F_2)_*\circ (F_1)_*:\Lie(G)\ra \Lie(K).\]
+    \item \hl{Isomorphic Lie groups have isomorphic Lie algebras.}
+\end{enumerate}
+\end{prop}
+
+\begin{thm}[the Lie Algebra of a Lie Subgroup]
+Suppose $H\seq G$ is a Lie subgroup, and $\iota:H\into G$ is the inclusion map. There is a Lie subalgebra $\fkh\seq\Lie(G)$ that is canonically isomorphic to $\Lie(H)$, characterized by either of the following descriptions:
+\begin{align*}
+    \fkh &= \iota_*(\Lie(H))\\
+    &= \{X\in \Lie(H)\ :\ X_e\in T_eH\}.
+\end{align*}
+\end{thm}
+
+\begin{ex}[The Lie Algebra of $O(n)$]
+The orthogonal group $O(n)$ is a Lie subgroup of $GL_n(\R)$ that turns out to be equal to the level set $\Phi\inv(I_n)$, where $\Phi:GL_n(\R)\ra M_n(\R):A\mapsto A^T A$. We have that $T_{I_n}O(n)$ is the same as the kernel of $d\Phi_{I_n}$, which with a little computation, we have that $d\Phi_{I_n}(B) = B^T + B$, so 
+\begin{align*}
+    T_{I_n}O(n) &= \{B\in \fkgl_n(\R)\ :\ B^T + B = 0\}\\
+    &= \{\text{skew-symmetric $n\x n$ matrices}\}.
+\end{align*}
+We denote this subspace of $\fkgl_n(\R)$ by $\fko(n)$. Theorem 8.46 them implies that $\fko(n)$ is a Lie subalgebra of $\fkgl_n(\R)$ that is canonically isomorphic to $\Lie(O(n))$.
+\end{ex}
+
+

@@ -1,0 +1,151 @@
+\newpage
+\section{Signed Measures and Differentiation}
+
+
+\dfn Let $(X, \MM)$ be a measurable space. A \textbf{signed measure} on $(X, \MM)$ is a function $\nu: [-\infty, \infty]$ such that
+\begin{itemize}
+    \item $\nu(\es) = 0$
+    \item $\nu$ assumes at most one of the values $\pm\infty$.
+    \item if $\{E_j\}$ is a sequence of disjoint open sets in $\MM$, then $\nu(\bigcup_{i = 1}^\infty E_j) = \sum_{i = 1}^\infty \nu(E_j)$ where the latter sum converges absolutely if $\nu(\bigcup_{i = 1}^\infty E_j)$ is finite.
+\end{itemize}
+
+\vs
+
+\begin{prop}
+Let $\nu$ be a signed measure on $(X, \MM)$. If $\{E_j\}$ is an increasing sequence in $\MM$, then $\nu(\bigcup_1^\infty E_j) = \lim_{j\ra \infty} \nu(E_j)$. If $\{E_j\}$ is a decreasing sequence and $\nu(E_1)$ is finite, then $\nu(\bigcap_1^\infty E_j) = \lim_{j \ra \infty} \nu(E_j)$
+\end{prop}
+
+\vs
+
+\dfn Let $\nu$ be a signed measure on $(X, \MM)$. Let $E\in \MM$. We say that $E$ is a \textbf{positive set} for $\nu$ if for all $F\in \MM$ such that $F\subset E$, $\nu(F) \geq 0$. In particular $\nu(E) \geq 0$. We say that $E$ is a \textbf{negative set} for $\nu$ if whenever $F\in \MM$ and $F\subset E$, $\nu(F) \leq 0$. So in particular $\nu(E) \leq 0$. We say $E$ is a \textbf{null set} for $\nu$ if whenever $F\subset \MM$ and $F\subset E$, $\nu(F) = 0$. In particular, $\nu(E) = 0$.
+
+\vs
+
+\textbf{NB:} If we have that $E\in \MM$ and $\nu(E) = 0$ \textit{this does not mean that $E$ is a null set}.
+
+\vs
+
+\begin{lem}
+Any measurable subset of a positive set is positive, and the union of any countable family of positive sets is positive.
+\end{lem}
+
+\vs
+
+\textbf{Lemma (Class):} Let $(X, \MM)$ be a measurable space, and let $\nu$ be a signed measure on $X$. Suppose that $A\in \MM$ and $0 < \nu A) < \infty$. Then there exists $E\in \MM$, $E\subset A$ such that $E$ is positive for $\nu$ and such that $0 < \nu(E) < \infty$.
+\vs
+
+\begin{thm}\textbf{(The Han Decomposition Theorem)}
+If $\nu$ is a signed measure on $(X,\MM)$ , there exist a positive set $P$ and a negative set $N$ such that $P\cup N = X$ and $P\cap N = \es$. If $P\p, N\p$ is another such pair, then $P\vartriangle P\p$ is null for $\nu$.
+\end{thm}
+
+\vs
+
+\dfn We say that two signed measures $\mu$ and $\nu$ on $(X, \MM)$ are \textbf{mutually singular} (written $\mu \perp \nu$) if there exist $E, F\in \MM$ such that $E\cap F = \es,\ E\cup R = X,\ E$ is null for $\mu$, and $F$ is null for $\nu$.
+
+\vs
+
+\begin{thm} \textbf{(The Jordan Decomposition Theorem)} If $\nu$ is a signed measure , there exist unique positive measures $\nu^+$ and $\nu^-$ such that $\nu = \nu^+ - \nu^-$ and $\nu^+\perp \nu^-$.
+\end{thm}
+\vs
+
+\dfn The measures $\nu^+$ and $\nu^-$ are called the \textbf{positive and negative variations} of $\nu$ and $\nu = \nu^+ - \nu^-$ is called the \textbf{Jordan Decomposition}.
+
+\vs
+
+\dfn Integration with respect to a signed measure is defined in the obvious way
+\[L^1(\nu) = L^1(\nu^+)\cap L^1(\nu^-)\]
+\[\int f\ d\nu = \int f\ d\nu^+ - \int f\ d\nu^-.\]
+
+\vs 
+
+\dfn Suppose taht $\nu$ is a signed measure and $\mu$ is a positive measure on $(X, \MM)$. We say that $\nu$ is \textbf{absolutely continuous} with respect to $\mu$ and write 
+\[\nu << \mu\]
+if $\nu(E) = 0$ for every $E\in \MM$ for which $\mu(E) = 0$.
+
+\vs
+
+\begin{thm}
+Let $\nu$ be a finite, signed measure and $\mu$ a positive measure on $(X, \MM)$. Then $\nu << \mu$ if and only if for every $\vep > 0$ there exists a $\de > 0$ such that $|\nu(E)| < \de$ whenever $\mu(E) < \vep$.
+\end{thm}
+
+\vs
+
+\begin{cor}
+If $f\in L^1(\nu)$, for every $\vep > 0$ there exists a $\de > 0$ such that $|\int_E f\ d\mu| < \vep$ whenever $\mu(E) < \de$.
+\end{cor}
+
+\vs
+
+\begin{lem}
+Suppose that $\nu$ and $\mu$ are finite measures on $(X, \MM)$. Either $\nu \perp \mu$, or there exist $\vep > 0$ and $E\in \MM$ such that $\mu(E) > 0$ and $\nu > \vep \mu$ on $E$.
+\end{lem}
+
+\vs
+
+\begin{thm}\textbf{(Lebesgue-Radon-Nikodym)}
+Let $\nu$ be a $\sig$-finite signed measure and $\mu$ a $\sig$-finite positive measure on $(X, \MM)$. There exist unique $\sig$-finite signed measures $\lambda, \rho$ on $(X, \MM)$ such that
+\[\lambda\perp\rho,\quad \rho << \mu, \quad \text{and}\quad \nu = \lambda + \rho.\]
+Moreover, there is an extended $\mu$-integrable function $f:X\ra \R$ such that $d\rho = f\ d\mu$, and any two such functions are equal $\mu$-a.e.
+\end{thm}
+
+\vs
+
+\dfn We call the function $f$ described in the above theorem the \textbf{Radon-Nikodyn derivative} of $\nu$ with respect to $\mu$, and we denote it by $d\nu/d\mu$
+\[d\nu = \frac{d\nu}{d\mu}d\mu.\]
+
+\vs
+
+\begin{prop}
+Suppose that $\nu$ is a $\sig$-finite signed measure and $\mu, \lambda$ are $\sig$-finite measures on $(X, \MM)$ such that $\nu \ll \mu$ and $\mu\ll\lambda$.
+\begin{enumerate}[\hspace{1em}(a)]
+    \item If $g\in L^1(\nu)$, then $g(d\nu/c\mu)\in L^1(\mu)$ and
+    \[\int g\ d\nu = \int g\frac{d\nu}{d\mu} d\mu.\]
+    \item We have $\nu \ll \lambda$, and
+    \[\frac{d\nu}{d\lambda} = \frac{d\nu}{d\mu}\frac{d\mu}{d\lambda}\quad \lambda\text{-a.e.}\]
+\end{enumerate}
+\end{prop}
+
+\vs
+
+\begin{cor}
+If $\mu\ll\lambda$ and $\lambda \ll \mu$, then $(d\nu/d\mu)(d\mu/d\lambda) = 1$ a.e.
+\end{cor}
+
+\vs
+
+\textbf{Example:} Why we want $\sig$ finite on the Lebesgue-Radon-Nikodym theorem. Consider $m$ the standard Lebesgue measure and $\nu$ counting measure on $(R, \LL)$. So $\nu(E) = card(E)$. Suppose $\exists f:\R\ra [0,\infty]$ such that $m(E) = \int_E f(x)\ d\nu$. Fix $a\in \R$. Then $0 = m({a}) = \int_{\{a\}} f(x)\ d\nu = f(a)\cdot\nu(\{a\}) = f(a)$. Therefore, $f(a) = 0$ for all $a\in \R$ so $f = 0$ and thus $m = 0$ $\lightning$. 
+
+\vs
+
+\begin{prop}
+If $\mu_1, \ldots, \mu_n$ are measures on $(X, \MM)$, there is a measure $\mu$ such that $\mu_j \ll \mu$ for all $j$ -- namely $\mu = \sum_1^n \mu_j$
+\end{prop}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%eof

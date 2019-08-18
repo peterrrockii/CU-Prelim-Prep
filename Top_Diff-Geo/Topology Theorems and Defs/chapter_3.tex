@@ -1,0 +1,433 @@
+\newpage
+\setcounter{section}{2}
+\section{Connectedness and Compactness}
+
+%==========================================================================
+%                    SECTION 23
+%==========================================================================      
+\subsection{Connected Spaces}\nl
+\setcounter{section}{23}
+\setcounter{thm}{0}
+
+\vs
+
+\dfn Let $X$ be a topological space. A \textbf{separation} of $X$ is a pair $U, V$ of disjoint, nonempty open sets of $X$ whose union is $X$. The space $X$ is said to be \textbf{connected} if there does not exist a separation of $X$.
+
+\vs
+
+\begin{lem}
+If $Y$ is a subspace of $X$, a separation of $Y$ is a pair of disjoint, nonempty sets $A$ and $B$ whose union is $Y$, neither of which contains a limit point of the other. The space $Y$ is connected if there exists no separation of $Y$.
+\end{lem}
+
+\vs
+
+\begin{lem}
+If the sets $C$ and $D$ form a separation of $X$ and if $Y$ is a connected subspace of $X$, then $Y$ lies entirely within either $C$ or $D$.
+\end{lem}
+
+\vs
+
+\begin{thm}
+The union of a collection of connected subspaces of $X$ that have a point in common is connected.
+\end{thm}
+
+\vs
+
+\begin{thm}
+\hl{Let $A$ be a connected subspace of $X$. If $A\subset B\subset \ol A$, then $B$ is also connected.}
+\end{thm}
+
+\vs     
+
+\begin{thm}
+The image of a connected space under continuous map is connected.
+\end{thm}
+
+\vs
+
+\begin{thm}
+A finite Cartesian product of connected spaces is connected.
+\end{thm}
+
+
+%==========================================================================
+%                    SECTION 24
+%==========================================================================      
+\subsection{Connected Subspaces of the Real Line}\nl
+\setcounter{section}{24}
+\setcounter{thm}{0}
+
+\vs
+
+\dfn A simply ordered set $L$ having more than one element is called a \textbf{linear continuum} if the following hold:
+\begin{enumerate}
+    \item $L$ has the least upper bound property.
+    \item If $x < y$, there exists $z$ such that $x < z < y$.
+\end{enumerate}
+
+\vs
+
+\begin{thm}
+If $L$ is a linear continuum in the order topology, then $L$ is connected, and so are intervals and rays in $L$.
+\end{thm}
+
+\vs
+
+\begin{cor}
+The real line $\R$ is connected and so are intervals and rays in $\R$.
+\end{cor}
+
+\vs
+
+\begin{thm}\textbf{(Intermediate value theorem)}
+Let $f:X\ra Y$ be a continuous map where $X$ is a connected space and $Y$ is an ordered set in the order topology. If $a$ and $b$ are two points of $x$, and if $r$ is a point of $Y$ lying between $f(a)$ and $f(b)$, then there exists a point $c$ of $X$ such that $f(c) = r$. 
+\end{thm}
+
+\vs
+
+\dfn Given points $x$ and $y$ of the space $X$, a \textbf{path} in $X$ form $x$ to $y$ is a continuous map $f: [a,b] \ra X$ of some closed interval in the real line into $X$, such that $f(a) = x$ and $f(b) = y$. A space $X$ is said to be \textbf{path connected} if every pair of points of $X$ can be joined by a path in $X$.
+
+
+%==========================================================================
+%                    SECTION 25
+%==========================================================================      
+\subsection{Components and Local Connectedness}\nl
+\setcounter{section}{25}
+\setcounter{thm}{0}
+
+\vs
+
+\dfn Given $X$, define an equivalence relation on $X$ by setting $x\sim y$ if there is a connected subspace of $X$ containing both $x$ and $y$. The equivalence classes are called the \textbf{components} (or the "connected components") of $X$.
+
+\vs
+
+\begin{thm}
+The components of $X$ are connected, disjoint subspaces of $X$ whose union is $X$, such that each nonempty connected subspace of $X$ intersects only one of them.
+\end{thm}
+
+\vs
+
+\dfn We define another equivalence relation on the space $X$ by defining $x\sim y$ if there is a path from $x$ to $y$ in $X$. The equivalence classes are called the \textbf{path components}.
+
+\vs
+
+\begin{thm}
+The path components of $X$ are path-connected, disjoint subspaces of $X$ whose union is $X$, such that each nonempty path-connected subspace of $X$ intersects only one of them.
+\end{thm}
+
+\vs
+
+\dfn A space $X$ is said to be \textbf{locally connected at $\boldsymbol x$} if for every neighborhood $U$ of $x$, there is a connected neighborhood $V$ of $x$ contained in $U$. If $X$ is locally connected at each of its points, it is said simply to be \textbf{locally connected}. Similarly, a space $X$ is said to be \textbf{locally path-connected at $\boldsymbol x$} if for every neighborhood $U$ of $x$, there is a path-connected neighborhood $V$ of $x$ contained in $U$. If $X$ is locally path connected at each of its points, it is said simply to be \textbf{locally path-connected}.
+
+\vs
+
+\begin{thm}
+A space $X$ is locally connected if and only if for every open set $U$ of $X$, each component of $U$ is open in $X$.
+\end{thm}
+
+\vs
+
+\begin{thm}
+A space $X$ is locally path-connected if an only if for every open set $U$ of $X$, each component of $U$ is open in $X$.
+\end{thm}
+
+\vs
+
+\begin{thm}
+\hl{If $X$ is a topological space, each path component of $X$ lies in a component of $X$. If $X$ is locally path-connected, then the components and the path components of $X$ are the same.}
+\end{thm}
+
+
+%==========================================================================
+%                    SECTION 26
+%==========================================================================      
+\subsection{Compactness}\nl
+\setcounter{section}{26}
+\setcounter{thm}{0}
+
+\dfn A collection $\A$ of subsets of a space $X$ is said to \textbf{cover} $X$, or to be a \textbf{covering} of $X$, if the union of the elements of $\A$ is equal to $X$. It is called an \textbf{open covering} of $X$ if its elements are open subsets of $X$.
+
+\dfn \textbf{(Open Farci)} A topological space $(X, \TT)$ is called \textbf{compact} if given any open covering $\{U_i\}_{i = 1}^\infty$, there exists a finite subcover $\{U_i\}_{i = 1}^n$ where $X = \bigcup_{i = 1}^n U_i$.m 
+
+\dfn \textbf{(Closed Farci)} For any given family of closed sets $\ff$ with $\bigcap \ff = \es$, there exists a finite subfamily $\ff^\p$ such that $\bigcap\ff^\p = \es$.
+
+\vs
+
+\begin{lem}
+Let $Y$ be a subspace of $X$. Then $Y$ is compact if and only if every covering of $Y$ by sets open in $X$ contains a finite subcollection covering $Y$.
+\end{lem}
+
+\vs
+
+\begin{thm}
+Every closed subspace of a compact space is compact.
+\end{thm}
+
+\vs
+
+\begin{thm}
+Every compact subspace of a Hausdorff space is closed.
+\end{thm}
+
+\vs
+
+\begin{lem}
+If $Y$ is a compact subspace of the Hausdorff space $X$, and $x_0$ is not in $Y$, then there exist disjoint open sets $U$ and $V$ of $X$ containing $x_0$ and $Y$, respectively.
+\end{lem}
+
+\vs
+
+\begin{thm}
+If $(X,\TT)$ and $(Y, \WW)$ are topological spaces, and $f:X\ra Y$ is a continuous map, then $f(X)$ is compact.
+\end{thm}
+
+\vs
+
+\prp{(Class 10/15)} Compactness is invariant under homeomorphism.
+
+
+\vs
+
+\begin{thm}
+\hl{Let $f:X\ra Y$ be a bijective, continuous function. If $X$ is compact and $Y$ is Hausdorff, then $f$ is a homeomorphism.}
+\end{thm}
+
+\begin{proof}
+To show that $f$ is a homeomorphism, we only need to show that $f$ is a closed map. Consider some $C\in X$ which is closed. Then by \textcolor{red}{Theorem 26.5} we have that $f(C)$ is compact. And since $Y$ is Hausdorff, we have that $f(C)$ is closed since it is compact. Thus, $f$ is a closed map, and hence a homeomorphism.
+\end{proof}
+
+\vs
+
+\begin{thm}
+The product of finitely many compact spaces is compact. (The generalized version of this theorem is called Tychonoff's Theorem) (The proof of this involves the use of tubular neighborhoods.)
+\end{thm}
+
+\begin{proof}\textit{(by Farci)}
+Fix $\UU = \{U_\al\times V\al\}_{\al\in \alpha}$ and fix some $x\in X$. Consider the space $x\times Y\cong Y$ contained in the product. This space is then compact so there is some finite subcover $\{U_{\al_i}^x\times V_{\al_i}^x\}_{i = 1}^n$. Take $U_x = \bigcap_{j = 1}^r U_{\al_j}^x$. Then $\{U_x\}_{x\in X}$ is an open cover of $X$. Since $X$ is compact, there is also a finite subcover $\{U_{x_i}\}_{i = 1}^s$.
+
+
+
+We know that $U = \{U_\al\}$ is an open cover of $X$ and $\{V_\al\}$ is an open cover of $Y$.
+\end{proof}
+
+
+\vs
+
+\begin{lem}\textbf{(The Tube Lemma)}
+Consider the product space $X\times Y$, where $Y$ is compact. If $N$ is an open set of $X\times Y$ containing the slice $x_0\times Y$ of $X\times Y$, then $N$ contains some tube $W\times Y$ about $x_0\times Y$, where $W$ is a neighborhood in $X$.
+\end{lem}
+
+\dfn A collection $\CC$ of subsets of $X$ is said to have the \textbf{finite intersection property} if for ever finite subcollection
+\[\{C_1, \ldots, C_n\}\]
+of $\CC$, the intersection $C_1\cap \cdots\cap C_n$ is nonempty.
+
+\vs
+
+\begin{thm}
+Let $X$ be a topological space. Then $X$ is compact if and only if for every collection $\CC$ of closed sets in $X$ having the finite intersection property, the intersection $\bigcap_{C\in\CC}C$ of all the elements of $\CC$ is nonempty.
+\end{thm}
+
+
+\textbf{Theorem (Alexander Compactification)\footnote{This is also known as the One-Point Compactification Theorem}.}  Take a space that is not compact, but is locally compact, and $T_2$ (e.g. $\R$). Then 
+\[\wh X = X\sqcup \{\infty\}\]
+with topology $\wh \TT$ generated by
+\[\wh\BB = \begin{cases}
+A\text{ open iff $A\in \TT$} & \text{if } A \subset \wh X,\  \infty \nin A,\\
+A\text{ open iff $A^c$ is compact} & \text{if } A \subset \wh X,\  \infty \in A.
+\end{cases}\]
+This fives us a topological space $(\wh X,\wh \TT)$ which is compact.
+
+\begin{proof}
+Let $\UU = \{\wh U_\al\}_{\al \in \Lambda}$ be an open cover of $\wh X$. There is some set $\bar \al \in \Lambda$ such that $\infty \in \wh U_{\bar \al}$. By construction, this gives us that $\wh U_{\bar \al}^c$ is compact. Now $\{\wh U_\al\}_{\al \neq \bar \al}$ is an open cover of $\wh U_{\bar \al}^c$ so there is some finite subcover $\{\wh U_{\al_k}\}_{k = 1}^n$. This then gives us that
+\[X = \wh U_{\bar \al} \cup \bigcup_{k = 1}^n \wh U_{\al_k}\]
+which is a finite cover for $X$. Hence, $X$ is compact.
+\end{proof}
+
+
+
+%==========================================================================
+%                    CLASS NOTES 1019
+%==========================================================================   
+
+\setcounter{section}{1019}
+\setcounter{thm}{0}
+\subsection{Class Notes from 10/19 and 10/22}\nl
+
+
+\vs
+
+\dfn A topological space is called \textbf{second countable} if it has a countable basis.
+
+\vs
+
+\begin{thm}(Linel\"off) If $(X, \TT)$ is second countable and $\UU = \{U_\al\}_{\al\in \Lambda}$ is an open cover of $X$ then there is some $\UU^\p\subset \UU$ that is a countable subcover of $X$.
+\end{thm}
+
+\begin{proof}
+Let $\BB = \{B_n\}_{n\in \N}$ be a countable basis, and for all $n\in \N$ take $B_n \subset U_{\al_n}$ (if such exsts). Then we have that $\UU^\p = \{U_{\al_n}\}$ is a countable family that and we claim that $\UU^\p$ covers $X$. If not, there is some $z\in X$ such that $z\nin \cup U_{\bar \al}$ for some $\bar \al \in \Lambda$. Also there is some $B_{\bar n}\in \BB$ such that $z\in B_{\bar n}\subset U_{\bar \al}$. But then we chose $\UU^\p$ such that $B_{\bar n} \subset U_{\al_{\bar n}}$ which gives us that $z \in U_{\al_{\bar n}}$. Thus $z\in \bigcup \UU^\p$.
+\end{proof}
+
+\vs
+
+\begin{thm}
+For every family of closed sets with empty intersection, there exists a countable subfamily of closed sets with empty intersection.
+\end{thm}
+
+\vs
+\begin{thm} Consider $C\subset \R^n$ then TFAE
+\begin{enumerate}[\hspace{1em}(a)]
+    \item C is closed and bounded
+    \item For every sequence $\{x_n\}_{n\in \N} \subset C$, there exists a convergent subsequence $x_{n_k}\ra x_0\in C$.
+    \item Every infinite subset of $C$ has an accumulation point $x_0\in C$.
+    \item C is compact.
+\end{enumerate}
+  
+\end{thm}
+
+\begin{proof}
+$[(b) \Ra (c)]$ We'll use the definition using families of closed sets. Let $\{F_\al\}_{\al\in \Lam}$ with empty intersection. By Lendel\"off we have that there is a countable subfamily $\ff^\p = \{F_n\}_{n\in \N}$ with empty intersection. By contradiction, assume that there is no finite subfamily of $\ff^\p$ has empty intersection. So $F_1\cap F_2 \neq \es$, $F_1\cap F_2\cap F_3 \neq \es$,..., $F_1\cap \cdots\cap F_n\neq \es$. Take $x_1\in F_1\cap F_2$,..., $x_n\in F_1\cap \cdots\cap F_n$. This is a sequence of points in $C$, so by (b) there is a convergent subsequence $x_n\ra x_0\in C$. But all of the $F_k$ are closed, so we have that the sequence $x_n\ra x_0\in F_k$ for all $k$, and so $\bigcap_{n\in \N}\neq \es$ $\lightning$.
+
+$[(a)\Ra (c)]$ Let $S\subset C$ be an infinite subset. By hypothesis, we have that $C$ is bounded. Since $S$ is a subset of $C$ that is infinite, there is an accumulation point of $S$ which we will call $x_0$ which is also an accumulation point of $C$. However, $C$ is closed, so it must be the case that $x_0\in C$.  
+
+$[(d) \Ra (c)]$ Assume that $C$ is compact. Assume that there is some infinite subset $S$ of $C$ with no accumulation point. In particular, we have that $S$ is closed since all of the possible accumulation points are already contained in $S$. This gives us that $S^c$ is open. So for any $x\in S$, $x$ is not an accumulation point of $S$. Therefore, there is some open neighborhood $U_x$ of $x$ such that $U_x\cap S = \{x\}$. Let us now construct the following family:
+\[\UU = \{S^c, U_x\}_{x\in S}.\]
+This is an open cover of $C$ which is compact, so there is some finite subcover $\{S^c, U_{x_i}\}_{i = 1}^n$, which means that $S$ is finite $\lightning$.
+
+$[(d)\Ra (b)]$ Follows from $(d) \Ra (c)$. Consider $S = \{x_n\}_{n\in \N}$. If $S$ is a finite set, then there is some $x_i\in S$ which has countably infinitely many copies. We can then choose this to be the convergent subsequence.
+\end{proof}
+
+\dfn A topological space $(X, \TT)$ is first countable if for every $x\in X$ there is a countable basis for the neighborhoods of $x\in X$.
+
+Ex: The real line with the standard topology is first countable. Take any $x\in \R$ then
+\[\BB_x = \left\{\lp x -\frac{1}{k}, x + \frac{1}{k}\rp\right\}_{k\in \N}\]
+
+
+%==========================================================================
+%                    SECTION 27
+%==========================================================================      
+\subsection{Compact Subspaces of the Real Line}\nl
+\setcounter{section}{27}
+\setcounter{thm}{0}
+
+\vs
+
+\begin{thm}
+Let $X$ be a simply ordered set having the lease upper bound property. In the order topology, each closed interval in $X$ is compact.
+\end{thm}
+
+\vs
+
+\begin{cor}
+Every closed interval in $\R$ is compact.
+\end{cor}
+
+\vs
+
+\begin{thm}
+A subspace $A$ of $\R^n$ is compact if and only if it is closed and is bounded in the euclidean metric $d$ or the square metric $p$.
+\end{thm}
+
+\vs
+
+\begin{thm}\textbf{(Extreme Value Theorem)}
+Let $f:X\ra Y$ be continuous, where $Y$ is an ordered set in the order topology. If $X$ is compact, then there exist points $c$ and $d$ in $X$ such that $f(c) \leq f(x) \leq f(d)$ for every $x\in X$.
+\end{thm}
+
+\vs
+
+\dfn Let $(X,d)$ be a metric space; let $A$ be a nonempty subset of $X$. For each $x\in X$, we define the \textbf{distance from $\boldsymbol{x}$ to $\boldsymbol{A}$} by the equation
+\[d(x, A) = \inf\{d(x,a)\ |\ a\in A\}.\]
+
+\vs
+
+\begin{lem}\textbf{(The Lebesgue number lemma)}
+Let $\A$ be an open covering of the metric space $(X, d)$. If $X$ is compact, there is a $\delta > 0$ such that for each subset of $X$ having diameter less than $\delta$, there exists an element of $\A$ containing it.
+\end{lem}
+
+\vs
+
+\dfn A function $f$ from the metric space $(X, d_x)$ to the metric space $(Y, d_Y)$ is said to be \textbf{uniformly continuous} if given any $\vep > 0$, there is a $\delta > 0$ such that for every pair of points $x_0,\ x_1$ of $X$,
+\[d_X(x_0,x_1) < \delta\ \Ra\ d_Y(f(x_0),f(x_1)) < \vep.\]
+
+\vs
+
+\begin{thm}\textbf{(Uniform Continuity Theorem)}
+Let $f:X\ra Y$ be a continuous map from the compact metric space $(X, d_x)$ to the metric space $(Y, d_Y)$. Then $f$ is uniformly continuous.
+\end{thm}
+
+\vs
+
+\dfn If $X$ is a space, a point $x$ of $X$ is said to be an \textbf{isolated point} of $X$ if the one point set $\{x\}$ is open in $X$.
+
+\vs
+
+\begin{thm}
+Let $X$ be a nonempty, compact, Hausdorff space. If $X$ has no isolated points, then $X$ is uncountable.
+\end{thm}
+
+\vs
+
+\begin{cor}
+Every closed interval in $\R$ is uncountable.
+\end{cor}
+
+%==========================================================================
+%                    SECTION 28
+%==========================================================================      
+\subsection{Limit Point Compactness}\nl
+\setcounter{section}{28}
+\setcounter{thm}{0}
+
+\vs
+
+\dfn A space $X$ is said to be \textbf{limit point compact} if every infinite subset of $X$ has a limit point.
+
+\vs
+
+\begin{thm}
+Compactness implies limit point compactness, but not conversely.
+\end{thm}
+
+\vs
+
+\dfn Let $X$ be a topological space. If $(x_n)$ is a sequence of points of $X$, and if
+\[n_1 < n_2 < \cdots < n_i < \cdots\]
+is an increasing sequence of positive integers, then the sequence $(y_i)$ defined by setting $y_i = x_{n_i}$ is called a \textbf{subsequence} of the sequence $(x_n)$. The space $X$ is said to be \textbf{sequentially compact} if every sequence of points contains a convergent subsequence.
+
+\vs
+
+\begin{thm}
+Let $X$ be a metrizable space. Then the following are equivalent:
+\begin{enumerate}
+    \item $X$ is compact.
+    \item $X$ is limit point compact.
+    \item $X$ is sequentially compact.
+\end{enumerate}
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%end

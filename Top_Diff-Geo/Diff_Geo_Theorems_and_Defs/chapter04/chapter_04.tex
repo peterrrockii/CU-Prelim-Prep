@@ -1,0 +1,141 @@
+\newpage\setcounter{section}{3}
+\section{Submersions, Immersions, and Embeddings}
+
+We now have a way of giving the "best linear approximation" of a map near a given point on a manifold However, we can learn a great deal about a map by studying the properties of its differential, and that's exactly what we do in this section. Many of the properties of smooth submersions and smooth immersions that we study in this chapter will form the basis for our understanding of submanifolds which we will explore in the next chapter.
+
+\subsection{Maps of Constant Rank}\nl
+
+\dfn Suppose $M$ and $N$ are smooth manifolds with or without boundary. Given a smooth map $F:M\ra N$ and a point $p\in M$, we define the \df{rank of F at p} to be the rank of the linear map $dF_p:T_pM\ra T_{F(p)}N$; it is the rank of the Jacobian matrix of $F$ in any smooth chart. If $F$ has rank $r$ at every point, we say that it has \df{constant rank}, and write $\rank(F) = r$.
+
+\nb $\rank(F) \leq \min\{\dim(M),\dim(N)\}$
+
+\dfn If $\rank(dF_p) = \min\{\dim(M),\dim(N)\}$ then we way that \df{F has full rank at p}, and if $F$ has full rank everywhere, we say that \df{F has full rank}.
+
+\dfn $F:M\ra N$ is called a \df{smooth submersion} if its differential is surjective at each point ($\rank(F) = \dim(N)$) and is called a \df{smooth immersion} if its differential is injective at each point ($\rank(F) = \dim(M)$).
+
+\begin{prop}
+Suppose $F:M\ra  N$ is a smooth map and $p\in M$. If $dF_p$ is surjective, then $p$ has a neighborhood $U$ such that $F|_U$ is a submersion. If $dF_p$ is injective, then $p$ has a neighborhood $U$ such that $F|_U$ is an immersion.
+\end{prop}
+
+\dfn If $M$ and $N$ are smooth manifolds with or without boundary, a map $F:M\ra N$ is called a \df{local diffeomorphism} if every point $p\in M$ has a neighborhood $U$ such that $F(U)$ is open in $N$ and $F|_U:U\ra F(U)$ is a diffeomorphism.
+
+\setcounter{thm}{4}
+
+\begin{thm}[\hlb{Inverse Function Theorem for Manifolds}]
+Suppose $M$ and $N$ are sooth manifolds, and $F:M\ra N$ is a smooth map. If $p\in M$ is a point such that $dF_p$ is invertible, then there are connected neighborhoods $U_0$ of $p$ and $V_)$ of $F(p)$ such that $F|_{U_0}:U_0\ra V_)$ is a diffeomorphism.
+\end{thm}
+
+\setcounter{thm}{7}
+
+\begin{prop}
+Suppose $M$ and $N$ are smooth manifolds (without boundary), and $F:M\ra N$ is a map.
+\begin{enumerate}
+    \item $F$ is a local diffeomorphism if and only if it is both a smooth immersion and a smooth submersion.
+    \item If $\dim(M) = \dim(N)$ and $F$ is either a smooth immersion or a smooth submersion, then it is a local diffeomorphism.
+\end{enumerate}
+\end{prop}
+
+\setcounter{thm}{11}
+
+\begin{thm}[\hlb{Rank Theorem}]
+Suppose $M$ and $N$ are smooth manifolds of dimensions $m$ and $n$, respectively, and $F:M\ra N$ is a smooth map \hl{with constant rank} $r$. For each $p\in M$ there exist smooth charts $(U,\vphi)$ for $M$ centered at $p$ and $(V,\psi)$ for $N$ centered at $F(p)$ such that $F(U)\seq V$, in which $F$ has a coordinate representation of the form 
+\[\wh F(x^1,\ldots,x^r,x^{r+1},\dots x^m) = (x^1,\ldots,x^r,0,\ldots,0).\]
+In particular, if $F$ is a smooth submersion, this becomes
+\[\wh F(x^1,\ldots,x^n,x^{n+1},\dots x^m) = (x^1,\ldots,x^n),\]
+and if $F$ is a smooth immersion, it is
+\[\wh F(x^1,\ldots, x^m) = (x^1,\ldots,x^m,0,\ldots,0).\]
+\end{thm}
+
+\begin{cor}
+Let $M$ and $N$ be smooth manifolds, let $F:M\ra N$ be a smooth map, and suppose $M$ is connected. Then the following are equivalent:
+\begin{enumerate}
+    \item For each $p\in M$ there exist smooth charts containing $p$ and $F(p)$ in which the coordinate representation of $F$ is linear.
+    \item $F$ has constant rank.
+\end{enumerate}
+\end{cor}
+
+
+\begin{thm}[Global Rank Theorem]
+Let $M$ and $N$ be smooth manifolds, and suppose $F:M\ra N$ is a smooth map of constant rank.
+\begin{enumerate}
+    \item If $F$ is surjective, then it is a smooth submersion.
+    \item If $F$ is injective, then it is a smooth immersion.
+    \item If $F$ is bijective, then it is a diffeomorphism.
+\end{enumerate}
+\end{thm}
+
+\subsection{Embeddings and Submersions}\nl 
+
+\dfn If $M$ and $N$ are smooth manifolds with or without boundary, a \df{smooth embedding of M into N} is a smooth immersion $F:M\ra N$ that is also a topological embedding (i.e. a homeomorphism onto its image in the subspace topology).
+
+\setcounter{thm}{17}
+
+\begin{ex}[A Smooth Topological Embedding]
+The map $\ga:\R\ra\R^2$ given by $\ga(t) = (t^3,0)$ is a smooth map and a topological embedding, but it is not a smooth embedding because $\ga\p(0) = 0$.
+\end{ex}
+
+\begin{ex}[The Figure-Eight Curve]
+Consider the curve $\be:(-\pi,\pi)\ra \R^2:t\ra (\sin(2t), \sin(t)).$ The image is a set that looks like a figure-eight in the plane. It is easy to see that $\be$ is an injective smooth immersion because $\be\p(t)$ never vanishes; but it is not a topological embedding, because its image is compact in the subspace topology, while its domain is not.
+\end{ex}
+
+\setcounter{thm}{21}
+
+\dfn If $X$ and $Y$ are topological spaces, a map $F:X\ra Y$ is said to be \df{\hlb{proper}} if for every compact set $K\seq Y$, the preimage $F\inv(K)$ is compact
+
+\begin{prop}
+Suppose $M$ and $N$ are smooth manifolds with or without boundary, and $F:M\ra N$ is an injective smooth immersion. \hlb{If any of the following holds, then $F$ is a smooth embedding.}
+\begin{enumerate}
+    \item $F$ is an open or closed map
+    \item $F$ is a proper map.
+    \item $M$ is compact.
+    \item $M$ has empty boundary an d$\dim(M) = \dim(N)$.
+\end{enumerate}
+\end{prop}
+
+\setcounter{thm}{24}
+
+\begin{thm}[\hl{Local Embedding Theorem}]
+Suppose $M$ an d$N$ are smooth manifolds with or without boundary, and $F:M\ra N$ is a smooth map. Then $F$ is a smooth immersion if and only if every point in $M$ has a neighborhood $U\seq M$ such that $F|_U:U\ra N$ is a smooth embedding.
+\end{thm}
+
+\dfn If $\pi:M\ra N$ is any continuous map, a \df{section of $\boldsymbol{\pi}$} is a continuous right inverse for $\pi$, i.e., a continuous map $\sigma:N\ra M$ such that $\pi\circ \sig = \Id_N$.
+\begin{center}
+\begin{tikzcd}
+M\arrow[d, swap, "\pi"]\\ N\arrow[u, bend right, swap, "\sigma"]
+\end{tikzcd}
+\end{center}
+A \df{local section of $\boldsymbol{\pi}$} is a continuous map $\sig:Y\ra M$ defined on some open subset $U\seq N$ and satisfying the analogous relation $\pi\circ\sigma = \Id_U$.
+
+\begin{thm}[Local Section Theorem]
+Suppose $M$ and $N$ are smooth manifolds and $\pi:M\ra N$ is a smooth map. Then $\pi$ is a smooth submersion if an only if every point of $M$ is in the image of a smooth local section of $\pi$.
+\end{thm}
+
+\dfn If $\pi:X\ra Y$ is a continuous map, we say $\pi$ is a \df{topological submersion} if ever point of $X$ is in the image of a (continuous) local section of $\pi$.
+
+\setcounter{thm}{27}
+
+\begin{thm}[Properties of Smooth Submersions]
+Let $M$ and $N$ be smooth manifolds, and suppose $\pi:M\ra N$ is a smooth submersion. Then $\pi$ is an open map, and if it is surjective, it is a quotient map.
+\end{thm}
+
+\begin{thm}[Characteristic Property of Surjective Smooth Submersions]
+Suppose $M$ and $N$ are smooth manifolds, and $\pi:M\ra N$ is a surjective smooth submersion. For any smooth manifold $P$ with or without boundary, a map $F:N\ra P$ is smooth if and only if $F\circ \pi$ is smooth:
+\begin{center}
+\begin{tikzcd}
+M\arrow[d, swap, "\pi"]\arrow[dr, "F\circ \pi"] & \\ N\arrow[r, swap,  "F"] & P.
+\end{tikzcd}
+\end{center}
+\end{thm}
+
+\begin{thm}[Passing Smoothly to the Quotient]
+Suppose $M$ and $N$ are smooth manifolds, and $\pi:M\ra N$ is a surjective smooth submersion. If $P$ is a smooth manifold with or without boundary and $F:M\ra P$ is a smooth map that is constant on the fibers of $\pi$, then there exists a unique smooth map $\td F:N\ra P$ such that $\td F\circ \pi = F$.
+\end{thm}
+
+\begin{thm}[Uniqueness of Smooth Quotients]
+Suppose $M$, $N_1$, and $N_2$ are smooth manifolds, and $\pi_1:M\ra N_1$ and $\pi_2:M\ra N_2$ are surjective smooth submersions that are constant on each other's fibers. Then there exists a unique diffeomorphism $FM_1\ra N_2$ such that $F\circ \pi_1 = \pi_2$
+\begin{center}
+\begin{tikzcd}[column sep = 0.5em]
+ & M\arrow[dl, swap, "\pi_1"]\arrow[dr, "\pi_2"] &  \\ N_1 \arrow[rr, dashed, swap, "F"] &  & N_2
+\end{tikzcd}
+\end{center}
+\end{thm}

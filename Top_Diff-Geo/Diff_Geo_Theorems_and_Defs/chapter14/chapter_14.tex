@@ -1,0 +1,192 @@
+\newpage\setcounter{section}{13}
+\section{Differential Forms}
+
+Differential forms are an essential and beautiful part of Differential Geometry. They are, in fact, the objects that we will use in order to thoroughly define the concept of integration on an arbitrary smooth manifold. And, as we will find in Chapter 16, their very existence is what leads to a very elegant and concise way of expressing Stokes's Theorem.
+
+\dfn Let $V, W$ be finite dimensional vector fields, and let $\al\in V^*$ and $\be \in W^*$. The \df{tensor product} $\al\otimes\be$ is a bilinear product
+\[\al\otimes\be:V\x W\ra \R:(v,w)\mapsto \al(v)\be(w).\]
+
+\nb To define $v\otimes w$ for $v\in V$ and $w\in W$, use the canonical identification with the double dual.
+
+\dfn Let $\al,\be\in V^*$. The \df{wedge product} of $\al$ and $\be$ is defined by
+\[\al\wedge\be = \al\otimes \be - \be\otimes \al.\]
+
+\dfn The space of \df{alternating k-vectors} or \df{alternating k-covectors} of $V^*$ is 
+\[\bgw^kV^* = \spn\{\al^1\wedge\cdots\wedge\al^k\ :\ \al^i\in V^*\}\]
+
+\nb For $0\leq k \leq n = \dim(V)$, $\dim(\bgw^kV^*) = {n \choose k}$
+
+\setcounter{thm}{10}
+
+\begin{prop}[Properties of the Wedge Product] Suppose $\omega,\omega\p,\eta,\eta\p$, and $\xi$ are multicovectors on a finite-dimensional vector space $V$.
+\begin{enumerate}
+    \item {\scshape Binlearity:} For $a,a\p\in \R$,
+    \begin{align*}
+        [(a\omega + a\p\omega\p)\wedge\eta = a(\omega\wedge\eta) + a\p(\omega\p\wedge\eta),\\
+        \eta\wedge(a\omega + a\p\omega\p) = a(\eta\wedge\omega) + a\p(\eta\wedge\omega\p).
+    \end{align*}
+    \item {\scshape Associativity:}
+        \[\omega\wedge(\eta\wedge\xi) = (\omega\wedge\eta)\wedge\xi.\]
+    \item {\scshape Anticommutativity:} For $\omega\in\bgw^k(V^*)$ and $\eta\in\bgw^\ell(V^*)$
+    \[\omega\wedge\eta = (-1)^{k\ell}\eta\wedge\omega.\]
+    \item If $(\vep^i)$ is any basis for $V^*$ and $I = (i_1,\ldots,i_k)$ is any multi-index, then
+    \[\vep^{i_1}\wedge\vep^{i_k} = \vep^I.\]
+    \item \hl{For any covectors $\omega^1,\ldots,\omega^k$ and vectors $v_1,\ldots,v_k$,}
+    \[\omega^1\wedge\cdots\wedge(v_1,\ldots,v_k) = \det(\omega^j(v_i)).\]
+\end{enumerate}
+\end{prop}
+
+
+\dfn A $k$-covector $\eta$ is \df{decomposable} if it can be expressed as 
+\[\eta = \omega^1\wedge \cdots\wedge \omega^k\]
+where $\omega^i$ is a covector.
+
+\dfn for any $n$-dimensional vector space $V$, the \df{exterior algebra} of $V$ is the vector space 
+\[\bgw(V^*) = \bigotimes_{k = 0}^n \bgw^k V\]
+
+
+\dfn Let $V$ be a finite-dimensional vector space. For each $v\in V$, we define a linear map $i_v:\bgw^k(V^*)\ra\bgw^{k - 1}(V^*)$, called \df{interior multiplication by v}, as follows:
+\[i_v\omega(w_1,\ldots,w_{k - 1}) = \omega(v,w_1,\ldots,w_{k - 1}).\]
+In other words, $i_v\omega$ is obtained from $\omega$ by inserting $v$ into the first slot. This can also be denoted by $v\hook \omega$.
+
+\setcounter{thm}{12}
+
+\begin{lem}
+Let $V$ be a finite-dimensional vector space and $v\in V$.
+\begin{enumerate}
+    \item $i_v\circ i_v = 0$.
+    \item If $\omega\in \bgw^k(V^*)$ and $\eta\in \bgw^\ell(V^*)$,
+    \[i_v(\omega\wedge\eta) = (i_v\omega)\wedge\eta + (-1)^k\omega\wedge(i_v\eta)\]
+\end{enumerate}
+\end{lem}
+
+\dfn The \df{bundle of alternating k-tensors} on a smooth manifold $M$ is
+\[\Lambda^k(T^*M) = \bigsqcup_{p\in M} \Lambda(T^*_pM).\]
+
+
+\dfn A \df{differential k-form} on $M$ is a continuous section of $\Lambda^k(T^*M)$. The vector space of smooth $k$-forms is denoted 
+\[\Omega^k(M) = \Gamma(\Lambda(T^*M)),\]
+and the integer $k$ is called the \df{degree} of the form.
+
+\dfn WE define the vector space $\Omega^*(M)$ to be
+\[\Omega^*(M) = \bigoplus_{k = 0}^n \Omega^k(M),\]
+and this is an associative, anticommutative graded algebra.
+
+
+\setcounter{thm}{15}
+
+\begin{lem}
+Suppose $F:M\ra N$ is smooth.
+\begin{enumerate}
+    \item $F^*:\Omega^k(N)\ra \Omega^k(M)$ is linear over $R$.
+    \item $F^*(\omega\wedge\eta) = (F^*\omega)\wedge(F^*\eta)$.
+    \item In any smooth chart
+    \[F^*\lp{\sum_I}\p\omega_i\,dy^{i_1}\wedge\cdots\wedge dy^{i_k}\rp = {\sum_I}\p(\omega_i\circ F)\,d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)\]
+\end{enumerate}
+\end{lem}
+
+\setcounter{thm}{19}
+
+\begin{prop}[\hlb{Pullback Formula for Top-Degree Forms}]
+Let $F:M\ra N$ be a smooth map between $n$-manifolds \wowob. If $(x^i)$ and $(y^j)$ are smooth coordinates on open subsets $U\seq M$ and $V\seq N$, respectively, and $u$ is a continuous real-valued function on $V$, then the following holds on $U\cap F\inv(V)$:
+\[F^*(u\,dy^1\wedge\cdots\wedge dy^n) =(u\circ F)(\det(DF))\,dx^1\wedge\cdots\wedge dx^n,\]
+where $DF$ represents the Jacobian matrix of $F$ in these coordinates.
+\end{prop}
+
+\dfn Let $\omega = \sum_{|I| = k} f_I\, dx^{i_1}\wedge\cdots\wedge dx^{i_k}$ be a $k$-form on $\Rn$. The \df{exterior derivative} of $\omega$ is the $(k + 1)$-form
+\[d\omega = \sum_{|I| = k} df_I\wedge dx^{i_1}\wedge\cdots\wedge dx^{i_k}.\]
+
+\setcounter{thm}{22}
+
+\begin{prop}[\hl{Properties of the Exterior Derivative on $\boldsymbol{\Rn}$}]\nl
+\begin{enumerate}
+    \item $d$ is linear over $\R$.
+    \item If $\omega$ is a smooth $k$-form and $\eta$ is a smooth 1-form on an open subset $U\seq \Rn$ or $\Hn$, then
+    \[d(\omega\wedge\eta) = d\omega\wedge\eta + (-1)^k\omega\wedge d\eta.\]
+    \item \hlb{$d\circ d\equiv 0$}
+    \item $d$ commutes with pullbacks.
+\end{enumerate}
+\end{prop}
+
+\begin{thm}[Existence and Uniqueness of Exterior Differentiation]
+Suppose $M$ is a smooth manifold \wowob. There are unique operators $d:\Omega^k(M)\ra \Omega^{k + 1}(M)$ for all $k$, called \df{exterior differentiation}, satisfying the following four properties:
+\begin{enumerate}[(i)]
+    \item $d$ is linear over $\R$.
+    \item IF $\omega\in\Omega^k(M)$ and $\eta \in \Omega^\ell(M)$, then
+    \[d(\omega\wedge\eta) = d\omega\wedge\eta + (-1)^k\omega\wedge\eta.\]
+    \item $d\circ d \equiv 0$.
+    \item for $f\in \Omega^0(M) = \Cin(M)$, $df$ is the differential of $f$, given by $df(X) = Xf$.
+\end{enumerate}
+\end{thm}
+
+\setcounter{thm}{25}
+
+\begin{prop}[Naturality of the Exterior Derivative]
+If $F:M\ra N$ is a smooth map, then for each $k$ the pullback map $F^*:\Omega^k(N)\ra \Omega^k(M)$ commutes with $d$: for all $\omega\in \Omega^k(N)$,
+\[F^*(d\omega) = d(F^*\omega).\]
+\end{prop}
+
+Now, the particularly astute will notice that the exterior derivative seems to act very similarly to the vector field operations that we encountered in Calculus III. This is no happy accident! In fact, when we define the three operations
+\begin{align*}
+    \flat &:\fkX(\R^3)\ra \Omega^1(\R^3): X^ie^i \mapsto X_ie^i\\
+    \be &: \fkX(\R^3)\ra \Omega^1(\R^3): X \mapsto X\hook (dx\wedge dy\wedge dz)\\
+    * &: \Cin(\R^3)\ra \Omega^3(\R^3): f \mapsto f\, dx\wedge dy\wedge dz,
+\end{align*}
+then we can construct the following pretty commutative diagram:
+\begin{center}
+\begin{tikzcd}[column sep = 1.5em]
+    \Cin(\R^3)\arrow[r, "\text{grad}"]\arrow[d, "\Id"]    &    \fkX(\R^3)\arrow[r, "\text{div}"]\arrow[d, "\flat"]   &    \fkX(\R^3)\arrow[r, "\text{curl}"]\arrow[d, "\be"]   &   \Cin(\R^3)\arrow[d, "*"]\\
+    \Omega^0(\R^3)\arrow[r, "\text{d}", swap]   &   \Omega^1(\R^3)\arrow[r, "\text{d}", swap]   &   \Omega^2(\R^3)\arrow[r, "\text{d}", swap]   &    \Omega^3(\R^3)
+\end{tikzcd}
+\end{center}
+This is really nice to keep in mind whenever you are teaching Calc. III.
+
+\setcounter{thm}{28}
+
+\begin{prop}[Exterior Derivative of a 1-Form]
+For any smooth 1-form $\omega$ and smooth vector fields $X$ and $Y$,
+\[d\omega(X,Y) = (X(\omega(Y)) - Y(\omega(X)) - \omega([X,Y]).\]
+\end{prop}
+
+\begin{prop}
+Let $M$ be a smooth $n$-manifold \wowob, let $(E_i)$ be a smooth local frame for $M$, and let $(\vep^i)$ be the dual coframe. For each $i$, let $b^i_{jk}$ denote the component functions of the exterior derivative of $\vep^i$ in this frame , and for each $j,k$, let $c^i_{jk}$ be the component functions of the Lie bracket $[E_j,E_k]$:
+\[d\vep^i = \sum_{j < k}b^i_{jk}\vep^j\wedge\vep^k;\qquad [E_j,E_k] = c^i_{jk}E_i.\]
+Then $b^i_{jk} = -c^i_{jk}$.
+\end{prop}
+
+\dfng A $k$-form on $\Rn$ is called \df{closed} if $d\omega = 0$ and \df{exact} if $\omega = d\eta$ for some $(k - 1)$-form $\eta$ on $\Rn$.
+
+\setcounter{thm}{32}
+
+\begin{prop}
+Suppose $M$ is a smooth manifold $V\in \fkX(M)$, and $\omega\eta\in\Omega^*(M)$. Then 
+\[\LL_V(\omega\wedge\eta) = \LL_V\omega\wedge\eta + \omega\wedge(\LL_V\eta).\]
+\end{prop}
+
+\setcounter{thm}{34}
+
+\begin{thm}[\hl{Cartan's Magic Formula}]
+On a smooth manifold $M$, for any smooth vector field $V$ and any smooth differential form $\omega$,
+\[\LL_V\omega = V\hook (d\omega) + d(V\hook \omega).\]
+\end{thm}
+
+\begin{cor}
+If $V$ is a smooth vector filed and $\omega$ is a smooth differential form, then 
+\[\LL_V(d\omega) = d(\LL_V\omega).\]
+\end{cor}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

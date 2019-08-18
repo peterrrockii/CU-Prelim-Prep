@@ -1,0 +1,192 @@
+\newpage
+\section{$L^p$ Spaces}
+
+\vs
+
+\textbf{Young's Inequality.} For $1 < p < \infty$, with $q = \frac{p}{p - 1}$ and $A,B \geq 0$
+\[[A,B] \leq \frac{A^p}{p} + \frac{B^q}{q}\]
+where $[A,B]$ denotes a general product.
+
+\vs
+
+\textbf{Corollary.} If $a,b\geq 0$ and $p>1$ then 
+\[a^\frac{1}{p}b^\frac{1}{q} \leq \frac{a}{p} + \frac{b}{q}.\]
+
+\vs
+
+\dfn Let $p\in (0,\infty)$ and letr $(X, \MM, \mu)$ ve a measure space. We say that a function $f:X\ra \C$ is in $L^p(X)$ if 
+\[\int_X|f|^p\, d\mu < \infty.\]
+In this case, we write that
+\[||f||_p = \left[\int_X |f|^p\,d\mu\right].\]
+
+\vs
+
+\textbf{Proposition.} $L^p(X, \mu)$ is a vector space over $\C$.
+
+\vs
+
+\dfn If $p\in (1,\infty)$ we define the \textbf{\textit{conjugate exponent}} $q$ to $p$ by $q = \frac{p}{p-1}$. And we have that
+\[\frac{1}{p} + \frac{1}{q} = 1.\]
+Also, if $p = 1$, we define the conjugate exponent $q$ by $q = \infty$.
+
+\vs
+
+\textbf{H\"older's Inequality.} Let $p\in (1,\infty)$ and $q$ be its conjugate exponent in $(X, \MM, \mu)$ a measure space. Then if $f$ and $g$ are measureable functions, then
+\[||fg||_1 \leq ||f||_p||g||_q.\]
+In particular, if $f\in L^p$ and $g\in L^&q$, then $fg\in L^1$, and in this case equality holds iff $\al|f|^p = \be|g|^q$ a.e. for some constants $\al,\be$ with $\al\be \neq 0$.
+
+\vs
+
+\textbf{Minkowski's Inequality.} If $1\leq p < \infty$ and $f,g\in L^p$, then 
+\[||f + g||_p \leq ||f||_p + ||g||_p.\]
+
+\vs
+
+\setcounter{thm}{5}
+\begin{thm}
+For $1\leq p < \infty$, $L^p$ is a Banach space.
+\end{thm}
+
+\vs
+
+\begin{prop}
+For $1\leq p < \infty$, the set of simple functions is dense in $L^p$.
+\end{prop}
+
+\vs
+
+\dfn Let $f:X\ra \C$ be a $\MM$-measurable function. We say that $f$ is \textbf{\textit{essentially bounded}} with respect to $\MM$ if there exits an $N$, $0\leq N < \infty$ such that 
+\[|f(x)|\leq N\quad \mu-a.e.\]
+i.e.
+\[\mu(\{x\in \X\ :\ |f(x)| > N\}) = 0.\]
+
+\vs
+
+\dfn If $f$ is essentially bounded with respect to an $X$, we write
+\[||f||_\infty = \inf\{N\geq 0\ :\ N\text{ is an essential upper bound for }|f|\}.\]
+
+\vs
+
+\textbf{Proposition.} If $(X, \MM, \mu)$ is a measure space and if $f:X\ra \C$ is essentially bounded with respect to $\MM$ then $||f||_\infty$ is an essential upper bound for $|f|$.
+
+\vs
+
+\begin{thm}Let $f,g:X\ra \C$ be measurable. Then
+\begin{enumerate}
+    \item $||fg||_1 \leq ||f||_1||g||_\infty$. If $f\in L^1$ and $g\in L^\infty$, $||fg||_1 = ||f||_1||g||_\infty$ if and only if $|g(x)| = ||g||_\infty$ a.e. on the set where $f(x) \neq 0$.
+    \item $||\cdot||_\infty$ is a norm on $\Lin$.
+    \item $||f_n - f||_\infty \ra 0$ iff there exists $E\in \MM$ such that $\mu(E^c) = 0$ and $f_n\ra f$ uniformly on $E$.
+    \item $\Lin$ is a Banach space.
+    \item The simple functions are dense in $\Lin$.
+\end{enumerate}
+\end{thm}
+
+\vs
+
+\begin{prop}
+If $0 < p < q < r\leq \infty$, then $L^q\subset L^p + L^r$; that is, each $f\in L^q$ is the sum of a function in $L^p$ and a function in $L^r$.
+\end{prop}
+
+\vs
+
+\begin{prop}
+If $0 < p < q < r\leq \infty$, then $L^q\cap L^r \subset L^p$ and $||f||_q\leq ||f||^\lambda_p||f||^{1-\lambda}_r$, where $\lambda\in (0,1)$ is defined by
+\[\frac{1}{q} = \frac{\lambda}{p} + \frac{1 - \lambda}{r},\text{ that is, } \lambda = \frac{\frac{1}{q} - \frac{1}{r}}{\frac{1}{p} - \frac{1}{r}}.\]
+\end{prop}
+
+\vs
+
+\begin{prop}
+If $A$ is any set and $0< p < q \leq \infty$, then $\ell^p(A)\subset \ell^q(A)$ and $||f||_q\leq ||f||_p$.
+\end{prop}
+
+\vs
+
+\begin{prop}
+If $\mu(X) < \infty$ and $0< p < q \leq \infty$, then $L^q(\mu)\subset L^p(\mu)$ and $||f||_p\leq||f||_q\,\mu(X)^{\frac{1}{p}-\frac{1}{q}}$.
+\end{prop}
+
+\vs
+
+\begin{prop}
+Let $p\in[1,\infty]$, let $(X, \MM, \mu)$ be a measure space, let $q$ be the conjugate exponent to $p$. Then, each $g\in L^q$ defines a continuous bounded linear functional $T_g$ on $L^q$ by 
+\[T_g(f) = \int_X fg\,dx.\]
+and 
+\[||g||_q = ||T_g|| = \sup\left\{\left|\int fg\right|\ :\ ||f||_p = 1\right\}\]
+if $q < \infty$. If $(X,\MM,\mu)$ is semifinite, then equality holds for all $q$.
+\end{prop} 
+
+\vs
+
+\begin{prop}
+Let $p$ and $q$ be conjugate exponents. Suppose that $g$ is a measurable functions on $X$ such that $fg\in L^1$ for all $f$ in tghe space $\Sigma$ of simple functions that vanish outside a set of finite measure, and the quantity
+\[M_q(g) = \sup\left\{\left|\int fg\right|\ :\ f\in \Sigma,\ ||f||_p = 1\right\}\]
+is finite. Also, suppose that either $S_g = \{x\ :\ g(x)\neq 0\}$ is $\sig$-finite or that $\mu$ is semifinite. Then $g\in L^q$ and $M_q(g) = ||g||_q$.
+\end{prop}
+
+\vs
+
+\begin{thm}
+Let $p$ and $q$ be conjugaet exponents. If $1 < p < \infty$, for each $\vphi\in (L^P)^*$ there exists $g\in L^q$ such that $\vphi(f) = \int fg$ for all $f\in L^p$, and hence $L^q$ is isometrically isomorphic to $(L^p)^*$. The same conclusion holds for $p = 1$ provided $\mu$ is $\sig$-finite.
+\end{thm}
+
+\vs
+
+\begin{cor}
+If $1 < p < \infty$, $L^p$ is reflexive.
+\end{cor}
+
+\vs
+
+\textbf{Chebyshev's Inequality.} If $f\in L^p\ (0<p<\infty)$, the for any $\al > 0$, 
+\[\mu(\{x\ :\ |f(x)| > \al\}) \leq \left[\frac{||f||_p}{\al}\right]^p.\]
+
+\vs
+\setcounter{thm}{17}
+
+\begin{thm}
+Let $(X,\MM,\mu)$ and $(Y,\NN,\nu)$ be $\sig$-finite measure spaces, and let $K$ be an $(\MM\otimes\NN)$-measureable function on $X\times Y$. Suppose that there exists $C > 0$ such that $\int|K(x,y)\,d\mu(x) \leq C$ for a.e. $y\in Y$ and $\int |K(x,y)|\,d\nu(y)\leq C$ for a.e. $x\in X$, and that $1\leq p\leq \infty$. If $f\in L^p(\nu)$, the integral
+\[Tf(x) = \int K(x,y)f(y)\, d\nu(y)\]
+converges absolutely for a.e. $x\in X$, the function $Tf$ thus defined is in $L^p(\mu)$, and $||Tf||_p\leq C||f||_p$.
+\end{thm}
+
+\vs
+
+\textbf{Minkowski's Inequality for Integrals.} Suppose that $(X,\MM,\mu)$ and $(Y,\NN,\nu)$ are $\sig$-finite measure spaces, and let $f$ be an $(\MM\otimes\NN)$-measureable function on $X\times Y$.
+\begin{enumerate}
+    \item If $f\geq 0$ and $1 \leq p < \infty$, then
+    \[\left[\int\lp \int f(x,y)\,d\nu(y)\rp^p\,d\mu(x)\right]^\frac{1}{p}\leq\int\left[\int f(x,y)^p\,d\mu(x)\right]^\frac{1}{p}\,d\nu(y).\]
+    \item If $1 \leq p \leq \infty$, $f(\cdot, y)\in L^p(\mu)$ for a.e. $y$, and the function $y\mapsto ||f(\cdot, y)||_p$ is in $L^1(\nu)$, then $f(x,\cdot)\in L^1(\nu)$ for a.e. $x$, the function $x\mapsto \int f(x,y)\,d\nu(y)$ is in $L^p(\mu)$, and 
+    \[\llp\int f(\cdot,y)\,d\nu(y)\rrp_p\leq\int ||f(\cdot, y)||_p\,d\nu(y).\]
+\end{enumerate}
+
+\vs
+
+\dfn If $f:X\ra \C$ is a measurable function on $(X, \MM, \mu)$, we define its \textbf{\textit{distribution function}} $\lambda_f:(0,\infty) \ra [0,\infty]$ by
+\[\lambda_f(\al) = \mu(\{x\ :\ |f(x)| > \al\}).\]
+
+\vs
+\setcounter{thm}{21}
+\newpage
+
+\begin{prop}\nl
+\begin{enumerate}
+    \item $\lambda_f$ is decreasing and right continuous.
+    \item If $|f| \leq |g|$, then $\lambda_f\leq \lambda_g$.
+    \item If $|f_n|$ increases to $|f|$, then $\lambda_{f_n}$ increases to $\lambda_f$.
+    \item If $g = g + h$, then $\lambda_f(\al) \leq \lambda_g(\frac{1}{2}\al) + \lambda_h(\frac{1}{2}\al)$.
+\end{enumerate}
+\end{prop}
+
+\vs
+
+\begin{prop}
+If $\lambda_f(\al) < \infty$ for all $\al > 0$ and $\vphi$ is a nonnegative Borel measurable function on $(0,\infty)$, then
+\[\int_X\vphi\circ|f|\,d\mu = -\int_0^\infty \vphi(\al)\,d\lambda_f(\al).\]
+\end{prop}
+
+\vs
+\begin{prop}
+If $0 < p < \infty$, then
+\[\int|f|^p\,d\mu = p \int_0^\infty \al^{p - 1}\lambda_f(\al)\,d\al.\]
+\end{prop}

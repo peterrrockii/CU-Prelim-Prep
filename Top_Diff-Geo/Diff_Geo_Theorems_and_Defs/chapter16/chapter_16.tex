@@ -1,0 +1,73 @@
+\newpage\setcounter{section}{15}
+\section{Integration on Manifolds}
+
+Really all we want to talk about here is Stokes's Theorem.
+
+\begin{prop}
+Suppose $D$ and $E$ are open domains of integration in $\Rn$ or $\Hn$, and $G:\ol D \ra \ol E$ is a smooth map that restricts to an orientation-preserving or orientation-reversing diffeomorphism from $D$ to $E$. If $\omega$ is an $n$-form on $\ol E$, then 
+\[\int_D G^*\omega = \begin{cases} \int_E \omega & \text{if $G$ is orientation-preserving},\\
+-\int_E \omega & \text{if $G$ is orientation-reversing}.\end{cases}\]
+\end{prop}
+
+\begin{lem}
+Suppose $U$ is an open subset of $\Rn$ or $\Hn$, and $K$ is a compact subset of $U$. Then there is an open domain of integration $D$ such that $K\seq D\seq \ol D\seq U$.
+\end{lem}
+
+\begin{prop}
+Suppose $U, V$ are open subsets of $\Rn$ or $\Hn$, and $G:U\ra V$ is an orientation preserving or orientation reversing diffeomorphism. If $\omega$ is a compactly supported $n$-form on $V$, then
+\[\int_V\omega = \pm\int_U G^*\omega,\]
+with the positive sing if $G$ is orientation-preserving, and the negative sign otherwise.
+\end{prop}
+
+\dfn Suppose that $\omega$ is an $n$-form on $M$ that is compactly supported in the domain of a single smooth chart $(U,\vphi)$ that is either positively or negatively oriented. We define the \df{integral of $\boldsymbol{\omega}$ over M} to be
+\[\int_M\omega = \pm\int_{\vphi(U)}(\vphi\inv)^*\omega.\]
+
+\begin{prop}
+With $\omega$ as above, $\int_M\omega$ does not depend on the choice of smooth chart whose domain contains $\supp(\omega)$.
+\end{prop}
+
+\begin{prop}
+The definition of $\int_M\omega$ above does not depend on the choice of chart or partition of unity.
+\end{prop}
+
+\begin{prop}[\hl{Properties of Integrals of Forms}]
+Suppose $M$ and $N$ are non-empty oriented smooth $n$-manifolds \wowob, and $\omega, \eta$ are compactly supported $n$-forms on $M$.
+\begin{enumerate}
+    \item {\scshape Linearity:} If $a,b\in \R$, then
+    \[\int_M a\omega + b\eta = a\int_m\omega + b\int_M \eta.\]
+    \item {\scshape Orientation Reversal:} If $-M$ denotes $M$ with the opposite orientation, then
+    \[\int_{-M}\omega = -\int_M\omega.\]
+    \item {\scshape Positivity:} If $\omega$ is a positively oriented orientation form, then $\int_M\omega > 0$.
+    \item {\scshape Diffeomorphism Invariance:} If $F:N\ra M$ is an orientation-preserving or orientation reversing diffeomorphism
+    \[\int_M\omega = \begin{cases} \int_N F^*\omega & \text{if $F$ is orientation-preserving,}\\ -\int_N F^*\omega & \text{if $F$ is orientation-reversing.}\end{cases}\]
+\end{enumerate}
+\end{prop}
+
+
+\setcounter{thm}{10}
+
+\begin{thm}[\hlb{Stokes's Theorem}]
+Let $M$ be an oriented smooth $n$-manifold with boundary, and let $\omega$ be a compactly supported smooth $(n - 1)$-form on $M$. Then
+\[\int_m d\omega = \int_{\bd M}\omega.\]
+\end{thm}
+
+\setcounter{thm}{12}
+
+\begin{cor}[Integrals of Exact Forms]
+If $M$ is a compact oriented smooth manifold without boundary, then the integral of every exact form over $M$ is zero:
+\[\int_M d\omega = 0 \quad \text{if $\bd M = 0$}.\]
+\end{cor}
+
+\begin{cor}[Integrals of Closed Forms over Boundaries]
+Suppose $M$ is a compact oriented smooth manifold with boundary. If $\omega$ is a closed form on $M$, then the integral of $\omega$ over $\bd M$ is zero:
+\[\int_{\bd M} \omega = 0\quad\text{if $d\omega = 0$ on $M$}.\]
+\end{cor}
+
+\begin{cor}
+Suppose $M$ is a smooth manifold \wowob, $S\seq M$ is an oriented compact smooth $k$-dimensional submanifold (without boundary), and $\omega$ is a closed $k$-form on $M$. If $\int_S\omega \neq 0$, then both of the following are true:
+\begin{enumerate}[(i)]
+    \item $\omega$ is not exact on $M$.
+    \item $S$ is not the boundary of an oriented compact smooth submanifold with boundary in $M$.
+\end{enumerate}
+\end{cor}
+

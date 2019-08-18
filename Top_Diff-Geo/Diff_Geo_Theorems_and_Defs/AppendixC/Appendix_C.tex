@@ -1,0 +1,173 @@
+\appendix
+\setcounter{section}{2}
+\section{Appendix C Review of Calculus}
+\setcounter{thm}{0}
+
+\dfn Let $V, W$ be finite-dimensional vector spaces. If $U\subset V$ is an open subset and $a\in U$, a map $F:U\ra W$ is said to be \textbf{\textit{differentiable at a}} if there exists a linear map $L:V\ra W$ such that
+\[\lim_{v\ra 0} \frac{|F(a + v) - F(a) - Lv|}{|v|} = 0.\]
+If $F$ is differentiable at $a$, the linear map $L$ satisfying this condition is denoted $DF(a)$ and is called the \textbf{\textit{total derivative of $\boldsymbol F$ at $\boldsymbol a$}}. This condition may also be written as 
+\[F(a + v) = F(a) + DF(a)v + R(v)\]
+where $R(v)$ satisfies $|R(v)|/|v| \ra 0$ as $v\ra 0$.
+
+\setcounter{thm}{2}
+
+\begin{prop}[The Chain Rule for Total Derivatives]
+Suppose $V, W, X$ are finite-dimensional vector spaces, $U\subset V$ ad $\td U \subset W$ are open subsets, and $F:U\ra \td U$ and $G:\td U \ra X$ are maps. If $F$ is differentiable at $a\in U$ and $G$ is differentiable at $F(a)\in \td U$, then $G\circ F$ is differentiable at $a$, and 
+\[D(G\circ F)(a) = DG(F(a)) \circ DF(a).\]
+\end{prop}
+
+
+\dfn Suppose $U\subset \R^n$ is open and $f:U\ra \R$ is a real-valued function. For any $a = (a^1, \ldots, a^n)\in U$ and any $j\in \{1,\ldots, n\}$, the \textbf{$\boldsymbol{j^{th}}$ partial derivative of $\boldsymbol f$ at $\boldsymbol a$} is defined to be
+\[\pd{f}{x^j}(a) = \lim_{h\ra 0}\frac{f(a + he_j) = f(a)}{h},\]
+where $e_j$ is the $j^{th}$ elementary basis vector for $\R^n$.
+
+
+\dfn For vector-valued functions $F:U\ra \R^m$, we can write the coordinates of $F(x)$ as $F(x) = (F^1(x),\ldots, F^m(x))$. These $m$ functions are called the \textbf{\textit{component functions of $\boldsymbol{F}$}}. The matrix of partial derivatives of the component functions given by 
+\[J = \lp\frac{\partial F^i}{\partial x^j}\rp\]
+is called the \textbf{\textit{Jacobian matrix of $\boldsymbol{F}$}}.
+
+
+\dfn If $F:U\ra \R^m$ is a function for which the partial derivative exists at each point in $U$ and the functions $\partial F^i/\partial x^j:U \ra \R$ are all continuous, then $F$ is said to be of \textbf{\textit{class $\boldsymbol{C^1}$}} or \textbf{\textit{continuously differentiable}}. The \textbf{\textit{second-order partial derivatives}} can be obtained by
+\[\frac{\partial^2 F^i}{\partial x^k \partial x^j} = \frac{\partial}{\partial x^k}\lp \frac{\partial F^i}{\partial x^j}\rp\]
+and continuing in this way we can obtain the \textbf{\textit{partial derivatives of $\boldsymbol{F}$ of order $\boldsymbol{k}$}}. A function is function $F:U\ra \R^m$ is said to be of \textbf{\textit{class $\boldsymbol{C^k}$}} if all the partial derivatives of $F$ of order less than or equal to $k$ exist and are continuous functions on $U$. A function is called \textbf{\textit{smooth}} if it is of class $\Cin$.
+
+
+
+\dfn If $U$ and $V$ are open subsets of Euclidean spaces, a function $F:U\ra V$ is called a \textit{\textbf{diffeomorphism}} if it is smooth and bijective and its inverse function is also smooth.
+
+\setcounter{thm}{3}
+
+\begin{prop}
+Suppose $U\seq \R^n$ and $V\seq R^m$ are open subsets and $F:U\ra V$ is a diffeomorphism. Then $m = n$, and for each $a\in U$, the total derivative $DF(a)$ is invertible, with $DF(a)\inv = D(F\inv)(F(a))$.
+\end{prop} 
+
+\setcounter{thm}{5}
+
+\begin{prop}[Equality of Mixed Partial Derivatives]
+If $U$ is an open subset of $\Rn$ and $F:U\ra \Rm$ is a function of class $C^2$, then the mixed second-order partial derivatives of $F$ do not depend on the order of differentiation:
+\[\frac{\partial^2F^i}{\partial x^j\partial x^k} = \frac{\partial^2F^i}{\partial x^k\partial x^j}.\]
+\end{prop}
+
+
+
+\crly If $F:U\ra \Rm$ is smooth, then the mixed partial derivatives of $F$ of any order are independent of the order of differentiation.
+
+\setcounter{thm}{7}
+
+\begin{prop}
+Let $U\seq \Rn$ be open, and suppose $F:U \ra \Rm$ is differentiable at $a\in U$. Then all of the partial derivatives of $F$ at $a$ exist, and $DF(a)$ is the linear map whose matrix is the Jacobian of $F$ at $a$:
+\[DF(a) = \lp\pd{F^j}{x^i}(a)\rp.\]
+\end{prop}
+
+
+\setcounter{thm}{9}
+
+\begin{prop}
+ Let $U\seq \Rn$ be open. If $F:U\ra \Rm$ is of class $C^1$, then it is differentiable at each point of $U$.
+\end{prop}
+
+\begin{cor}[The Chain Rule for Partial Derivatives]
+Let $U\seq \Rn$ and $\td U\seq \Rm$ be open subsets, and let $x = (x^1, \ldots, x^n)$ denote the standard coordinates on $U$, and $y = (y^1, \ldots, y^m)$ those on $\td U$.
+\begin{enumerate}
+    \item A composition of $C^1$ function $F:U\ra \td U$ and $G:\td U\ra \R^p$ is again of class $C^1$, with partial derivatives given by 
+    \[\pd{(G^i\circ F)}{x^j}(x) = \sum_{k = 1}^m\pd{G^i}{y^k}(F(x))\pd{F^k}{x^j}(x).\]
+    \item If $F$ and $G$ are smooth, then $G\circ F$ is smooth.
+\end{enumerate}
+\end{cor}
+
+
+\dfn Suppose $f:U\ra \R$ is a smooth real-valued function on an open subset $U\seq \Rn$, and $a\in U$. For each vector $\bv\in \Rn$, we define the \textbf{\textit{directional derivative of $\boldsymbol{f}$ in the direction of v at $\boldsymbol{a}$}} to be the number
+\[D_\bv f(a) = \ev{\frac{d}{dt}}{t = 0}\pd{f}{x^i}(a) = Df(a)\bv\]
+
+
+\setcounter{thm}{33}
+\begin{thm}[\hlb{Inverse Function Theorem}]\label{C_inv_fct}
+Suppose $U$ and $V$ are open subsets of $\Rn$, and $F:U\ra V$ is a smooth function. If $DF(a)$ is invertible at some point $a\in U$
+\end{thm}
+
+\dfn Let $X$ be a metric space. A map $G:X\ra X$ is said to be a \textbf{\textit{contraction}} if there is a constant $\lm\in (0,1)$ such that $d(G(x), G(y)) \leq \lm\,d(x,y)$ for all $x,y\in X$. A \textbf{\textit{fixed point}} of a map $G:X\ra X$ is a point $x\in X$ such that $G(x) = x$.
+
+\begin{lem}[Contraction Lemma]
+Let $X$ be a nonempty complete metric space. Every contraction $G:X\ra X$ has a unique fixed point.
+\end{lem}
+
+\begin{cor}
+uppose $U\seq\Rn$ is an open subset, and $F:U\ra \Rn$ is a smooth function whose Jacobian determinant is nonzero at every point in $U$.
+\begin{enumerate}
+    \item $F$ is an open map.
+    \item If $F$ is injective, then $F:U\ra F(U)$ is a diffeomorphism.
+\end{enumerate}
+\end{cor}
+
+\begin{thm}[\hlb{Implicit Function Theorem}]
+Let  $U\seq \Rn\x\Rk$ be an open subset, and let $(x,y) = (x^1,\ldots,x^n,y^1,\ldots,y^k)$ denote the standard coordinates on $U$. Suppose $\Phi:U\ra \Rk$ is a smooth function, $(a,b)\in U$, and $c\in \Phi(a,b)$. If the $k\x k$ matrix
+\[\lp\pd{\Phi^i}{y^j}(a,b)\rp\]
+is nonsingular, then there exist neighborhoods $v_0\seq \Rn$ of $a$ and $W_0\seq \Rk$ of $b$ and a smooth function $F:V_0\ra \W_0$ such that $\Phi\inv(c)\cap (V_0\x W_0)$ is the graph of $F$, that is, $\Phi(x,y) = c$ for $(x,y)\in V_0\x W_0$ if and only if $y = F(x)$.
+\end{thm}
+
+
+\nb This theorem is very, very useful for any proofs involving maps between smooth charts that have sufficiently "nice" local coordinate expressions. You 100\% need this theorem for the prelim exam.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

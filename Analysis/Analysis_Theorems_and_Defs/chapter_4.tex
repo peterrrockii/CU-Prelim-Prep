@@ -1,0 +1,159 @@
+\newpage
+\section{Point Set Topology}
+
+\dfn Let $(X,\TT)$ be a topological space. We say that $X$ is locally compact Hausdorff if $X$ is Hausdorff and if every $X\in X$ has a basis compact neighborhoods
+
+\setcounter{thm}{30}
+\vs 
+
+\begin{thm}
+If $(X, \TT)$ is locally compact Hausdorff, and if $K\subset U\subset X$ where $K$ is compact and $U$ is open, then there exists an open set $V$ with $\ol V$ compact. $K\subset V$ and $\ol V \subset U$.
+\end{thm}
+
+\vs
+
+\dfn Let $(X, \TT)$ and $(Y,\WW)$ be topological spaces. Let $f:X\ra I$.
+\begin{enumerate}[\hspace{1em}]
+    \item $F$ is continuous at $x_0\in X$ if for all open sets $V$ with...
+    \item $f:X\ra Y$ is continuous if for all open sets $V\subset Y$, $f\inv (V)$ is open in $X$.
+\end{enumerate}
+
+\vs
+
+\dfn A \textbf{\textit{directed set}} is a nonempty set $D$ on which there is a defined a partial order $\preceq$ such that
+\begin{enumerate}[\hspace{1em}(i)]
+    \item $\al \preceq \al$ for all $\al \in D$
+    \item for every $\al,\be\in D$ there is some $\gamma\in D$ such that $\al \preceq \gamma$ and $\be \preceq \gamma$.
+\end{enumerate}
+
+\vs
+
+\dfn Let $\CC, \DD$ be two directed sets. We say that a function $h:\CC \ra \DD$ is \textbf{\textit{order-preserving}} if whenever $\al\be\in \CC$ with $\al\preceq \be$ then $h(\al)\preceq h(\be)$.
+
+\vs
+
+\dfn Let $h:\CC\ra \DD$ be an order preserving map of directed set. We say that $h$ is \textbf{\textit{cofinal}} if for all $\gamma\in \DD$ there is a $\be\in\CC$ such that $\gamma \preceq h(\be)$.
+
+\vs
+
+\dfn Let $(X, \TT)$ be a topological space. Then a \textbf{\textit{net}} on $X$ is a function $f:\DD \ra X$ where $\DD$ is some directed set. We usually write $\{x_\al = f(\al) \mid \al\in \DD\}$ or $\{x_\al\}_{\al\in \DD}$.
+
+\vs
+
+\dfn Let $(X, \TT)$ be a topological space and let $\{x_\al\}_{\al\in \DD}$ be a net on $X$. Then we say that $\{x_\al\}$ converges to $x_o \in X$ and write $\lim x_\al = x_0$ if for every neighborhood $U$ of $x_0$ there is a $\al\p\in \DD$ such that for all $\al \in \DD$ such that $\al\p \preceq \al$ we have $x_\al \in U$.
+
+\vs
+
+\dfn Let $\DD$ be a directed set and let $f:\DD\ra X$ be a net in the topological space $(X, \TT)$. We say that $\{y = g(\be)\}_{\be \in \CC}$ is a \textit{\textbf{subnet}} of the original net if there is an order-preserving, cofinal function $h:\CC \ra \DD$ such that 
+\[\{y_\be = g(\be) = f\circ h(\be)\}_{\be \in \CC}\]
+
+
+\setcounter{thm}{18}
+
+\begin{prop}
+Let $(X, \TT)$ and $(Y, \WW)$ be topological spaces with $f:X\ra Y$ then $f$ is continuous at $x_0 \in X$ if and only if for every net $\{x_\al\}_{\al\in \DD}$ converging to $x_0\in X$, $\{f(x_\al)\}_{\al \in \DD}$ is a net in $Y$ converging to $f(x_0)$.
+\end{prop}
+
+\vs
+
+\dfn We say that a point $x_0\in X$ is a \textbf{\textit{cluster point}} of the net $\{x_\al\}_{\al\in \DD}$ if for every neighborhood $U$ of $x_0$, and for all $\al\p\in \DD$, there exits a $\be \in \DD$ with $\al\p\preceq \be$ and $x_\be \in U$.
+
+\vs
+
+\begin{prop}
+The point $x_0 \in X$ is a cluster point of the net $\{x_\al\}_{\al \in \DD}$ if and only if $\{x_\al\}_{\al \in \DD}$ has a subnet $\{y_\be\}_{\be \in \CC}$ with $\lim y_\be = x_0$.
+\end{prop}
+
+\vs
+
+\textbf{Bolzano Weirstrauss Theorem for Nets.} (Prop 4.29) Let $(X, \TT)$ be a topological space. Then TFAE
+\begin{enumerate}
+    \item $(X, \TT)$ is compact.
+    \item Every net in $(X, \TT)$ has a cluster point in $X$.
+    \item Every net in $(X, \TT)$ has a convergent subnet.
+\end{enumerate}
+
+\vs
+
+\textbf{Urysohon's Lemma.} (Compact version) Let $X$ be a compact normal space. If $A$ and $B$ are disjoint sets in $X$ then ther eexists $f\in C(X, [0,1])$ such that 
+\[f(x) = \begin{cases}
+0 &  x \in A\\
+1 &  x \in B\end{cases}\]
+
+\setcounter{thm}{31}
+
+\begin{thm}\textbf{(Urysohon)} (Locally compact Hausdorff version) let $(X, \TT)$ be a LCH space. Suppose $K\subset U \subset X$ where $K$ is compact and $U$ is open. Then there is an $f\in C(X, [0.1])$ such that 
+\[f(x) = \begin{cases}
+1 &  x \in K\\
+0 &  x \in X\backslash V\end{cases}\]
+where $K\subset V\subset \ol V\subset U$ and $V$ is open and $\ol V$ is compact. (\textbf{Note:} This means that $F$ is compactly supported since $support{f(x)} = \{x\in X\mid f(x) \neq 0\} \subset \ol V$.
+\end{thm}
+
+\vs
+
+\dfn Let $(X, \TT)$ be a LCH space
+\[C_c(X) := \{F: X\ra \R (\text{or }\C)\mid f\text{ is cont's on } X \text{ and } supp(F) \text{ is in a compact subset of }X\}\]
+
+
+\textbf{NB:} If $f\in C_c(X)$ then $f$ is bdd since $K + supp(f)$ gives us that $f(K)$ is compact in $\C$ so $f(K)$ is bdd.
+
+\dfn For $X$ LCH define
+\[C_0(X) = \{f\in C(X)\mid f \text{ "vanishes at infinity" }\}\]
+
+\setcounter{thm}{34}
+
+\begin{prop}
+Let $(X, \TT)$ be LCH. Fix $f\in C_0(X)$. Then there is a sequence $\{F_n\}_{n = 1}^\infty \subset C_c(X)$ such that $f_n \ra f$ uniformly $X$.
+\end{prop}
+
+\vs
+
+\textbf{Tychonoff's Theorem.} If $\{X_\al\}_{\al\in A}$ is any family of compact topological spaces, then $X = \prod_{\al\in A} X_\al$ is compact.
+
+\vs
+
+\dfn If $X$ is a topological space that $\ff\subset C(X)$, $\ff$ is called \textbf{\textit{equicontinuous at}} $x\in X$ if for every $\vep > 0$ there is a neighborhood $U$ of $x$ such that $|f(y) - f(x)| < \vep$ for all $y\in U$ and all $f\in \ff$. And $\ff$ is called \textbf{equicontinuous} if it is equicontinuous at each point $x\in X$. Also, $\ff$ is said to be \textbf{\textit{pointwise bounded}} if $\{f(x)\ :\ f\in \ff\}$ is a bounded subset of $\C$ for each $x\in X$.
+
+\vs
+
+\textbf{Arzel\`a-Ascoli Theorem I.} Let $X$ be a compact Hausdorff space. If $\ff$ is an equicontinuous, pointwise bounded subset of $C(X)$, then $\ff$ is totally bounded in the uniform metric, and the closure of $\ff$ in $C(X)$ is compact.
+
+\vs
+
+\textbf{Arzel\`a-Ascoli Theorem II.} Let $X$ be a $\sig$-compact LCH space. If $\{f_n\}$ is an equicontinuous, pointwise bounded sequence in $C(X)$, there exists $f\in C(X)$ and a subsequence of $\{f_n\}$ that converges to $f$ uniformly on compact sets.
+
+\vs
+
+\textbf{Corollary.} If $\ff$ is as in the statement of Arzel\`a-Ascoli, then $\ff$ is uniformly bounded.
+
+\vs
+
+\textbf{The Stone-Weierstrass Theorem.} Let $X$ be a compact Hausdorff space. If $\A$ is a closed subalgebra of $C(X,\R)$ that separates points, then either $A = C(X,\R)$ or $A = \{f\in C(X,\R)\ :\ f(x_0) = 0\}$ for some $x_0\in X$. The first alternative holds iff $\A$ contains the constant functions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+\newpage\setcounter{section}{14}
+\section{Orientations}
+
+This section is mainly here to provide structure and terminology for what is to come in Chapter 16.
+
+\dfn Let $V$  be a real vector space of dimension $n\geq 1$. We say that two ordered bases $(E_i)$ and $\td E_j)$ for $V$ are \df{consistently oriented} if the transition matrix $(B^j_i)$, defined by 
+\[E_i = B^j_i \td E_j,\]
+has positive determinant.
+
+\nb The motivation for this definition is that we want things with the same orientation to not flip the sign on the volume form.
+
+\dfn If $\dim(V) = N\geq 1$, we define an \df{orientation for V} as an equivalence class of ordered bases. If $(E_1,\ldots,E_n)$ is any ordered basis for $V$, we denote the orientation that it determines by $[E_1,\ldots,E_n]$. A vector space together with a choice of orientation is called an \df{oriented vector space}. If $V$ is oriented, then any ordered basis $(E_1,\ldots,E_n)$ that is in the given orientation is said to be \df{positively oriented}.
+
+\dfn Let $M$ be a smooth manifold \wowob. We define a \df{pointwise orientation} on $M$ to be a choice of orientation of each tangent space.
+
+\dfn Let $M$ be a smooth $n$-manifold \wowob, endowed with a pointwise orientation. If $(E_i)$ is a local frame for $TM$, we say that $(E_i)$ is \df{(positively) oriented} if $(\ev{E_1}{p},\ldots\ev{E_n}{p})$ is a positively oriented basis for $T_pM$ at each point.
+
+\setcounter{thm}{4}
+
+\begin{prop}[\hl{The Orientation Determined by an $\boldsymbol{n}$-form}]
+Let $M$ be a smooth $n$-manifold \wowob. Any nonvanishing $N$-form $\omega$ on $M$ determines a unique orientation of $M$ for which $\omega$ is positively oriented at each point. Conversely, if $M$ is given an orientation, then there is a smooth nonvanishing $n$-form on $M$ that is positively oriented at each point.
+\end{prop}
+
+
+\dfn Any nonvanishing $n$-form on $M$ is called an \df{orientation form}.
+
+\dfn A smooth coordinate chart on an oriented smooth manifold \wowob is said to be \df{(positively) oriented} if the coordinate frame $\lp\pdd{x^i}\rp$ is positively oriented. A smooth atlas $\{(U_\al, \vphi_\al)\}$ is said to be \df{consistently oriented} if for each $\al,\be$ the transition map $\vphi_\be\circ\vphi_\al\inv$ has positive Jacobian determinant everywhere on $\vphi_\al(U_\al\cap U_\be)$.
+
+\begin{prop}[The Orientation Determined by a Coordinate Atlas]
+Let $M$ be a smooth positive-dimensional manifold \wowob. Given any consistently oriented smooth atlas for $M$, there is a unique orientation for $M$ with the property that each chart in the given atlas is positively oriented. Conversely, if $M$ is oriented and either $\bd M = \es$ or $\dim(M) > 1$, then the collection of all oriented smooth charts is a consistently oriented atlas for $M$.
+\end{prop}
+
+\dfng Let $M$ and $N$ be oriented smooth manifold \wowob, and suppose $F:M\ra N$ is a local diffeomorphism. If $M$ and $N$ are positive-dimensional, we say that $F$ is \df{orientation-preserving} if for each $p\in M$, the isomorphism $dF_p$ takes oriented basis of $T_pM$ to oriented basis of $T_{F(p)}N$.
+
+\setcounter{thm}{14}
+
+\begin{prop}[The Pullback Orientation]
+Suppose $M$ and $N$ are smooth manifolds \wowob. If $F:M\ra N$ is a local diffeomorphism and $N$ is oriented, then $M$ has a unique orientation, called the \df{pullback orientation induced by F}, such that $F$ is orientation-preserving.
+\end{prop}
+
+\setcounter{thm}{16}
+
+\begin{prop}
+\hlb{Every parallelizable smooth manifold is orientable.}
+\end{prop}
+
+\setcounter{thm}{20}
+
+\begin{prop}
+Suppose $M$ is an oriented smooth $n$-manifold \wowob, $S$ is an immersed hypersurface \wowob in $M$, and $N$ is a vector field along $S$ that is nowhere tangent to $S$. Then $S$ has a unique orientation such that for each $p\in S$, $(E_1,\ldots,ER_{n - 1})$ is an oriented basis for $T_pS$ if and only if $(N_p,E_1,\ldots,E_{n - 1})$ is an oriented basis for $T_pM$. If $\omega$ is an orientation form for $M$, then $\iota^*_S(N\hook \omega)$ is an orientation form for $S$ with respect to this orientation, where $\iota_S:S\into M$ is inclusion.
+\end{prop}
+
+\setcounter{thm}{23}
+
+\begin{prop}[\hlb{The Induced Orientation on a Boundary}]
+Let $M$ be an oriented smooth $n$-manifold with boundary, $n\geq 1$. Then $\bd M$ is orientable, and all outward-pointing vector fields along $\bd M$ determine the same orientation on $\bd M$.
+\end{prop}

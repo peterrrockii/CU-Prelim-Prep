@@ -1,0 +1,41 @@
+\newpage
+\setcounter{section}{98}
+\section{Extra Things}
+
+%==========================================================================
+%                    Extra Things
+%==========================================================================      
+
+\setcounter{thm}{0}
+
+
+\begin{lem}\label{lem:sep}
+  If $(U,V)$ is a separation of $X$ and if $Y$ is a connected subset of $X$, then $Y \subseteq U$ or $Y \subseteq V$.
+\end{lem}
+
+\begin{proof}
+Let $(U,V)$ be a separation of $X$ and let $Y\seq X$ be connected. Suppose for the sake of contradiction that $Y\not\seq U$ and $Y\not\seq Y$. Then there exists $a,b\in Y$ such that $a\in U$ and $b\in Y$. We know that $(U,V)$ is a separation of $X$, so if we consider the sets $U\cap Y$ and $V\cap Y$ we know that these sets are disjoint, nonempty, and $(U\cap Y) \sqcup (V\cap Y) = Y$ which contradicts the assumption that $Y$ was connected. Therefore either $Y \subseteq U$ or $Y \subseteq V$.
+\end{proof}
+
+
+\begin{thm}\label{thm:unionconnected}
+  Suppose $\{A_{\alpha}\}_{\alpha\in J}$ is a collection of connected subsets of $X$, each of which intersects a connected set $B$. Then $B\cup(\cup_{\alpha\in J}A_{\alpha})$ is connected.
+\end{thm}
+
+\begin{proof}
+Let $S= B\cup(\cup_{\alpha\in J}A_{\alpha})$ be as described above. We want to show that $S$ is connected. Suppose that it isn't. Then there is a separation $(U,V)$ of $S$. $B$ is a connected subset of $S$ so we have that $B$ is contained in either $U$ or $V$ by the previous lemma. WLOG assume that $B\seq U$. Now, we want to show that $B\cup(\cup_{\alpha\in J}A_{\alpha})= \cup_{\alpha\in J}(B\cup A_{\alpha})\seq U$, and, hence, that $V=\es$, so if we can show that any arbitrary set $B\cup A_\al\seq U$ then we are done. To do this, we can simply show that $B\cup A_\al$ is connected (if $B\cup A_\al$ is a connected subset of $S$ then $B\cup A_\al\seq U$ or $B\cup A_\al\seq V$ and if $B\seq U$ then we must have $B\cup A_\al\seq U$). 
+
+First, suppose for the sake of contradiction that $B\cup A_\al$ is disconnected. Well then, there exists a separation $(W,Z)$ of $B\cup A_\al$, and, since both $B$ and $A_\al$ are connected subsets we have that they are either contained in $W$ or contained in $Z$ by the previous lemma. We also know that there is some $p\in B\cup A_\al$. Now $W\cup Z$ covers $B\cup A_\al$, so we must have that either $p\in W$ or $p\in Z$. WLOG assume that $p\in W$. Well then, since $p$ is in both $B$ and $A_\al$ we know that $B,A_\al\seq W$, and we get that $W = B\cup A_\al$ and $Z= \es$ $\lightning$. So every $B\cup A_\al$ is connected and we have that every $B\cup A_\al\seq U$ which means that $S$ is connected.
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+

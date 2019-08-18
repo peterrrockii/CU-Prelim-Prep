@@ -1,0 +1,158 @@
+\newpage
+\setcounter{section}{3}
+\section{Countability and Separation Axioms}
+
+%==========================================================================
+%                    SECTION 30
+%==========================================================================      
+\subsection{The Countability Axioms}\nl
+\setcounter{section}{30}
+\setcounter{thm}{0}
+
+\vs
+
+\dfn A space $X$ is said to have a \textbf{countable basis at $\boldsymbol{x}$} if there is a countable collection $\BB$ of neighborhoods of $x$ such that each neighborhood of $x$ contains at least one of the elements of $\BB$. A space that has a countable basis at each of its points is said to satisfy the \textbf{first countability axiom}, or to be \textbf{first-countable}.
+
+\vs
+
+\begin{thm}
+Let $X$ be a topological space.
+\begin{enumerate}
+    \item Let $A$ be a subset of $X$. If there is a sequence of points in $A$ converging to $x$, then $x\in \ol A$; the converse holds if $X$ is first-countable.
+    \item Let $f:X\ra Y$. If $f$ is continuous, then for every convergent sequence $x_n\ra x$ in $X$, the sequence $f(x_n)$ converges to $f(x)$. The converse holds if $X$ is first-countable.
+\end{enumerate}
+\end{thm}
+
+\vs
+
+\dfn If a space $X$ has a countable basis for its topology, then $X$ is said to satisfy the \textbf{second countability axiom}, or to be \textbf{second-countable}.
+
+\vs
+
+\begin{thm}
+A subspace of a first-countable space is first-countable, and a countable product of first-countable spaces is first-countable. A subspace of a second-countable space is second-countable, and a countable product of second-countable spaces is second-countable.
+\end{thm}
+
+\dfn A subset $A$ of a space $X$ is said to be \textbf{dense} if $\ol A = X$.
+
+\vs
+
+\begin{thm}
+Suppose that $X$ has a countable basis. Then:
+\begin{enumerate}
+    \item Every open covering of $X$ contains a countable subcovering.
+    \item There exists a countable subset of $X$ that is dense in $X$.
+\end{enumerate}
+\end{thm}
+
+\vs
+
+\dfn A space for which every open covering contains a countable subcovering is called a \textbf{Lindel\"of space.}
+
+\vs
+
+\dfn A space having a countable dense subset is often said to be \textbf{separable}.
+
+
+
+%==========================================================================
+%                    SECTION 31
+%==========================================================================      
+\subsection{The Separation Axioms}\nl
+\setcounter{section}{31}
+\setcounter{thm}{0}
+
+\dfn Suppose that one-point sets are closed in $X$. Then $X$ is said to be \textbf{regular} if for each pair consisting of a point $x$ and a closed set $B$ disjoint from $x$, there exist disjoint open sets containing $x$ and $B$, respectively. The space $X$ is said to be \textbf{normal} if for each pair $A,\ B$ of disjoint closed sets of $X$, there exist disjoint open sets containing $A$ and $B$, respectively.
+
+\vs
+
+\begin{lem}
+Let $X$ be a topological space. Let one-point sets in $X$ be closed.
+\begin{enumerate}
+    \item $X$ is regular if and only if given a point $x$ of $X$ and a neighborhood $U$ of $x$, there is a neighborhood $V$ of $x$ such that $\ol V\subset U$.
+    \item $X$ is normal if and only if given a closed set $A$ and an open set $U$ containing $A$, there is an open set $V$ containing $A$ such that $\ol V\subset U$.
+\end{enumerate}
+
+\vs
+\newpage
+\begin{thm}\nl
+\begin{enumerate}
+    \item A subspace of a Hausdorff space is Hausdorff; a product of Hausdorff spaces is Hausdorff.
+    \item A subspace of a regular space is regular; a product of regular spaces is regular.
+\end{enumerate}
+\end{thm}
+\end{lem}
+
+
+%==========================================================================
+%                    SECTION 32
+%==========================================================================      
+\subsection{Normal Spaces}\nl
+\setcounter{section}{32}
+\setcounter{thm}{0}
+
+\vs
+
+\begin{thm}
+Every regular space with a countable basis is normal.
+\end{thm}
+
+\vs
+
+\begin{thm}
+Every metrizable space is normal.
+\end{thm}
+
+\vs
+
+\begin{thm}
+Every compact Hausdorff space is normal.
+\end{thm}
+
+\vs
+
+\begin{thm}
+Every well-ordered set $X$ is normal in the order topology.
+\end{thm}
+
+
+
+%==========================================================================
+%                    SECTION 33
+%==========================================================================      
+\subsection{The Urysohn Lemma}\nl
+\setcounter{section}{33}
+\setcounter{thm}{0}
+
+
+\begin{thm}\textbf{(Urysohn's Lemma)}
+Let $X$ be a normal space; let $A$ and $B$ be disjoint closed subsets of $X$. Let $[a,b]$ be a closed interval in the real line. Then there exists a continuous map
+\[f: X\ra [a,b]\]
+such that $f(x) = a$ for every $x\in A$, and $f(y) = b$ for all $y\in B$.
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%end

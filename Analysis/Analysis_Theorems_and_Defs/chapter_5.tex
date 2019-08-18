@@ -1,0 +1,246 @@
+\newpage
+\section{Elements of Functional Analysis}
+
+\vs
+
+\dfn Let $K$ denote either $\R$ or $\C$ and let $\XX$ be a vecotor space over $K$. A \textbf{\textit{seminorm}} on $\XX$ is a function $x\mapsto \|x\|$ from $\XX$ to $[0,\infty)$ such that
+\begin{itemize}
+    \item $\|x + y\| \leq \|x\| + \|y\|$ for all $x,y\in \XX$
+    \item $\|\lambda x\| = |\lambda|\,\|x\|$ for all $x\in \XX$ and $\lambda\in K$
+\end{itemize}
+A seminorm such that $\|x\| = 0$ iff $x = 0$ is called a \textbf{\textit{norm}} and a vector space equipped with a norm is called a \textbf{\textit{normed vector space}}.
+
+\vs
+
+\dfn A \textbf{\textit{Banach Space}} is a complete, normed vector space.
+
+\vs
+
+\begin{thm}
+A normed vector space $\XX$ is complete iff every AC convergent series in $\XX$ converges.
+\end{thm}
+
+\vs
+
+\textbf{Theorem.} Let $(\XX, \|\cdot\|)$ be a normed vector space over $\F$. Then $\XX$ is a Banach Space if and only if every absolutely convergent summable in $\XX$ converges to an element in $X$.
+
+\vs
+
+\textbf{Corollary.} $L^1(X,\mu)$ is a Banach space with norm
+\[\|f\| = \int_X|f|\,d\mu.\]
+
+\vs
+
+\textbf{Notation.} We denote the normed vector space of bounded sequences by $\ell^\infty$.
+
+\vs
+
+\dfn $\Lin(\R, m)$. We say that a vunction $f:\R\ra \F$ is \textbf{\textit{essentially bounded}} if
+\begin{enumerate}
+    \item $f$ is lebesgue measurable and
+    \item $\ex Z\seq \R$ with $m(Z) = 0$
+    \[\sup_{x\in \R\backslash Z}|f(x)| < \infty.\]
+\end{enumerate}
+If $M\geq 0$ and there is some $Z_M\seq \R$ with
+\[\sup_{x\in \R\backslash Z}|f(x)| < M\]
+we say that $M$ is an \textbf{\textit{essential upper bound}}. For $f$ essentially bounded, we write
+\[\|f\|_\infty = \inf\{M\geq 0\ :\ M\text{ an essential upper bound for $f$}\}\]
+
+\vs
+
+\begin{prop}
+Let $\XX$ and $\YY$ be normed linear spaces over $\F$. Let $T:\XX\ra \YY$ then TFAE:
+\begin{enumerate}
+    \item $T$ is bounded.
+    \item $T$ is uniformly continuous as a function from $\XX$ to $\YY$.
+    \item $T$ is continuous at some point $x_0\in \XX$.
+\end{enumerate}
+\end{prop}
+
+\vs
+
+\dfn Let $\XX$ and $\YY$ be normed vector spaces over $\F$. We denote by $L(\XX,\YY)$ the set of all bounded linear maps form $\XX$ to $\YY$.
+
+\vs
+
+\textbf{Proposition.} If $\XX$ and $\YY$ are normed linear spaces over some field $\F$ then $L(\XX,\YY)$ is a normed linear space over $\F$.
+
+\vs
+
+\textbf{Proposition.} $\XX^* = L(\XX, \F)$ is a Banach space.
+
+\vs
+
+\dfn A \textbf{\textit{sublinear functional}} on $\XX$ is a map $p:\XX\ra \R$ such that 
+\[p(x + y) \leq p(x) + p(y)\text{ and } p(\lambda x) = \lambda p(x)\text{ for all $x,y\in\XX,\ \lambda \geq 0$}.\]
+
+\vs
+
+\textbf{Hahn-Banach Theorem} Let $\XX$ be a normed linear space over $\R$, and let $p:\XX\ra \R$ be a sublinear functional on $\XX$. Let $\MM$ be a subspace of $\XX$. Let $f$ be a linear functional on $\MM$ st $f(x) \leq p(x)$ for all $x\in \MM$. Then there exists a linear functional $F:\XX\ra \R$ with $F(x)\leq p(x)$ for all $x\in \XX$ and $F(x) = f(x)$ for all $x\in \MM$.
+
+\vs
+
+\textbf{Theorem.} Let $\XX$ be a normed linear space over $\R$, and let $\MM$ be a subspace of $\XX$ and let $f:\MM\ra \R$ be a bounded linear functional on $\MM$. Then there exists a bounded linear functional $F:\XX\ra \R$ such that 
+\begin{enumerate}
+    \item $F(x) = f(x)$ for all  $x\in \MM$ 
+    \item $\|F\|_{\XX^*} = \|f\|_{\MM^*}$
+\end{enumerate}
+
+\vs
+
+\textbf{Corollary.} Let $(\XX,\|\cdot\|)$ be a normed linear space over $\R$. Let $\MM$ be a \textit{closed} linear subspace of $\XX$ ($\MM$ a proper linear subset). Let $x_0\in \MM^c$ then there exists a $f\in \XX^*$ such that $f(x_0) \neq 0$ but $f|_\MM = 0$. Indeed, if 
+\[\de = \inf_{y \in \MM} \|x_0 - y\| > 0\]
+we can choose $F$ so that $\|F\| = 1$ and $F(x_0) = \de$.
+
+\vs
+
+\textbf{Complex Hahn-Banach Theorem} Let $\XX$ be a normed linear space over $\R$, and let $p:\XX\ra \R$ be a sublinear functional on $\XX$. Let $\MM$ be a subspace of $\XX$. Let $f$ be a linear functional on $\MM$ st $|f(x)| \leq p(x)$ for all $x\in \MM$. Then there exists a linear functional $F:\XX\ra \R$ with $|F(x)|\leq p(x)$ for all $x\in \XX$ and $F(x) = f(x)$ for all $x\in \MM$.
+
+\vs
+\setcounter{thm}{7}
+
+\begin{thm}Let $\XX$ be a normed vector space.
+\begin{enumerate}[\hspace{1em}a.]
+    \item If $\MM$ is a closed subspace of $\XX$ and $x\in \XX\backslash\MM$, there exists $f\in \XX^*$ such that $f(x)\neq 0$ and $f|_\MM = 0$. In fact, if $\de = \inf_{y \in \MM} \|x_0 - y\|$, $f$ can be taken to satisfy $\|f\| = 1$ and $f(x) = \de$.
+    \item If $x\neq 0\in \XX$, there exits $f\in \XX^*$ such that $\|f\| = 1$ and $f(x) = \|x\|$
+    \item The bounded linear functionals on $\XX$ separate points.
+    \item If $x\in \XX$, define $\wh x:\XX^*\ra \C$ by $\wh x(f) = f(x)$. Then the map $x\mapsto \wh x$ is a linear isometry from $\XX$ to $\XX^{**}$.
+\end{enumerate}
+\end{thm}
+
+\vs
+
+\dfn Let $(\XX, \|\cdot\|)$ be a Banach space. We say that $(X, \|\cdot\|)$ is \textbf{\textit{reflexive}} if the map from $\XX$ into $\XX^{**}$ given by $x\mapsto\wh x$ is an isometric isometry.
+
+\vs
+
+\dfn We define the space $L^p([0,1]) = \{ f\ : \ \int_0^1 |f|^p\,dx< \infty\}$. This space has a norm defined by 
+\[\|f\|_p = \left[\int_0^1 |f|^p\,dx\right]^\frac{1}{p}.\]
+
+\vs
+
+\textbf{Note:} $L^p$ is reflexive.
+
+\vs
+
+\dfn Let $(X,d)$ be a metric space. We say $F\subset X$ is a \textit{\textbf{meager}} set (or a \textbf{\textit{set of the first category}}) if we can write 
+\[F = \bigcup_{n\in \N}A_n\]
+where $\{A_n\}$ is a countable collection of nowhere dense sets. We say that $S\subset X$ is a \textbf{\textit{set of the second category}} if $S$ is not a set of the first category.
+
+\vs
+
+\textbf{Baire Category Theorem.} Let $(X,d)$ be a complete metric space. 
+\begin{enumerate}
+    \item If $\{U_n\}_1^\infty$ is a sequence of open dense subsets of $X$, then $\bigcap_1^\infty U_n$ is dense in $X$.
+    \item $X$ is not a countable union of nowhere dense sets (Recall: A set is nowhere dense if its closure has empty interior).
+\end{enumerate}
+
+\vs
+
+\textbf{Corollary.} Let $(X, d)$ be a complete metric space and suppose that each $x\in X$ is an accumulation point for $X$. Then $X$ is uncountable.
+
+\vs
+
+\dfn Let $\HH$ be a complex vector space. An \textbf{\textit{inner product}} on $\HH$ is a map 
+\[\langle\cdot,\cdot\rangle:\HH\times\HH\ra\C\]
+satisfying
+\begin{enumerate}
+    \item $\langle x + by,z\rangle = a\langle x,z\rangle + b\ip{y}{z}$
+    \item $\ip{y}{x} = \ol{\ip{x}{y}}$
+    \item $\ip{x}{x} \geq 0$ and is 0 iff $x = 0$.
+\end{enumerate}
+Given an inner product $\ip{\cdot}{\cdot}$, we can define a norm by 
+\[\|\cdot\| = \lp\ip{\cdot}{\cdot}\rp^\frac{1}{2}.\]
+A compact vector $\HH$ space equipped with an inner product is called a \textbf{\textit{pre-Hilbert space}}. If $\HH$ is complete with respect to the norm defined above, then it is called a \textbf{\textit{Hilbert Space}}.
+
+\vs
+
+\textbf{The Cauchy-Schwarz Inequality.} Let $\HH$ be an inner product space over $\C$. then for all $x,y\in \HH$
+\[|\ip{x}{y}| \leq \|x\|\,\|y\|.\]
+
+\vs
+
+\setcounter{thm}{20}
+
+\begin{prop}
+If $x_n\ra x$ and $y_n \ra y$, then $\ip{x_n}{y_n}\ra\ip{x}{y}$.
+\end{prop}
+
+\vs
+
+\textbf{The Parallelogram Law.} For all $x,y\in\HH$,
+\[\|x+y\|^2 + \|x-y\|^2 = 2(\|x\|^2 + \|y\|^2).\]
+
+\vs
+
+\dfn If $x,y\in \XX$, we say that $x$ is \textbf{\textit{orthogonal}} to $y$ and write $x\perp y$ fi $\ip{x}{y} = 0$. If $E\subset\HH$, we define
+\[E^\perp = \{x\in \HH\ :\ \ip{x}{y} = 0\text{ for all }y\in E\}.\]
+
+\vs
+
+\textbf{The Pythagorean Theorem.} If $x_1,\ldots,x_n\in \HH$ and $x_j\perp x_k$ for $j\neq k$,
+\[\llp \sum_1^n x_j\rrp^2 = \sum_1^n\|x_j\|^2.\]
+
+\vs
+
+\setcounter{thm}{23}
+\begin{thm}
+If $\MM$ is a closed subspace of a Hilbert space $\HH$, then $\HH = \MM\oplus \MM^\perp$. Moreover, if $x\in \HH$ $x = m + n$ with $m\in M$, $n\in M^\perp$ and 
+\begin{enumerate}
+    \item $m$ is the nearest point in $\MM$ to $x$
+    \item $n$ is the nearest point in $\MM^\perp$ to $x$
+    \item $\|x\|^2 = \|m\|^2 + \|n\|^2$
+\end{enumerate}
+\end{thm}
+
+\vs
+
+\begin{thm}
+Let $\HH$ be a Hilbert space. Then if $f\in \HH^*$ there exist a unique $y_0\in \HH$ such that $f(x) = \ip{x}{y_0}$ for all $x\in \HH$. Moreover,
+\[\|f\| = \|y_0\|.\]
+\end{thm}
+
+\vs
+
+\textbf{Bessel's Inequality.} If $\{u_\al\}_{\al\in A}$ is an orthonormal set in $\HH$, then for any $x\in \HH$,
+\[\sum_{\al\in A}|\ip{x}{u_\al}|^2\leq \|x\|^2.\]
+In particular, $\{\al\ :\ \ip{x}{u_\al} \neq 0\}$ is countable.
+
+\vs
+
+\dfn Let $\{u_n\}$ be a countable orthonormal set in $\HH$ a Hilbert space. Let $\MM$ be the closed linear subspace containing all finite linear combinations of $\{u_n\}$. Then the projection $P_\MM:\HH\ra\MM$ is given by
+\[P_\MM(x) = \sum\wh x(i)u_i = \sum\ip{x}{u_i}u_i.\]
+
+\vs
+
+\dfn We say that a set of orthonormal vectors in $\HH$ is \textbf{\textit{complete}} if whenever $x\in\HH$ is such that $\ip{x}{u_\al} = 0$ for all $\al$, then $x = 0$.
+
+\vs
+
+\hl{\textbf{Theorem 5.27.}} If $\{u_\al\}_{\al\in A}$ is an orthonormal set in $\HH$, the following are equivalent:
+\begin{enumerate}
+    \item \textbf{(Completeness)} If $\ip{x}{u_\al} = 0$ for all $\al$, then $x = 0$.
+    \item \textbf{(Parseval's Identity)} $\|x\|^2 = \sum_{\al\in A} |\ip{x}{u_\al}|^2$ for all $x\in \HH$.
+    \item For each $x\in \HH$, $x = \sum_{\al\in A}\ip{x}{u_\al}u_\al$, where the sum on the right has only countably many nonzero terms and converges in the norm topology no mater how these terms are ordered.
+\end{enumerate}
+
+\vs
+
+\setcounter{thm}{27}
+\begin{prop}
+Every Hilbert space has an orthonormal basis.
+\end{prop}
+
+\vs
+
+\begin{prop}
+A Hilbert space $\HH$ is separable iff it has a countable orthonormal basis, in which case every orthonormal basis for $\HH$ is countable.
+\end{prop}
+
+\vs
+
+\begin{prop}
+Let $\{u_\al\}$ be a compelte orthonormal set for $\HH$ a Hilbert space. Then the map
+\[\Phi:X\ra \{(\wh x(\al))_{\al\in I}\ :\ \wh x(\al) = \ip{x}{u_\al}\}\]
+is a Hilbert space isomorphism from $\HH$ to $\ell^2(I)$.
+\end{prop}

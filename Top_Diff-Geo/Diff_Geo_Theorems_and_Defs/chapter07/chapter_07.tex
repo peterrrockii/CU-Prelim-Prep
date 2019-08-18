@@ -1,0 +1,73 @@
+\newpage\setcounter{section}{6}
+\section{Lie Groups}
+
+In this chapter we introduce Lie groups, which are smooth manifolds that are also groups in which multiplication and inversion are smooth maps. Besides providing many examples of interesting manifolds themselves, they are essential tools in the study of more general manifolds, primarily because of the role they play as groups of symmetries of other manifolds. Our aim in this chapter is to introduce Lie groups and some of the tools for working with them, and to describe an some examples.
+
+\dfn A \df{Lie group} is a smooth manifold $G$ (without boundary) that is also a group in the algebraic sense, with the property that the multiplication map $m: G\x G\ra G$ and inversion map $i:G\ra G$, given by
+\[m(g,h) = gh,\qquad i(g) = g\inv,\]
+are both smooth. A Lie group is, in particular, a \df{topological group}.
+
+\begin{prop}
+If $G$ is a smooth manifold with a group structure such that the map $G\x G\ra G$ given by $(g,h)\mapsto gh\inv$ is smooth, then $G$ is a Lie group.
+\end{prop}
+
+\dfn If $G$ is a Lie group, any element $g\in G$ defines maps $L_g, R_g:G\ra G$, called \df{left translation} and \df{right translation}, respectively, by
+\[L_g(h) = gh,\qquad R_g(h) = hg.\]
+
+\begin{ex}[\hlo{Lie Groups}]
+Each of the following manifolds is a Lie group with the indicated group operation.
+\begin{enumerate}
+    \item The \df{general linear group} $GL_n(\R)$ is the set of invertible $n\x n$ matrices with real entries. It is a group under matrix multiplication, and it is an open submanifold of the vector space $M_n(\R)$. Multiplication is smooth because the matrix entries of a product matrix $AB$ are polynomials in the entries of $A$ and $B$. Inversion is smooth by Cramer's rule.
+    \item Suppose $G$ is an arbitrary Lie group and $H\seq G$ is an \df{open subgroup}. The group operations are restrictions of those of $G$ so they are smooth, and so $H$ is a Lie group.
+    \item $\Rn$ under addition is a Lie group under addition.
+    \item $\R^*$, the multiplicative group of $\R$, is a Lie group.
+\end{enumerate}
+\end{ex}
+
+\dfn If $G$ and $H$ are Lie groups, a \df{Lie group homomorphism from G to H} is a smooth map $F:G\ra H$ that is also a group homomorphism. It is called a \df{Lie group isomorphism} if it is also a diffeomorphism.
+
+\setcounter{thm}{4}
+
+\begin{thm}
+\hlb{Every Lie group homomorphism has constant rank.}
+\end{thm}
+
+\dfn Suppose $G$ is a Lie group. A \df{Lie subgroup of G} is a subgroup of $G$ endowed with a topology and a smooth structure making it into a Lie group and an \textit{immersed} submanifold of $G$.
+
+\setcounter{thm}{10}
+
+\begin{prop}
+Let $G$ be a Lie group, and suppose $H\seq G$ is a subgroup that is also an embedded submanifold. Then $H$ is a Lie subgroup.
+\end{prop}
+
+\begin{lem}
+Suppose $G$ is a Lie group and $H\seq G$ is an open subgroup. Then $H$ is an embedded Lie subgroup. In addition, $H$ is closed, so it is a union of connected components of $G$.
+\end{lem}
+
+\setcounter{thm}{13}
+
+\begin{prop}
+Suppose $G$ is a Lie group, and $W\seq G$ is any neighborhood of the identity.
+\begin{enumerate}
+    \item $S$ generates an open subgroup of $G$
+    \item If $W$ is connected, it generates a connected open subgroup of $G$.
+    \item If $G$ is connected, $W$ generates $G$.
+\end{enumerate}
+\end{prop}
+
+\dfn If $G$ is a Lie group, the connected component of $G$ containing the identity is called the \df{identity component of G}.
+
+\begin{prop}
+Let $G$ be a Lie group and let $G_)$ be its identity component. Then $G_0$ is a normal subgroup of $G$, and is the only connected open subgroup. \hl{Every connected component of $G$ is diffeomorphic to $G_0$.}
+\end{prop}
+
+\begin{prop}
+Let $F:G\ra H$ be a Lie group homomorphism. The kernel of $G$ is a properly embedded Lie subgroup of $G$, whose codimension is equal to the rank of $F$.
+\end{prop}
+
+\begin{prop}
+If $F:G\ra H$ is an injective Lie group homomorphism, the image of $F$ has a unique smooth manifold structure such that $F(G)$ is a Lie subgroup of $H$ and $F:G\ra F(G)$ is a Lie group isomorphism.
+\end{prop}
+
+
+

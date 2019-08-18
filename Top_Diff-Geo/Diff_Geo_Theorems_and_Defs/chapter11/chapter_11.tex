@@ -1,0 +1,196 @@
+\newpage\setcounter{section}{10}
+\section{The Cotangent Bundle}
+
+In this chapter, we will primarily be talking about the cotangent space at a point $p$. This can be thought of as either the space of linear functionals on the tangent space, or as the dual space to $T_pM$. The union of all these dual spaces will be called the cotangent bundle. We will discover that, in many ways, the cotangent spaces of manifolds behave much more nicely when acted on by smooth maps than the regular tangent spaces, and this will eventually lead us to a really nice formula for Stokes's Theorem in Chapter 16.
+
+
+\dfn Let $V$ be a finite dimensional vector space over $\R$. Then a \df{covector} is a linear functional on $V$.
+
+\dfn The space of all covectors of a vector space $V$ is called the \df{dual space} of $V$ and is denoted $V^*$.
+
+\begin{prop}
+Let $V$ be a finite dimensional vector space. Given any basis $E_1,\ldots,E_n)$ for $V$, let $\vep^1,\ldots,\vep^n\in V^*$ be the covectors defined by
+\[\vep^i(E_j) = \delta^i_j,\]
+where $\delta^i_j$ is he Kronecker delta. Then $(\vep^1,\ldots,\vep^n)$ is a basis for $V^*$, called he \df{dual basis to ($\boldsymbol{E_j}$)}. Therefore, $\dim(V^*) = \dim(V)$.
+\end{prop}
+
+\dfn Let $A:V\ra W$ be a linear map between two vector spaces. The \df{dual map} or \df{transpose} $A^*:W^*\ra V^*$ is defined for all $\omega\in W^*$ and $v\in V$ by
+\[(A^*\omega)(v) = \omega(Av).\]
+
+\setcounter{thm}{3}
+
+\begin{prop}
+The dual map satisfies the following properties:
+\begin{enumerate}
+    \item $(A\circ B)^* = B^* \circ A^*$.
+    \item $(\Id_V)^*:V^*\ra V^*$ is the identity map of $V^*$.
+\end{enumerate}
+\end{prop}
+
+\dfn Let $M$ be a smooth manifold \wowob. For each $p\in M$ we define the \df{cotangent space at p}, denoted by $T^*_pM$ to be the dual space to $T_pM$:
+\[T^*_pM = (T_pM)^*.\]
+Elements of $T^*_pM$ are called \df{tangent covectors at p}, or just \df{covectors at p}.
+
+\dfn For any smooth manifold $M$ \wowob, the disjoint union
+\[T^*M = \bigsqcup_{p\in M} T^*_pM\]
+is called the \df{cotangent bundle of $M$}.
+
+\dfn Given a local coordinate chart $(x^i)$ on $U\seq M$ the sections $dx^i:U\ra T^*M$ defined by 
+\[dx^i(p) = dx^i|_p\in T^*M\]
+are the \df{coordinate covector fields} on $M$. The give rise to natural coordinates for $T^*U$ defined by 
+\[\pi\inv(U) = T^*U\seq T^*M.\]
+
+\dfn A (local or global) section of $T^*M$ is called a \df{covector field} of a \df{(differential) 1-form}.
+
+\dfn In any smooth local coordinates on an open subset $U\seq M$, a (rough) covector filed $\omega$ cam be written in terms of the coordinate covector fields $(\lambda^i)$ as $\omega = \omega_i\lambda^i$ for $n$ functions $\omega_i:U\ra \R$ called the \df{component functions of $\boldsymbol{\omega}$}. They are characterized by 
+\[\omega_i(p) = \omega_p\lp\ev{\pdd{x^i}}{p}\rp.\]
+
+\nb If $\omega$ is a (rough) covector field and $X$, then we can form a function $\omega(X):M\ra \R$ by
+\[\omega(X)(p) = \omega_p(X_p),\qquad p\in M.\]
+
+\begin{prop}[Smoothness Criteria for Covector Fields]
+Let $M$ be a smooth manifold \wowob, and let $\omega:M\ra T^*M$ be a rough covector field. The following are equivalent:
+\begin{enumerate}
+    \item $\omega$ is smooth.
+    \item In every smooth coordinate chart, the component functions of $\omega$ are smooth.
+    \item Each point of $M$ is contained in some coordinate chart in which $\omega$ has smooth component functions.
+    \item For every smooth vector field $X\in \fkX(M)$, the function $\omega(X)$ is smooth on $M$
+    \item For every open subset $U\seq M$ and every smooth vector field $X$ on $U$, the function $\omega(X):U\ra \R$ is smooth on $U$.
+\end{enumerate}
+\end{prop}
+
+\dfn let $M$ be a smooth manifold \wowob, and let $U\seq M$ be an open subset. A \df{local coframe for M over U} is an ordered $n$-tuple of covector fields $(\vep^1,\ldots,\vep^n)$ defined n $U$ such that $(\vep^i|_p)$ forms a basis for $T^*_pM$ at each point $p\in U$. If $U = M$, it is called a \df{global coframe}.
+
+\nb We will denote the set of smooth covector fields on $M$ by $\fkX^*(M)$.
+
+\dfn Le $M$ be a smooth manifold and $f\in \Cin(M)$. The \df{differential of f} is the covector field $df$ on $M$ defined by
+\[df_p(v) = vf\quad\text{for } v\in T_pM.\]
+
+
+\setcounter{thm}{19}
+
+\begin{prop}[Properties of the Differential]
+Let $M$ be a smooth manifold \wowob, and let $f,g\in \Cin(M)$.
+\begin{enumerate}
+    \item If $a$ and $B$ are constants, then $d(af _ bg) = a\,df + b\,dg$.
+    \item $d(fg) = f\,dg + g\,df$.
+    \item $d(f/g) = (g\,df - f\,dg)/g^2$ on the set where $g\neq 0$.
+    \item If $J\seq \R$ is an interval containing the image of $f$, and $h:J\ra \R$ is a smooth function, then $d(h\circ f) = (h\p\circ f)df$.
+    \item If $f$ is constant, then $df = 0$.
+\end{enumerate}
+\end{prop}
+
+\setcounter{thm}{21}
+
+\begin{prop}
+If $f$ is a smooth real-valued function on a smooth manifold $M$ \wowob, then $df = 0$ if and only if $f$ is constant on each component of $M$.
+\end{prop}
+
+\begin{prop}[\hl{Derivative of a Function Along a Curve}]
+Suppose $M$ is a smooth manifold \wowob, $\ga:J\ra M$ is a smooth curve, and $f:M\ra \R$ is a smooth function. Then the derivative of the real-valued function $f\circ\ga:J\ra \R$ is given by
+\[(f\circ \ga)\p(t)= df_{\ga(t)} (\ga\p(t)).\]
+\end{prop}
+
+\dfng Let $F>M\ra N$ be a smooth map between smooth manifolds \wowob, and let $p\in M$ be arbitrary. The differential $dF_p:T_pM\ra T_{F(p)}N$ yields a dual linear map
+\[dF_p^*:T^*_pN\ra T^*_pM,\]
+called the \df{(pointwise) pullback by F at p}, or the \df{cotangent map of F}.
+
+\dfn Given a smooth map $F:M\ra N$ and a covector field $\omega$ on $N$, define a rough covector field $F^*\omega$ on $M$, called the \df{pullback of $\boldsymbol{\omega}$ by F}, by 
+\[(F^*\omega)_p = dF^*_p(\omega_{F(p)}).\]
+\hl{It acts on a vector $v\in T_pM$ by}
+\[(F^*\omega)_p(v) = \omega_{F(p)}(dF_p(v)).\]
+
+\setcounter{thm}{24}
+
+\begin{prop}
+Let $F:M\ra N$ be a smooth map between smooth manifolds \wowob. Suppose $u$ is a continuous real-valued function on $N$, and $\omega$ is a covector field on $N$. Then
+\[F^*(u\omega) = (u\circ F)F^*\omega.\]
+If in addition $u$ is smooth, then
+\[F^*du = d(u\circ F).\]
+\end{prop}
+
+\dfn If $S\seq M$ is an immersed submanifold and $\iota:S\into M$ is the inclusion map, and $\omega\in \fkX^*(M)$, then $\iota^*\omega\in \fkX^*(S)$. And if $v\in T_pS\seq T_pM$ then $\iota^*\omega(v) = \omega(d\iota_*(v))\omega(v)$, so $\iota^*\omega$ is just the restriction of $\omega$ to $T_pS$.
+
+\dfn Suppose $[a,b]\seq \R$ is a compact interval, and $\omega$ is a smooth covector on $[a,b]$. If we let $t$ denote the standard coordinate on $\R$, then $\omega$ can be written $\omega_t = f(t)dt$ for some smooth function $f:[a,b]\ra \R$. We define the \df{integral of $\boldsymbol{\omega}$ over} \textbf{[a,b]} to be
+\[\int_{[a,b]}\omega = \int_a^b f(t)\,dt.\]
+
+\dfn Let $M$ be a manifold \wowob, we define a \df{curve segment in M} to be a continuous curve $\ga[a,b]\ra M$ whose domain is a compact interval, and a \df{smooth curve segment}  to be a smooth continuous curve $\ga[a,b]\ra M$ when $[a,b]$ is considered as a manifold with boundary.
+
+\dfn If $\ga:[a,b]\ra M$ is a smooth curve segment and $\omega$ is a smooth covector field on $M$, we define the \df{line interval of $\boldsymbol{\omega}$ over $\boldsymbol{\ga}$} to be the real number
+\[\int_\ga \omega = \int_{[a,b]}\ga^*\omega.\]
+
+\setcounter{thm}{35}
+
+\begin{ex}[\hlo{Common Example}]
+Let $M = \R^2\backslash \{0\}$, let $\omega$ be the covector field on $M$ given by
+\[\omega = \frac{x\,dy - y\,dx}{x^2 + y^2},\]
+and let $\ga:[0,2\pi]\ra M$ be the curve segment defined by $\ga(t) = (\cos(t),\sin(t))$. Since $\ga^*\omega$ can be computed by substituting $x = \cos(t)$ and $y = \sin(t)$ everywhere in the formula for $\omega$, we find that
+\[\int_\ga \omega = \int_{[0,2\pi]}\frac{\cos(t)(\cos(t)\,dt) - \sin(t)(-\sin(t)\,dt)}{\sin(t)^2 + \cos(t)^2} = \int_0^{2\pi} dt = 2\pi.\]
+\end{ex}
+
+\setcounter{thm}{37}
+
+\begin{prop}
+If $\ga:[a,b]\ra M$ is a piecewise smooth curve segment, the line integral of $\omega$ over $\ga$ also be expressed as the ordinary integral
+\[\int_\ga \omega = \int_a^b \omega_{\ga(t)}(\ga\p(t))\,dt.\]
+\end{prop}
+
+\begin{thm}[\hlb{Fundamental Theorem for Line Integrals}]
+Let $M$ be a smooth manifold \wowob. Suppose $f$ is a smooth real-valued function on $M$ and $\ga:[a,b]\ra M$ is a piecewise smooth curve segment in $M$. Then 
+\[\int_\ga df = f(\ga(b)) - f(\ga(a)).\]
+\end{thm}
+
+\dfng A smooth covector field $\omega$ on a smooth manifold $M$ \wowob is said to be \df{exact} on $M$ if there is a function $f\in \Cin(M)$ such that $\omega = df$. In this case, the function $f$ is called a \df{potential for $\boldsymbol{\omega}$}.
+
+\dfng We say that a smooth covector field $\omega$ is \df{conservative} if the line integral of $\omega$ over every piecewise smooth closed curve segment is zero.
+
+\begin{prop}
+A smooth covector field $\omega$ is conservative if and only if its line integrals are path-independent.
+\end{prop}
+
+\setcounter{thm}{41}
+
+\begin{thm}
+\hl{Let $M$ be a smooth manifold with or without boundary. A smooth covector field on $M$ is conservative if and only if it is exact.}
+\end{thm}
+
+\crly If $\omega = df$ is exact then 
+\[\omega = a_i(x)dx^i\]
+where 
+\[a_i(x) = \pd{f}{x^i}(x).\]
+Then for all $i,j$ we have
+\[\pd{a_i}{x^j} = \pd{a_j}{x^i} = \frac{\bd^2 f}{\bd x^i \bd x^j}.\]
+
+\dfn A covector field $\omega = a_i dx^i$ is called \df{closed} if 
+\[\pd{a_i}{x^j} = \pd{a_j}{x^i}.\]
+
+\setcounter{thm}{43} 
+
+\begin{prop}
+Every exact covector field is closed.
+\end{prop}
+
+\begin{prop}
+Let $\omega$ be a smooth covector field on a smooth manifold $M$ \wowob. The following are equivalent:
+\begin{enumerate}
+    \item $\omega$ is closed.
+    \item $\omega$ satisfies
+    \[\pd{\omega_j}{x^i} = \pd{\omega_i}{x^j}\]
+    for all $i,j$ in some smooth chart around every point.
+    \item For any open subset $U\seq M$ and smooth vector fields $X,Y\in \fkX(U)$,
+    \[(X(\omega(Y)) - Y(\omega(X)) = \omega([X,Y]).\]
+\end{enumerate}
+\end{prop}
+
+\setcounter{thm}{48}
+
+\begin{thm}[Poincar\`e Lemma for Covector Fields]
+If $M$ is simply connected then every closed covector filed on $M$ is exact.
+\end{thm}
+
+\begin{cor}[Local Exactness of Closed Covector Fields]
+Let $\omega$ be a closed covector field on a smooth manifold $M$ \wowob. Then every point of $M$ has a neighborhood on which $\omega$ is exact.
+\end{cor}
+
+\nb Pullbacks preserve closedness and exactness.
+
