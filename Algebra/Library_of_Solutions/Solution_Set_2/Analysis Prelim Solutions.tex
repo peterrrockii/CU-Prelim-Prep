@@ -1,0 +1,841 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{mathrsfs}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{extramarks}
+\usepackage{chngpage}
+\usepackage{soul,color}
+\usepackage{graphicx,float,wrapfig}
+\newcommand{\field}[1]{\mathbb{#1}}
+\newcommand{\covd}[2]{\displaystyle\nabla_{#1}{#2}}
+\newcommand{\kronecker}[2]{\displaystyle\delta^{#1}_{#2}}
+\newcommand{\sumd}[1]{\displaystyle\sum_{#1}}
+\newcommand{\partiald}[2]{\displaystyle\frac{\partial#1}{\partial#2}}
+\newcommand{\partialds}[3]{\displaystyle\frac{\partial^2#1}{\partial#2\partial#3}}
+\newcommand{\partialdss}[2]{\displaystyle\frac{\partial^2#1}{\partial^2 #2}}
+\newcommand{\Chr}[3]{\displaystyle\Gamma^{#1}_{#2 #3}}
+\newcommand{\fracd}[2]{\displaystyle\frac{#1}{#2}}
+\newcommand{\intd}{\displaystyle\int}
+\newcommand{\tab}{\hspace*{2em}}
+\newcommand{\bs}{\backslash}
+\newcommand{\bo}[1]{\textbf{#1}}
+\everymath{\displaystyle}
+\begin{document}
+\newtheorem{name}{Printed output}
+\newtheorem{mydef}{Definition}
+\newcommand{\T}{\mathcal{T}}
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+\newenvironment{example}[1][Example]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+\newtheorem{theorem}{Theorem}[section]
+\centerline{\sc Analysis Prelim Solutions}
+\centerline{\sc By Ian Long with some additions by Taylor Klotz}
+
+
+
+\section*{{\it August 2014}}
+\section*{Problem 1}
+Prove or disprove the following statement: there exists an open subset $E$ of the closed unit interval such that\\
+(a)  $m(\{E\cap(a,b)\})>0$ for all non-empy open subintervals $(a,b)$ of $[0,1]$\\
+(b) $m(E)<1$
+\section*{Solution (sketch)}
+There does exist such a set. It is the complement of an example of something called a fat Cantor set. Construction is similar to Cantor set except that instead of removing a middle third each iteration, one removes an open set of length $1/4^n$ for the $n$th iteration. This set is closed and nowhere dense like the Cantor set. Furthermore, the measure of this set is given by one minus the sum of the lengths of all the removed sets which gives a total measure of 1/2. The complement of this set must be open and also have measure 1/2 so that property (b) is satisfied. To satisfy property (a), since the fat Cantor set is nowhere dense, we have that the complement is dense. Furthermore, since it is open it is the countable union of open intervals, the measure of the intersection of this set with every open subinterval of $[0,1]$ is positive.
+\section*{Problem 2}
+Let $f\in L^p(\field{R})$ where $1\leq p\leq\infty$. Show that the function 
+$$F(t)=\int_0^t f(s)\,ds$$
+is well defined and continuous.
+\section*{Solution}
+To prove it is well defined, we notice that $F(t)$ may be rewritten as
+$$F(t)=\int_{\field{R}} \chi_{[0,t]} f(s)\,ds$$
+Clearly $\chi_{[0,1]}\in L^q(\field{R})$ for every $q\in[1,\infty]$. Therefore by use of the H\"older inequality, we have
+$$|F(t)|\leq |t|^{1/q}||f||_p$$
+where $1/q+1/p=1$. This is finite for all $t\in\field{R}$ and therefore $F(t)$ is well defined. Continuity is easy. Either we can use the fact that as an indefinite integral it must be an absolutely continuous function and therefore continuous, or we could use either the sequence definition of continuity or the $\epsilon-\delta$ definition. I will use the sequence definition. 
+Let $\{t_n\}_{n=1}^\infty$ be any sequence converging to $t$. Then 
+$$|F(t_n)-F(t)|\leq\int_{\field{R}}\chi_{[t_n,t]}|f(s)|\,ds$$
+So that again by H\"older's inequality we have
+$$|F(t_n)-F(t)|\leq |t_n-t|^{1/q}||f||_p$$
+and since $t_n\to t$ then clearly $F(t_n)\to F(t)$ and therefore $F(t)$ is continuous.
+\section*{Problem 3}
+Let $H_k(t),k=0,1,2,...$ be a sequence of functions on $[0,1]$ defined as follows: $H_0(t)=1$ and , if $2^n\leq k <2^{n+1}$ where $n$ is a nonnegative integer, then
+$$H_k(t) = \left\{
+        \begin{array}{lll}
+            2^{n/2} &\text{ if } \frac{k-2^n}{2^n}\leq t <\frac{k-2^n+1/2}{2^n} \\
+            -2^{n/2} &\text{ if } \frac{k-2^n+1/2}{2^n}\leq t <\frac{k-2^n+1}{2^n}\\
+	 0 &\text{ otherwise } 
+        \end{array}
+    \right.
+$$
+Show that for every function $f$ in the Hilbert space $L^2([0,1])$,
+$$\lim_{k\to\infty}\int_0^1 f(t)H_k(t)\,dt=0$$
+\section*{Solution (incomplete)}
+The point of this problem is to use Bessel's inequality which states that\\ $\sum_{k=1}^\infty \langle f, \varphi_k\rangle\leq||f||^2_2$ for an orthogonal sequence of functions $\{\varphi_k(t)\}_{k=1}^\infty$ in $L^2([0,1])$. Indeed, notice that $\langle f,\varphi_k\rangle\to0$ as $k\to\infty$ is precisely the desired result if $\varphi_k(t)=H_k(t)$. Therefore we only need to show that the $H_k(t)$ are orthogonal. I suggest drawing pictures of these functions to get an idea for what the integrals of the inner products look like.
+\section*{Problem 5}
+Let $A_k$ be a sequence of measurable subsets of $[0,1]$ such that, for every finite set of indices $i_1<i_2<...<i_k$.\\
+$$m(A_{i_1}\cap\cdots\cap A_{i_k})=m(A_{i_j})\cdots m(A_{i_k})$$
+where $m$ is Lebesgue measure.\\
+\textbf{(a)} Show that the sequence $B_k=[0,1]\bs A_k$ has the same property. (\textit{Hint:} Show that, if the property holds for the sequence $A_k$ then it still holds if exactly one of the sets $A_k$ is replaced by the corresponding $B_k$)\\
+\textbf{(b)} Suppose in addition that the series $\sum m(A_k)$ diverges. Show that
+$$m\left(\bigcup_{k=1}^\infty A_k\right)=1$$
+\section*{Solution}
+\textbf{(a)}\\
+Follwing the hint, we find that
+$$m(A_1\cap\cdots \cap B_k)=m(A_1\cap\cdots\cap A_{k-1})-m(A_1\cap\cdots \cap A_k)=(1-m(A_k))\prod_{i=1}^{k-1}m(A_i)$$
+and since $m(B_k)=1-m(A_k)$ by excision, we have
+$$m(A_1\cap\cdots \cap B_k)=m(A_1\cap\cdots \cap A_{k-1})m(B_k)$$
+So then one just applies the above $k-1$ times to get 
+$$m(B_1\cap\cdots\cap B_k)=\prod_{i=1}^km(B_i)$$
+\textbf{(b)}\\
+Notice that $m(B_1\cap\cdots\cap B_k)=1-m\left(\bigcup_{n=1}^k A_n\right)$ by DeMorgan's law and excision. So if we can show that $m(B_1\cap\cdots\cap B_k)\to0$ as $k\to\infty$ then we have the desired result by continuity of measure. Indeed, 
+$$m(B_1\cap\cdots\cap B_k)=\prod_{n=1}^km(B_n)=\prod_{n=1}^k(1-m(A_n))$$
+However, since $m(A_n)\in[0,1]$ for all $n=1,2,...$ then we can use the fact that $1-x\leq e^{-x}$ for $x\in[0,1]$. Therefore
+$$\prod_{n=1}^k(1-m(A_n))\leq\prod_{n=1}^k e^{-m(A_n)}=e^{-\sum_{n=1}^k m(A_n)}$$
+and since $\sum_{n=1}^k m(A_n)\to\infty$ as $k\to\infty$ we know that $e^{-\sum_{n=1}^k m(A_k)}\to 0$ as $k\to\infty$ as well. Thus
+$$\lim_{k\to\infty}m(B_1\cap\cdots\cap B_k)=1-m\left(\bigcup_{n=1}^\infty A_n \right)=0$$
+Therefore
+$$m\left(\bigcup_{n=1}^\infty A_n \right)=1$$
+ 
+\section*{{\it January 2014}}
+\section*{Problem 2}
+Let $f(x)$ be a continuous real valued function on $[0,1]$ which satisfies
+$$\int_0^1 f(x)x^n\,dx=0\text{ for }n=0,1,2...$$
+Prove that $f(x)$ is identically zero.
+\section*{Solution} 
+Notice that the integral condition on $f$ allows us to construct any polynomial $p(x)$ we want and we will still have that
+$$\int_0^1 f(x)p(x)\,dx=0$$
+Then for any polynomial $p(x)$ we have the inequality,
+$$\int_0^1f(x)^2\,dx=\left|\int_0^1f(x)^2-f(x)p(x)\,dx\right|\leq\int_0^1|f(x)||f(x)-p(x)|\,dx$$
+However, since $f(x)$ is continuous on $[0,1]$ then we can approximate it by polynomials in the max norm (Stone-Weierestrass theorem). Meaning that for every $\epsilon>0$ there is some polynomial $p(x)$ such that $\max_{x\in[0,1]}(|f(x)-p(x)|)<\epsilon$. Therefore
+$$\int_0^1f(x)^2\,dx<\epsilon||f||_1\text{ for all }\epsilon>0\Rightarrow\int_0^1f(x)^2\,dx=0$$
+Since $f(x)^2\geq0$ we must have that $f(x)^2=0$ for all $x\in[0,1]$ and therefore $f(x)=0$ for all $x\in[0,1]$ since $f(x)$ must be continuous.
+
+\section*{Problem 3}
+Let $f,g$ be nonnegative, measurable functions on $[0,1]$ such that $$\int_0^1f(x)dx=2,\int_0^1g(x)dx=1,\int_0^1f(x)^2dx=5.$$  Let $E=\{x\in[0,1]|f(x)\geq g(x)\}.$ Show that $m(E)\geq\frac{1}{5}$.
+
+\section*{Solution}
+First, we note that $\int_0^1f(x)-g(x)dx=1$.  We then note that by the definition of $E$, $\int_0^1f(x)-g(x)dx\leq\int_Ef(x)-g(x)dx$.  Thus, from this information and the Cauchy-Schwarz Inequality we find that
+\begin{align*}
+1\leq\int_0^1f(x)-g(x)dx\leq\int_Ef(x)-g(x)dx&\leq\int_Ef(x)dx\\
+&=\int_0^1f(x)\cdot\chi_Edx\\
+&\leq||f||_2||\chi_E||_2\\
+&=\sqrt{5}\sqrt{m(E)}.
+\end{align*}
+Thus, $1\leq\sqrt{5m(E)}$.  Squaring both sides and dividing by 5, we get the desired result.
+\section*{Problem 4}
+Assume that $f:[0,1]\to\field{R}$ is an absolutely continuous function with $\int_0^1 f(x)\,dx=0$. Prove for any $y\in[0,1]$ that
+$$\left|\int_0^1(y-x)f'(x)\,dx\right|\leq\sup_{0\leq x\leq1}|f(x)|$$
+\section*{Solution}
+Since $f(x)$ is absolutely continuous and $y-x$ is differentiable for all $y$ we can simply apply integration by parts to get
+$$\int_0^1(y-x)f'(x)\,dx=(y-x)f(x)\Big|_0^1+\int_0^1f(x)\,dx=(y-1)f(1)-yf(0)$$
+Since $|f(1)|\leq\sup_{x\in[0,1]}|f(x)|$ and $|f(0)|\leq\sup_{x\in[0,1]}|f(x)|$ then
+$$\left|\int_0^1(y-x)f'(x)\,dx\right|\leq(1-y)\sup_{x\in[0,1]}|f(x)|+y\sup_{x\in[0,1]}|f(x)|=\sup_{x\in[0,1]}|f(x)|$$
+as desired.
+\section*{Problem 5}
+Let $f\in L^3([-1,1])$. Show that
+$$\int_{-1}^1\frac{|f(x)|}{\sqrt{|x|}}\,dx<\infty$$
+\section*{Solution}
+Let $p=3$. Then to satisfy $1/p+1/q=1$ we must have that $q=3/2$. Now we show that $\frac{1}{\sqrt{|x|}}\in L^{3/2}([-1,1])$. Indeed,
+$$\int_{-1}^1\left(\frac{1}{\sqrt{|x|}}\right)^{3/2}\,dx=2\int_0^1x^{-3/4}\,dx=8$$
+and therefore $\displaystyle\left|\left|\frac{1}{\sqrt{|x|}}\right|\right|_{3/2}=4<\infty$. Therefore we may apply H\"older's inequality to get
+$$\int_{-1}^1\frac{|f(x)|}{\sqrt{|x|}}\,dx\leq4||f||_3<\infty$$
+\section*{Problem 6}
+(a) Show that for $x>0$ the limit $\lim_{R\to\infty}\int_0^R\frac{\cos(t)}{x+t}\,dt$ exists.\\
+(b) Define for $x>0$ 
+$$f(x)=\lim_{R\to\infty}\int_0^R\frac{\cos(t)}{x+t}\,dt$$
+Show that $f(x)$ is continuous.
+\section*{Solution}
+\textbf{(a)}\\
+First we use integration by parts on $\int_0^R\frac{\cos(t)}{x+t}\,dt$ to get
+$$\int_0^R\frac{\cos(t)}{x+t}\,dt=\frac{\sin(R)}{x+R}+\int_0^R\frac{\sin(t)}{(x+t)^2}\,dt$$
+Now consider the sequence of functions $f_n(t)=\chi_{[0,n]}\frac{\sin(t)}{(x+t)^2}$. Then computing $\lim_{R\to\infty}\int_0^R\frac{\sin(t)}{(x+t)^2}\,dt$ is the same as computing $\lim_{n\to\infty}\int_0^\infty f_n(t)\,dt$. Now since $|f_n(t)|\leq\frac{1}{(x+t)^2}$ for all $n=1,2,...$ and all $x>0$ we have by dominated convergence that $\lim_{n\to\infty} f_n(t)=\frac{\sin(t)}{(x+t)^2}$ is integrable since\\ $\int_0^\infty\frac{1}{(x+t)^2}\,dt=\frac{1}{x}<\infty$ for $x>0$. Therefore, 
+$$\lim_{R\to\infty}\int_0^R\frac{\cos(t)}{x+t}\,dt=\int_0^\infty\frac{\sin(t)}{(x+t)^2}\,dt<\infty$$
+\textbf{(b)}\\
+From part (a) we know that
+$$f(x)=\int_0^\infty\frac{\sin(t)}{(x+t)^2}\,dt$$
+So consider any positive sequence $\{x_n\}_{n=1}^\infty$ that converges to $x>0$ and the sequence of functions $g_n(t)=\frac{\sin(t)}{(x_n+t)^2}$ which converges pointwise to the function $g(t)=\frac{\sin(t)}{(x+t)^2}$. Then the statement that $f(x_n)\to f(x)$ as $n\to\infty$ is given by $\int_0^\infty g_n(t)\,dt\to\int_0^\infty g(t)\,dt$. However, this follows easily by dominated convergence by picking the dominating function to be $\frac{1}{(x^{*}+t)^2}$ where $x^{*}=\inf_{n\in\field{N}}\{x_n\}$ so that clearly $|g_n(t)|\leq\frac{1}{(x^{*}+t)^2}$. Then again we know that $\int_0^\infty\frac{1}{(x^{*}+t)^2}\,dt=\frac{1}{x^{*}}<\infty$ so we may use dominated convergence to get,
+$$\int_0^\infty g_n(t)\,dt\to\int_0^\infty g(t)\,dt\text{ as }n\to\infty\Rightarrow f(x_n)\to f(x)\text{ as }n\to\infty$$
+for any positive sequence $x_n$ converging to $x>0$. Therefore $f(x)$ is continuous.
+\section*{{\it August 2013}}
+
+\section*{Problem 1}
+Prove the following ''modified squeeze law:''\\
+
+\noindent Suppose we have real numbers $a_n, b_{m,n}$ and $c_m$ such that $0\leq a_n\leq b_{m,n}+c_m$ for all $m,n$ sufficiently large (say, greater than some fixed integer $K$).  If $\lim_{m\rightarrow\infty} c_m=0$ and, for any fixed $m$, $\lim_{n\rightarrow\infty}b_{m,n}=0$ then $\lim_{n\rightarrow\infty} a_n=0$.
+
+\section*{Solution}
+First, we note that by the inequality above
+\begin{align*}
+0=\limsup_{m\rightarrow\infty}0\leq\limsup_{m\rightarrow\infty}a_n=a_n\leq\limsup_{m\rightarrow\infty}(b_{m,n}+c_m)=\limsup_{m\rightarrow\infty}b_{m,n}.
+\end{align*}
+Then, since $\lim_{n\rightarrow\infty}b_{m,n}=0$ for each $m$, we have that
+\begin{align*}
+0=\limsup_{n\rightarrow\infty}0\leq\limsup_{n\rightarrow\infty}a_n\leq\limsup_{n\rightarrow\infty}(\limsup_{m\rightarrow\infty} b_m)=0
+\end{align*}
+Thus, we have that $\limsup_{n\rightarrow\infty}a_n=0$.  Since $0\leq a_n$ for all sufficiently large $n$, we also must have that $\liminf_{n\rightarrow\infty}a_n\geq0$ so that $\lim_{n\rightarrow\infty}a_n$ exists and equals zero as desired.
+
+\section*{Problem 2}
+Prove or disprove the following:\\
+
+\noindent Let $f,g:\mathbb{R}\rightarrow\mathbb{R}$, and suppose the composite function is continuous everywhere.  If $\lim_{u\rightarrow b}f(u)=c$ and $\lim_{x\rightarrow a}g(x)=b$ (with $b,c\in\mathbb{R}$, then $\lim_{x\rightarrow a}f(g(x))=c$.
+
+\section*{Solution}
+The claim is false.  Indeed, if we define $$
+f_n(x) =
+\begin{cases}
+0, & \text{if }x\neq 0 \\
+1, & \text{if }x=0
+\end{cases}
+$$
+and $g(x)\equiv0$ we have that $\lim_{x\rightarrow0}f(x)=0$ and $\lim_{x\rightarrow0}g(x)=0$ but $\lim_{x\rightarrow0}f(g(x))=f(g(0))=1\neq 0$ as desired.
+
+
+\section*{Problem 3}
+The convolution, denoted $f*g$ of two functions $f,g:\mathbb{R}\rightarrow\mathbb{R}$ is defined by
+\begin{align*}
+f*g(x)=\int_\mathbb{R}f(x-y)g(y)dy
+\end{align*}
+for any $x\in\mathbb{R}$ such that the integral on the right exists (in the Lebesgue sense).\\
+
+\noindent (a) Show that if $f,g\in L^2(\mathbb{R})$, then $f*g(x)$ exists for all $x$, $f*g$ is bounded on $\mathbb{R}$, and that $\sup_{x\in\mathbb{R}}|f*g(x)|\leq||f||_2\cdot||g||_2$.\\
+
+\noindent (b) Show that if $f,g\in L^1(\mathbb{R})$, then $f*g(x)$ exists for almost all $x$, that $f*g\in L^1(\mathbb{R})$, and that $||f*g||_1\leq ||f||_1\cdot||g||_1$.
+
+\section*{Solution}
+(a) First, we note that via a change of variables we have that if we define $f_x(y)=f(x-y)$, the $f_x\in L^2(\mathbb{R})$ with $||f_x||_2=||f||_2$.  Thus, we have via the Cauchy-Schwartz Inequality that
+\begin{align*}
+|f*g(x)|=\left|\int_\mathbb{R}f(x-y)g(y)dy\right|&\leq\int_\mathbb{R}|f(x-y)g(y)|dy\\
+&\leq ||f||_2\cdot||g||_2<\infty.
+\end{align*}
+Thus $|f*g(x)|$ exists for all $x\in\mathbb{R}$, it is bounded, and since for arbitrary $x$ we determined that $|f*g(x)|\leq||f||_2\cdot||g||_2$, we necessarily have that $\sup_{x\in\mathbb{R}}|f*g(x)|\leq||f||_2\cdot||g||_2$ as desired.\\
+
+\noindent (b) We note that by construction $|f*g(x)|$ is non-negative, thus we have by Tonelli's Theorem that
+\begin{align*}
+\int_\mathbb{R}|f*g(x)|dx&\leq\int_\mathbb{R}\int_\mathbb{R}|f(x-y)||g(y)|dydx\\
+&=\int_\mathbb{R}\int_\mathbb{R}|f(x-y)||g(y)|dxdy\\
+&=\int_\mathbb{R}|g(y)|\int_\mathbb{R}|f(x-y)|dxdy\\
+&=\int_\mathbb{R}|g(y)|\cdot||f||_1dy\\
+&=||f||_1\int_\mathbb{R}|g(y)|dy=||f||_1||g||_1<\infty.
+\end{align*}
+Thus, we must have that $|f*g(x)|$ is finite almost everywhere and thus that $f*g(x)$ exists almost everywhere.  Furthermore our work above shows that $||f*g||_1\leq||f||_1||g||_1$ and thus that $f*g\in L^1(\mathbb{R})$ as desired.
+
+\section*{Problem 4}
+The Fourier transform, denoted $\hat{f}$, of a function $f:\mathbb{R}\rightarrow\mathbb{R}$ is defined by $$\hat{f}(s)=\int_\mathbb{R}f(x)e^{-2\pi isx}dx,$$ for any $s\in\mathbb{R}$ such that the integral on the right exists (in the Lebesgue sense).\\
+
+\noindent (a) Show that, if $f\in L^1(\mathbb{R})$, then $\hat{f}(s)$ exists for all $s$, that $\hat{f}$ is bounded and continuous, and that $$\sup_{s\in\mathbb{R}}|\hat{f}(s)|\leq||f||_1$$.\\
+
+\noindent (b) Show that if $f,g\in L^1(\mathbb{R})$, then $$\int_\mathbb{R}\hat{f}(u)g(u)du=\int_\mathbb{R}f(v)\hat{g}(v)dv.$$
+
+\section*{Solution}
+(a) First, we note that for any $s\in\mathbb{R}$ that
+\begin{align*}
+|\hat{f}(s)|=\left|\int_\mathbb{R}f(x)e^{-2\pi isx}dx\right|&\leq\int_\mathbb{R}|f(x)||e^{-2\pi isx}|dx\\
+&\leq\int_\mathbb{R}|f(x)|dx=||f||_1<\infty.
+\end{align*}
+Thus, we have that $\hat{f}(s)$ exists for all $s\in\mathbb{R}$.  Furthermore, we have since $s$ was arbitrary that $|\hat{f}(s)|$ is bounded by $||f_1||$ for all $s\in\mathbb{R}$ so that in particular $\sup_{s\in\mathbb{R}}|\hat{f}(s)|\leq||f||_1$.\\
+
+\noindent To show that $\hat{f}$ is continuous, we choose $s\in\mathbb{R}$ and let $\{s_n\}$ be a sequence of real numbers which converge to $s$.  We wish to show then that $\hat{f}(s_n)\rightarrow\hat{f}(s)$ which would show that $\hat{f}$ is continuous.  To do so, we note first that by the continuity of the function $s\mapsto e^{-2\pi is}$ (for arbitrary $x$) that $\lim_{n\rightarrow\infty}e^{-2\pi i s_n}=e^{-2\pi is}$.  Thus, we have that
+\begin{align*}
+|\hat{f}(s_n)-\hat{f}(s)|&=\left|\int_\mathbb{R}f(x)e^{-2\pi is_nx}\left(1-e^{-2\pi i(s_n-s)x}\right)dx\right|\\
+&\leq\int_\mathbb{R}|f(x)|e^{-2\pi is_nx}||1-e^{-2\pi i(s_n-s)x}|dx\\
+&\leq\int_\mathbb{R}|f(x)||1-e^{-2\pi i(s_n-s)x}|dx
+\end{align*}
+Noting that the integrand above is bounded by $2|f(x)|$, which is integrable by assumption, so we have by the Lebesgue Dominated Convergence Theorem that
+\begin{align*}
+\lim_{n\rightarrow\infty}|\hat{f}(s_n)|-\hat{f}(s)&\leq\lim_{n\rightarrow\infty}\int_\mathbb{R}|f(x)||1-e^{-2\pi i(s_n-s)x}|dx\\
+&=\int_\mathbb{R}\lim_{n\rightarrow\infty}|f(x)||1-e^{-2\pi i(s_n-s)x}|dx=0
+\end{align*}
+so that $\lim_{n\rightarrow\infty}\hat{f}(s_n)=\hat{f}(s)$ and $\hat{f}$ is continuous as desired.\\
+
+\noindent (b) We note that by part (a)
+\begin{align*}
+\int_\mathbb{R}|\hat{f}(u)||g(u)|du&\leq\int_\mathbb{R}||f||_1|g(u)|du=||f||_1||g||_1<\infty.\\
+\end{align*}
+Thus, by Fubini's Theorem we have that 
+\begin{align*}
+\int_\mathbb{R}\hat{f}(u)g(u)du=\int_\mathbb{R}\left(\int_\mathbb{R}f(v)e^{-2\pi iuv}dv\right)g(u)du&=\int_\mathbb{R}\int_\mathbb{R}g(u)f(v)e^{-2\pi iuv}dvdu\\
+&=\int_\mathbb{R}\int_\mathbb{R}g(u)f(v)e^{-2\pi iuv}dudv\\
+&=\int_\mathbb{R}f(v)\int_\mathbb{R}g(u)e^{-2\pi iuv}dudv\\
+&=\int_\mathbb{R}f(v)\hat{g}(v)dv
+\end{align*}
+
+\section*{Problem 5}
+Give an example of a subset of $\mathbb{R}$ which is not a $G_\delta$ set.
+
+\section*{Solution}
+We claim that $\mathbb{Q}$ is not a $G_\delta$ set.  Indeed, if we suppose to the contrary, we have that there exist a countable set of open sets $\{O_n\}$ such that $\mathbb{Q}=\bigcap_{n=1}^\infty O_n$.  We have then that since $\mathbb{Q}$ is dense in $\mathbb{R}$, then each $O_n$ is dense in $\mathbb{R}$, as each of these sets contains the set $\mathbb{Q}$.  Thus, if we enumerate $\mathbb{Q}=\{q_n\}$ and define the sets $\tilde{O}_n=O_n-\{q_n\}$, we claim that each $\tilde{O}_n$ is open and dense.\\
+
+\noindent Indeed, an open set in $\mathbb{R}$ is a union of open intervals, and a union of open intervals minus a single point is itself a union of open intervals.  Thus, each $\tilde{O}_n$ is open.  To show that each $\tilde{O}_n$ is dense, we choose some arbitrary $x\in\mathbb{R}$ and consider $B_\varepsilon(x)$.  We wish to show that $B_\varepsilon(x)\cap\tilde{O}_n\neq\emptyset$ (we assume without loss of generality that $x\not\in\tilde{O}_n$ as otherwise we are immediately done).  By the assumption that $O_n$ is dense, we have that there is some $q_0\in O_n$ such that $q_0\in B_\varepsilon(x)$.  If $q_0\neq q_n$, we have that $q_0\in\tilde{O}_n$ and we are done.  Otherwise, we have that either $x=q_n$ or there is some $\delta<\varepsilon$ such that $|x-q_n|=\delta$. \\
+
+\noindent In the former case, we choose some $y\in B_\varepsilon(q_n)$ with $y\neq q_n$  Then we have that $|y-q_n|=\delta<\varepsilon$.  So we have by the density of $O_n$ that there is some $y'\neq q_n\in B_{\frac{\delta}{2}}(y)\cap B_{\frac{\varepsilon}{2}}(q_n)\cap O_n\subseteq B_\varepsilon(x)\cap O_n$.  Since $y'\neq q_n$, we have that $y'\in\tilde{O}_n$, proving the desired claim.\\
+ 
+\noindent In the latter case we must have that there is some $q_0'\neq q_n\in O_n$, and thus in $\tilde{O_n}$, such that $q_0'\in B_{\frac{\delta}{2}}(x)\subseteq B_\varepsilon(x)$.  Thus, $B_\varepsilon(x)\cap\tilde{O}_n\neq\emptyset$ and therefore $\tilde{O_n}$ is dense as desired.\\
+
+\noindent By construction, however, we have that $\bigcap_{n=1}^\infty O_n=\emptyset$.  This is a contradiction by the Baire Category Theorem.  Thus, we must have that $\mathbb{Q}$ is not a $G_\delta$ set as desired.
+
+\section*{Problem 6}
+Prove or disprove the following:\\
+
+\noindent Let $A$ be a measurable subset of $\mathbb{R}$. let $I=A\cap[a,b]$, where $[a,b]$ is a compact interval in $\mathbb{R}$, and let $f:I\rightarrow\mathbb{R}$.  Assume $f$ is continuous on $I$, in the sense that $$\lim_{n\rightarrow\infty}x_n=x\Rightarrow\lim_{n\rightarrow\infty}f(x_n)=f(x),$$ for $x_n,x\in I$.  Then $f$ is bounded.
+
+\section*{Solution}
+The claim is false.  Let $A=(a,b)$ so that $I=(a,b)$.  Then we have that the function $f:I\rightarrow\mathbb{R}$ defined by $\frac{1}{x-a}$ is continuous on $I$ but it is certainly not bounded.
+
+\section*{{\it January 2013}}
+
+\section*{Problem 1}
+Let $f\in L^\infty([0,1])$, $f\neq 0$.  Show that the limit
+\begin{align*}
+\lim_{p\rightarrow\infty}\frac{\int_0^1|f|^{p+1}dx}{\int_0^1|f|^pdx}
+\end{align*}
+exists and compute it.
+
+\section*{Solution}
+First, we note that since $[0,1]$ is a measurable set of finite measure that $L^{\infty}([0,1])\subseteq L^p([0,1])$ for all $1\leq p\leq\infty$ and therefore that $f\in L^p([0,1])$ for all such $p$.  Furthermore, since $m([0,1])=1$, we have that $||f||_{p+1}\leq||f||_p$ for all $1\leq p\leq\infty$.  Thus, we have that
+\begin{align*}
+\liminf_{p\rightarrow\infty}\frac{\int_0^1|f|^{p+1}dx}{\int_0^1|f|^pdx}=\liminf_{p\rightarrow\infty}\frac{||f||_{p+1}^{p+1}}{||f||_p^p}&\geq\liminf_{p\rightarrow\infty}\frac{||f||_{p+1}^{p+1}}{||f||_{p+1}^p}\\
+&=\liminf_{p\rightarrow\infty} ||f||_{p+1}=||f||_\infty.
+\end{align*}
+(it's not clear to me whether or not I'm allowed to state that last part, but another problem on this list will justify that this is indeed the case.)  On the other hand, if $||f||_\infty=M$, then removing a set of measure zero as necessary we have that
+\begin{align*}
+\limsup_{p\rightarrow\infty}\frac{\int_0^1|f|^{p+1}dx}{\int_0^1|f|^pdx}\leq\limsup_{p\rightarrow\infty}\frac{\int_0^1M|f|^pdx}{\int_0^1|f|^pdx}=M=||f||_\infty
+\end{align*}
+Thus, the limit exists and is equal to $||f||_\infty$.
+
+\section*{Problem 2}
+Is it true that for any $f\in L^1([0,1])$ there exists $[a,b]\subset[0,1],a<b$, such that $f\in L^2([a,b])$?\\
+
+\section*{Solution}
+
+\section*{Problem 3}
+Let $E\subseteq[0,1]$ denote the set of all number $x$ that have some decimal expansion $x=0.a_1a_2a_3\cdots$ with an $a_n\neq2$ for all $n$.  Show that $E$ is a measurable set, and calculate its measure.\\
+
+\section*{Solution}
+We denote $A_n$ as the set of real numbers which have a $2$ in the $i$th position of its decimal expansion and such that the $i$th position is the first position in which a $2$ appears.  We have then that $\bigcup_{n=1}^\infty A_n=E^c$ and that
+\begin{align*}
+A_1&=[.2,.3]\\
+A_2&=\left(\bigcup_{i=0}^1[.i2,.i3]\right)\cup\left(\bigcup_{i=3}^9[.i2,.i3]\right)\\
+A_3&=\left(\bigcup_{i=0}^1\bigcup_{j=0}^1[.ij2,.ij3]\right)\cup\left(\bigcup_{i=0}^1\bigcup_{j=3}^9[.ij2,.ij3]\right)\cup\left(\bigcup_{i=3}^9\bigcup_{j=0}^1[.ij2,.ij3]\right)\cup\left(\bigcup_{i=3}^9\bigcup_{j=3}^9[.ij2,.ij3]\right).
+\end{align*}
+Continuing this way, we note that $A_n$ is the union of $9^{n-1}$ disjoint intervals of length $10^{-n}$.  This implies that $E^c$ is measurable so that $E$ is measurable.  In particular, we have that 
+\begin{align*}
+m(E^c)=\sum_{n=0}^\infty\frac{9^n}{10^{n+1}}=\frac{1}{10}\cdot\frac{1}{1-\frac{9}{10}}
+\end{align*}
+
+\section*{Problem 4}
+Show that if $A_n\subseteq[0,1]$ and Lebesgue-measurable, with measure at least $c>0$ for each $n\geq1$, then the set of points which belong to infinitely many sets is measurable and its measure is at least $c$.\\
+
+\section*{Solution}
+First, we note that the set of points which belong to infinitely many sets is by definition given by $\limsup_{n\rightarrow\infty} A_n=\bigcap_{n=1}^\infty\bigcup_{k\geq n}A_n$.  Thus, since the Lebesgue-measurable sets are a $\sigma$-algebra, we have that this is a measurable set as desired.  Furthermore, if we let $\overline{A_n}=\bigcup_{k\geq n} A_k$, we have that $\overline{A_n}$ is measurable for each $n\geq 1$ and that $\{\overline{A_n}\}$ is a descending sequence of measurable sets.  Thus, since $m(A_n)\geq c$ for all $n$, we have that $m(\overline{A_n})\geq c$ for all $n\geq 1$ and thus by the continuity of measure that
+\begin{align*}
+m\left(\bigcap_{n=1}^\infty\bigcup_{k\geq n}A_n\right)=m\left(\bigcap_{n=1}^\infty\overline{A_n}\right)=\lim_{n\rightarrow\infty}m(\overline{A_n})\geq c
+\end{align*}
+as desired.
+
+
+\section*{Problem 5}
+Construct Lebesgue-measurable real valued functions on $[a,b]$ so that they converge to zero pointwise but there is no null set $N$ in $[a,b]$ such that convergence is uniform outside of $N$ (that is, Egoroff's Theorem is sharp).
+
+\section*{Solution}
+We consider the sequence of functions $\{f_n\}_{n=1}^\infty$ defined on $[a,b]$ where for a given $n\in\mathbb{N}$ we have that $f_n=\chi_{(a,a+\frac{b-a}{n}]}$.  Then each $f_n$ is measurable and $f_n\rightarrow 0$, as $f_n(a)=0$ and for any $x\in(a,b]$, we have that there is some $N\in\mathbb{N}$ such that $x\not\in(a,a+\frac{b-a}{n}]$ and therefore that $f_n(x)=0$ for all $n\geq N$.  However, each $f_n$ is nonzero on a set of positive measure, thus there is no null set $N\subseteq [a,b]$ such that the convergence is uniform on $[a,b]-N$ as desired.
+
+\section*{Problem 6}
+Prove that for any function $f:\mathbb{R}\rightarrow\mathbb{R}$, the set of its continuity points is $G_\delta$.
+
+\section*{Solution}
+We let define $A_n=\{x\in\mathbb{R}\mid$ there exists $r_{x_n}>0$ such that for all $x,x''\in B(x,r_{x_n}),|f(x')-f(x'')|<\frac{1}{n}\}$.  We claim that for each $n\in\mathbb{N}$, $A_n$ is an open set.  Indeed, choose $x\in A_n$.  Then we claim that $B(x,r_{x_n})\subseteq A_n$.  Indeed, if we choose some $y\in B(x,r_{x_n})$, we have since $B(x,r_{x_n})$ is an open set that there exists some $\varepsilon>0$ such that $B(y,\varepsilon)\subseteq B(x,r_{x_n})$.  In particular, then, this implies that for all $x',x''\in B(y,\varepsilon)$, we have that $|f(x')-f(x'')|<\frac{1}{n}$ so that by definition $y\in A_n$..  Thus, since $y$ was arbitrary, $B(x,r_{x_n})\subseteq A_n$ and thus $A_n$ is open as desired.\\
+
+\noindent Now, we let $A=\bigcap_{n=1}^\infty A_n$ and $C=\{x\in\mathbb{R}\mid f$ is continuous at $x\}$.  Then we claim that $A=C$.  To show that $C\subseteq A$, we let $x\in C$ and choose $n\in\mathbb{N}$.  We wish to show that $x\in A_n$.  To do so, we choose $\varepsilon>0$ such that $\varepsilon<\frac{1}{n}$.  Since $f$ is continuous at $x$, we have that there is some $\delta>0$ such that $x', x''\in B(x,\delta)$, $|f(x')-f(x'')|<\varepsilon<\frac{1}{n}$.  Thus, we have that $x\in A_n$ by definition.  Since $n$ was arbitrary, we have that $x\in A$.\\
+
+\noindent To show that $A\subseteq C$, we choose some $x\in A$ and some $\varepsilon>0$.  Then there exists some $n\in\mathbb{N}$ such that $\frac{1}{n}<\varepsilon$.  Since $x\in A_n$, we have that there is some $r_{x_n}>0$ such that for all $x',x''\in B(x,r_{x_n})$, $|f(x')-f(x'')|<\frac{1}{n}<\varepsilon$.  Thus, by definition $f$ is continuous at $x$ and thus $x\in C$.\\
+
+\noindent Thus, since $C=A$ and $A$ is by construction a $G_\delta$ set, we have proven the above claim.
+
+
+
+\section*{{\it August 2012}}
+
+\section*{Problem 1}
+Let $\{f_n:n\in\mathbb{N}\}$ be a sequence of real-valued functions defined on $[0,1]$.  Suppose $\lim_{n\rightarrow\infty}f_n(x)=f(x)$ for almost all $x\in[0,1]$.\\
+
+\noindent (a) Is $f$ necessarily Lebesgue measurable? If yes, prove it, and if no, provide a counterexample.\\
+
+\noindent (b) Give a condition on $\{f_n:n\in\mathbb{N}\}$ that guarantees $$\lim_{n\rightarrow\infty}\int_0^1f_n=\int_0^1f.$$  Be sure to prove that your condition implies the desired conclusion.\\
+
+\noindent (c) Give an example of a sequence of Lebesgue measurable functions $\{f_n\}$ defined on $[0,1]$ that violates your condition in (b) and such that $$\lim_{n\rightarrow\infty}\int_0^1f_n\neq\int_0^1f.$$
+
+\section*{Solution}
+(a) Yes, $f$ is necessarily Lebesgue measurable.  To show this, we claim first that $\sup_nf_n$ and $\inf_nf_n$ are measurable functions.  Indeed, given $c\in\mathbb{R}$, we have that
+\begin{align*}
+\{x\in[0,1]\mid\sup_nf_n(x)\leq c\}&=\bigcap_{n=1}^\infty\{x\in[0,1]\mid f_n(x)\leq c\}\\
+\{x\in[0,1]\mid\inf_nf_n(x)\geq c\}&=\bigcap_{n=1}^\infty\{x\in[0,1]\mid f_n(x)\geq c\}
+\end{align*}
+so that they are by definition measurable functions as desired.  Similarly $\limsup_nf_n=\sup_{n}(\inf_{k\geq n}f_n)$ and $\liminf_nf_n=\sup_n(\inf_{k\geq n}f_n)$ are measurable functions.  Thus, we have since $f(x)=\limsup_nf_n(x)=\liminf_nf_n(x)$ for almost all $x\in[0,1]$ so that up to a difference of a set of measure 0
+\begin{align*}
+\{x\in[0,1]\mid \limsup_nf_n(x)>c\}=\{x\in[0,1]\mid f(x)>c\}
+\end{align*}
+and thus that $f$ is measurable as desired.\\
+
+\noindent (b) In the case that there is some $M>0$ such that $|f_n(x)|\leq M$ for all $x\in[0,1]$ and $n\in\mathbb{N}$ we have that $\lim_{n\rightarrow\infty}\int_0^1f_n=\int_0^1f.$ Indeed, given any measurable subset $A\subseteq [0,1]$ we have that
+\begin{align*}
+\left|\int_0^1f_n(x)dx-\int_0^1f(x)dx\right|\leq\int_A|f_n(x)-f(x)|dx+\int_{[0,1]-A}|f_n(x)|dx+\int_{[0,1]-A}|-f|dx
+\end{align*}
+Since $f_n\rightarrow f$ pointwise almost everywhere on $[0,1]$ we have that there is a set of measure at most zero on which $f(x)>M$.  Thus, choosing an arbitrary $\varepsilon>0$ and noting that by Egoroff's Theorem there is a subset $A\subseteq[0,1]$ such that $f_n\rightarrow f$ uniformly on $A$ and $m([0,1]-A)<\frac{\varepsilon}{4M}$, we have by our work above that we may choose $n$ sufficiently large so that 
+\begin{align*}
+\left|\int_0^1f_n(x)dx-\int_0^1f(x)dx\right|<\frac{\varepsilon}{2}+2M\cdot\frac{\varepsilon}{4M}=\varepsilon
+\end{align*}
+so that $\lim_{n\rightarrow\infty}\int_0^1f_n=\int_0^1f$ as desired.\\
+
+\noindent We have that $f_n=n\chi_{(0,\frac{1}{n}]}$ converges pointwise to $f\equiv0$ on $[0,1]$ but that there is no $M>0$ such that $|f_n(x)|<M$ for all $n\in\mathbb{N}$ and $x\in[0,1]$.  Sure enough, we have that $\int_0^1f=0\neq 1=\lim_{n\rightarrow\infty}\int_0^1f_n$ as desired.
+
+\section*{Problem 2}
+Let $f\in L^1(\mathbb{R})$, the set of Lebesgue integrable functions over $\mathbb{R}$.  Prove that $$\lim_{x\rightarrow0}\int_\mathbb{R}|f(t+x)-f(t)|dt=0.$$ You may use the fact that the space $C_C(\mathbb{R})$ of continuous functions on $\mathbb{R}$ with compact support is dense in $L^1(\mathbb{R})$ with respect to the standard norm.
+
+\section*{Solution}
+Choose some $\varepsilon>0$.  Since the space $C_C(\mathbb{R})$ of continuous functions on $\mathbb{R}$ with compact support is dense in $L^1(\mathbb{R})$ we have that there is some such function $g$ such that $||f-g||_1<\frac{\varepsilon}{2}$.  Thus, we have that for any $x\in\mathbb{R}$:
+\begin{align*}
+\int_\mathbb{R}|f(t+x)-f(t)|dt=&\leq\int_\mathbb{R}|f(t+x)-g(t+x)|+|g(t+x)-g(t)|+|g(t)-f(t)|dt\\
+&<\varepsilon+\int_\mathbb{R}|g(t+x)-g(t)|dt
+\end{align*}
+Now, since by assumption $g$ has compact support we have that there is some $-\infty<a<b<\infty\in\mathbb{R}$ such that $$\int_\mathbb{R}|g(t+x)-g(t)|dt=\int_a^b|g(t+x)-g(t)|dt.$$ By the Extreme Value Theorem we have that there is some $M>0$ such that $|g(t)|\leq M$ for all $t\in[a,b]$ so that $|g(t+x)-g(t)|\leq 2M$ and thus by the continuity of $g$ and the Lebesgue Dominated Convergence Theorem we have that $\lim_{x\rightarrow0}\int_a^b|g(t+x)-g(t)|dt=0$.  Therefore $$\lim_{x\rightarrow 0}\int_\mathbb{R}|f(t+x)-f(t)|dt<\varepsilon.$$ as desired.
+
+\section*{Problem 3}
+Let $f$ be a measurable function on $\mathbb{R}$ with $f\in L^1(\mathbb{R})\cap L^\infty(\mathbb{R})$.\\
+
+\noindent (a) Prove that for all $p\in(1,\infty)$, $f\in L^p(\mathbb{R})$.\\
+
+\noindent (b) Prove that $\lim_{p\rightarrow\infty}||f||_p=||f||_\infty$.
+
+\section*{Solution}
+(a) Let $||f||_\infty=M$.  Then we have that for any $p\in(1,\infty)$:
+\begin{align*}
+\int_\mathbb{R}|f|^p\leq M^{p-1}\int_\mathbb{R}|f|=M^{p-1}||f||_1<\infty.
+\end{align*}
+Thus, by definition we have that $f\in L^p(\mathbb{R})$ as desired.\\
+
+\noindent (b) One one hand, we have that 
+\begin{align*}
+\liminf_{p\rightarrow\infty}||f||_p&=\liminf_{p\rightarrow\infty}\left(\int_\mathbb{R}|f|^p\right)^{\frac{1}{p}}\\
+&\leq\liminf_{p\rightarrow\infty}\left(M^{p-1}\int_\mathbb{R}|f|\right)^\frac{1}{p}\\
+&=\lim_{p\rightarrow\infty}M^\frac{p-1}{p}||f||_1^\frac{1}{p}=M=||f||_\infty
+\end{align*}
+On the other hand, if we choose an arbitrary $\delta>0$ such that $M-\delta<0$, we may define $E_\delta=\{x\in\mathbb{R}\mid f(x)\geq M-\delta\}$.  We have by definition of $||f||_\infty=M$ that $m(E_\delta)>0$.  Thus, we have that
+\begin{align*}
+\limsup_{p\rightarrow\infty}||f||_p&=\liminf_{p\rightarrow\infty}\left(\int_\mathbb{R}|f|^p\right)^{\frac{1}{p}}\\
+&\geq\liminf_{p\rightarrow\infty}\left(\int_{E_\delta}|f|^p\right)^\frac{1}{p}\\
+&\geq\liminf_{p\rightarrow\infty}\left(\int_{E_\delta}(M-\delta)^p\right)^\frac{1}{p}\\
+&=\lim_{p\rightarrow\infty}(M-\delta)m(E-\delta)^\frac{1}{p}=M-\delta
+\end{align*}
+Since $\delta$ was arbitrary, we have that $\liminf_{p\rightarrow\infty}\geq M$.  Thus, we have that $\limsup_{p\rightarrow\infty}||f||_p\leq||f||_\infty\leq\liminf_{p\rightarrow\infty}||f||_p$.  Thus, we have that $\lim_{p\rightarrow\infty}||f||_p=||f||_\infty$.
+
+\section*{Problem 4}
+A function $f:[a,b]\rightarrow\mathbb{R}$ is said to be Lipschitz on $[a,b]$ provided there is a constant $M>0$ such that $|f(x)-f(y)|\leq M|x-y|$ for all $x,y\in[a,b]$.\\
+
+\noindent (a) Prove that if $g:[a,b]\rightarrow[c,d]$ is absolutely continuous on $[a,b]$, and $f:[c,d]\rightarrow\mathbb{R}$ is Lipschitz on $[c,d]$, then $f\circ g:[a,b]\rightarrow\mathbb{R}$ is absolutely continuous on $[a,b]$.\\
+
+\noindent (b) By using part (a) or otherwise, prove that any Lipschitz function $f$ defined on $[a,b]$ is absolutely continuous.  Is the converse true, i.e. is an absolutely continuous function $f:[a,b]\rightarrow\mathbb{R}$ necessarily Lipschitz? Either prove this is true, or provide a counterexample.
+
+\section*{Solution}
+(a) Choose $\varepsilon>0$.  We have then that there is some $\delta>0$ such that if $(a_1,b_1),\cdots,(a_n,b_n)\subseteq[a,b]$ are such that $\sum_{i=1}^n[b_i-a_i]<\delta$ then $\sum_{i=1}^n|f(b_i)-f(a_i)|<\frac{\varepsilon}{M}$.  Then by the definition of a Lipschitz function we have that $\sum_{i=1}^n|f\circ g(b_i)-f\circ g(a_i)|<M(\frac{\varepsilon}{M})=\varepsilon$.  Thus $f\circ g$ is absolutely continuous.\\
+
+\noindent (b) We note that clearly the identity function on $[a,b]$ is absolutely continuous.  Thus, using (a) above we have that if $f$ is Lipschitz on $[a,b]$ then $f\circ Id=f$ is absolutely continuous as desired.  The function $f:[0,1]\rightarrow\mathbb{R}$ given by $f(x)=\sqrt{x}$ is absolutely continuous, as it can be expressed as the indefinite integral $\int_0^x\frac{2}{3}x^\frac{3}{2}$ but its derivative is unbounded so it cannot be Lipschitz.\\
+
+\section*{Problem 5}
+Let $f\in L^1[-\pi,\pi]$, and for $n\in\mathbb{Z}$, define $c_n=\frac{1}{2\pi}\int_{-\pi}^\pi f(t)e^{-int}dt$, where $e^{i\theta}=\cos(\theta)+i\sin(\theta)$.\\
+
+\noindent (a) Prove that $\lim_{|n|\rightarrow\infty}c_n$ exists.\\
+
+\noindent (b) Is the limit in (a) independent of $f$? If so, prove it.  If no, give examples of $f_1$ and $f_2\in L^1[-\pi,\pi]$ with different limits arising in (a).
+
+\section*{Solution}
+We consider first the case where $f=\chi_{(a,b)}$ from some interval $(a,b)\subseteq[-\pi,\pi]$.  Then we have that 
+\begin{align*}
+\lim_{|n|\rightarrow\infty}\frac{1}{2\pi}\int_{-\pi}^\pi f(t)e^{-int}dt&=\lim_{|n|\rightarrow\infty}\frac{1}{2\pi}\int_a^be^{-int}dt\\
+&=\lim_{|n|\rightarrow\infty}\frac{i}{2n\pi}(e^{-ibn}-e^{-ian})=0.
+\end{align*}
+In the case where $f$ is instead a step function, that is, where $f=\sum_{j=1}^k\alpha_j\chi_{(a_j,b_j)}$ with $(a_j,b_j)\subseteq[-\pi,\pi]$ with $(a_j,b_j)\cap(a_{j'},b_{j'})=\emptyset$ for $j\neq j'$, we have that
+\begin{align*}
+\lim_{|n|\rightarrow\infty}\frac{1}{2\pi}\int_{-\pi}^\pi f(t)e^{-int}dt&=\sum_{j=1}^k\lim_{|n|\rightarrow\infty}\frac{\alpha_j}{2\pi}\int_{a_j}^{b_j}e^{-int}\\
+&=\sum_{j=1}^k\lim_{|n|\rightarrow\infty}\frac{i\alpha_j}{2\pi n}(e^{-ibn}-e^{-ian})=0.
+\end{align*}
+Finally, if $f$ is an arbitrary function in $L^1[-\pi,\pi]$, we note that step functions are dense in $L^1[-\pi,\pi]$ so that if $\varepsilon>0$ is arbitrary there is some step function $\phi\in L^1[-\pi,\pi]$ such that $||f-\phi||_1<\varepsilon$.  Thus, we have that
+\begin{align*}
+\lim_{|n|\rightarrow\infty}\left|\frac{1}{2\pi}\int_\mathbb{R}f(t)e^{-int}dt\right|&=\lim_{|n|\rightarrow\infty}\left|\frac{1}{2\pi}\int_\mathbb{R}f(t)e^{-int}dt-\left(\lim_{|n|\rightarrow\infty}\frac{1}{2\pi}\int_\mathbb{R}\phi(t)e^{-int}dt-\lim_{|n|\rightarrow\infty}\frac{1}{2\pi}\int_\mathbb{R}\phi(t)e^{-int}dt\right)\right|\\
+&\leq\lim_{|n|\rightarrow\infty}\frac{1}{2\pi}\int_\mathbb{R}|f(t)-\phi(t)||e^{-int}|dt+\frac{1}{2\pi}\left|\int_\mathbb{R}\phi(t)e^{-int}dt\right|\\
+&=\frac{1}{2\pi}\int_\mathbb{R}|f(t)-\phi(t)|dt<\frac{\varepsilon}{2\pi}
+\end{align*}
+Since $\varepsilon$ was arbitrary, we have the $\lim_{|n|\rightarrow\infty}c_n=0$, which proves part (a) and shows that the limit is independent of $f$ as desired in part (b).
+
+
+\section*{Problem 6}
+Let $f:[0,1]\rightarrow\mathbb{R}$ be continuous with $f(0)=f(1)$.  Prove that there exists $x\in[0,\frac{3}{4}]$ with $f(x)=f(x+\frac{1}{4})$
+
+\section*{Solution}
+Assume that no such $x$ exists.  In particular, this implies that since the function $f(x+\frac{1}{4})-f(x)$, which is by definition defined on $[0,\frac{3}{4}]$, does not equal zero for any $x$ in its domain.  By the Intermediate Value Theorem, we must have since $f(x+\frac{1}{4})-f(x)$ is continuous, that $f(x+\frac{1}{4})-f(x)<0$ or $f(x+\frac{1}{4})-f(x)<0$ for all $x\in[0,\frac{3}{4}]$.  Without loss of generality, we assume the former.  This implies however that $f(0)>f(\frac{1}{4})>f(\frac{1}{2})>f(\frac{3}{4})>f(1)$, a contradiction.  Thus, we must have that there is some $x\in[0,\frac{3}{4}]$ such that $f(x)=f(x+\frac{1}{4})$ as desired.
+
+\section*{{\it January 2012}}
+
+\section*{Problem 1}
+(a) Let $A$ be a measurable subset of $[0,1]$.  Define the function $f:[0,1]\rightarrow\mathbb{R}$ by setting $f(x)=\mu(A\cap[0,x])$; here $\mu$ is the Lebesgue measure.  Show that $f$ is absolutely continuous.\\
+
+\noindent (b) Does there exists a measurable set $A\subseteq[0,1]$ such that one has $$\mu(A\cap[a,b])=\frac{1}{2}(b-a)$$ for every interval $[a,b]\subseteq[0,1]$?\\
+
+
+\section*{Solution}
+(a) We note that for any measurable subset $A\subseteq[0,1]$ we have that
+\begin{align*}
+\int_0^x\chi_A(t)dt=\int_{[0,x]\cap A}1dt=\mu(A\cap[0,x])=f(x)
+\end{align*}
+Thus, since $f(x)$ can be expressed as an indefinite integral, it is absolutely continuous as desired.\\
+
+\noindent (b) Such a set does not exist.  Indeed, if we assume toward the contrary that such a set $A$ does exist then we have by part (a) that, given the subset $[0,x]\subseteq[0,1]$:
+\begin{align*}
+\frac{1}{2}=\frac{d}{dx}\left(\frac{1}{2}(x-0)\right)=\frac{d}{dx}(f(x))=\frac{d}{dx}\left(\int_0^x\chi_A(t)dt\right)=\chi_A(x)
+\end{align*}
+for almost all $x\in[0,1]$.  This certainly cannot be the case, however, as $\chi_A(x)\in\{0,1\}$ for all $x\in\mathbb{R}$.  Thus, no such $A$ exists as desired.
+
+\section*{Problem 2}
+Let $f\in L^p(\mathbb{R})$, $1\leq p<\infty$.  Set $f_n(x)=f(x+\frac{1}{n})$.  Show that the sequence $f_n$ converges to $f$ in $L^p$.  Is this true for $p=\infty$?
+
+\section*{Solution}
+We note first that for $1\leq p<\infty$, the set of continuous functions with compact support are dense in $L^p(\mathbb{R})$.  Thus, if $\varepsilon>0$ is arbitrary, we have that there is some such function $g$ such that $||f-g||_p<\frac{\varepsilon}{2}$.  Thus, we have via Minkowski's inequality that if $f_n(x)=f(x+\frac{1}{n}$
+\begin{align*}
+\lim_{n\rightarrow\infty}||f_n-f||_p&\leq\lim_{n\rightarrow\infty}||f_n-g_n||_p+||g_n-g||_p+||g-f||_p\\
+&<\lim_{n\rightarrow\infty}\varepsilon+\left(\int_\mathbb{R}|g_n-g|^p\right)^{\frac{1}{p}}.
+\end{align*}
+Now, we note that since $g$ is a continuous function with compact support, we have that $$\left(\int_\mathbb{R}|g_n-g|^p\right)^{\frac{1}{p}}=\left(\int_a^b|g_n-g|^p\right)^{\frac{1}{p}}$$ for some $-\infty<a<b<\infty$.  Furthermore, we have that the function $g$ is continuous on $[a,b]$, so that by the Extreme Value Theorem we have that there is some $M\geq0$ such that $|g(x)|\leq M$ for all $x\in[a,b]$.  Thus, we have that $|g-g_n|^p\leq(2M)^p$ on $[a,b]$.  Since $g_n\rightarrow g$ pointwise by the continuity of $g$, we have by Lebesgue's Dominated Convergence Theorem that
+\begin{align*}
+\lim_{n\rightarrow\infty}\left(\int_a^b|g_n-g|^p\right)^{\frac{1}{p}}=0
+\end{align*}
+and therefore that $\lim_{n\rightarrow\infty}||f_n-f||_p<\varepsilon$.  Since $\varepsilon$ was arbitrary, we have that $f_n$ converges to $f$ in $L^p(\mathbb{R})$ as desired.\\
+
+\noindent This is not necessarily the case in $L^\infty(\mathbb{R})$.  Indeed, we note that the function $f(x)=\chi_{(0,1]}$ is in $L^\infty(\mathbb{R})$, but that for any $n\in\mathbb{N}$ that $||f-f_n||_\infty=1$ so that $f_n\not\rightarrow f$ in $L^\infty(\mathbb{R})$ as desired.
+
+\section*{Problem 3}
+Let $f_n$ be a sequence of continuous functions on $[0,1]$ such that $|f_n(x)|\leq 1$ for all $n\in\mathbb{N}$, $x\in[0,1]$.  Let $K$ be a continuous function on $[0,1]\times[0,1]$.  Define a sequence of functions $g_n$ on $[0,1]$ by $$g_n(x)=\int_0^1K(x,y)f_n(y)dy.$$ Show that the sequence $g_n$ contains a uniformly convergent subsequence.\\
+
+\section*{Solution}
+We wish to show that that sequence $\{g_n\}$ is bounded and equicontinuous.  Then, by the Ascoli-Arzela Theorem we will have that $g_n$ contains a uniformly convergence subsequence as desired.  To show that $g_n$ is uniformly bounded, we note first that since $K(x,y)$ is continuous on a compact set, there is some $M\geq 0$ such that $|K(x,y)|\leq M$.  Thus, we have that
+\begin{align*}
+|g_n(x)|\leq\int_0^1|K(x,y)||f_n(y)|dy\leq\int_0^1Mdy=M.
+\end{align*}
+Since $n$ was chosen arbitrarily, we have that $\{g_n\}$ is uniformly bounded as desired.  Now, we note that since $K(x,y)$ is continuous, we have that given $\varepsilon>0$ if $|(x,y)-(x',y')|<\delta$, then $|K(x,y)-K(x',y')|<\frac{\varepsilon}{M}$.  In particular, if $y$ is fixed, we have that $|x-x'|<\delta$ implies that $|(x,y)-(x',y)|<\delta$.  Thus, for such a choice of $x,x'\in[0,1]$ we have that
+\begin{align*}
+|g_n(x)-g_n(x')|\leq\int_0^1|K(x',y)-K(x,y)||f_n(y)|dy<\int_0^1\varepsilon dy=\varepsilon
+\end{align*}
+Again, since $n$ was arbitrary, this implies that $\{g_n\}$ is equicontinuous, proving the desired result.  
+
+\section*{Problem 4}
+Let $\{f_n\}$ be a sequence of measurable function on $[0,1]$, and suppose that for every $a>0$ the infinite series $$\sum_{i=1}^\infty\mu(\{x\in[0,1]\mid|f_n(x)>a\})$$ converges; here $\mu$ is the Lebesgue measure.  Prove that $\lim f_n(x)=0$ for almost every $x\in[0,1]$.
+
+\section*{Solution}
+Choose an arbitrary $a>0$.  We have then since $\sum_{i=1}^\infty\mu(\{x\in[0,1]\mid|f_n(x)>a\})<\infty$ that by the Borel-Cantelli Lemma that almost all $x\in[0,1]$ belong to at most finitely many of the sets $\{x\in[0,1]\mid|f_n(x)>a\}$.  Thus for almost all $x\in[0,1]$, there is some $N_x\in\mathbb{N}$ such that for all $n\geq N_x$ we have that $x\not\in\{x\in[0,1]\mid f_n(x)>a\}$.  Thus, $f_n(x)<a$ for all $n\geq N_x$.  Since $a$ was arbitrary, we may let $a\rightarrow0$ so that in fact $\lim f_n(x)=0$ for almost all $x\in[0,1]$ as desired.
+
+\section*{Problem 5}
+Let $A\subset\mathbb{R}$ be a set of zero Lebesgue measure.  Prove that it can be translated completely into the set of irrationals, that is, there exists a $c\in\mathbb{R}$ such that $A+c\subseteq\mathbb{R}-\mathbb{Q}$, where $A+c=\{x+c\mid x\in A\}$.
+
+\section*{Solution}
+If $A=\emptyset$ then the statement is trivially true.  Otherwise, we assume toward the contrary that $A$ cannot be translated into the irrationals.  Then we claim that for each $c\in\mathbb{R}$ there is some $q\in\mathbb{Q}$ such that $c\in A+q$.  Indeed, by assumption we have that there is some $q\in\mathbb{Q}$ such that $-q\in A+(-c)$.  Then we have that there is some $a\in A$ such that $-q=a-c$ so that $c=a+q$.  This implies then that $c\in A+q$ as desired.\\
+
+\noindent Since $c$ was arbitrary, this implies that $\mathbb{R}\subseteq\bigcup_{q\in\mathbb{Q}}A+q$.  However, by the countable subadditivity of Lebesque measure we have then that
+\begin{align*}
+m(\mathbb{R})\leq\sum_{q\in\mathbb{Q}}m(A+q)=0
+\end{align*}
+which is a contradiction.  Thus, there must be some $c\in\mathbb{R}$ such that $A+c\subseteq\mathbb{R}-\mathbb{Q}$ as desired.
+
+\section*{Problem 6}
+Let $\mu$ be the Lebesgue measure on the interval $[a,b]$.  Let $A_n,n\geq 1$ be measurable subsets of $[a,b]$, and $f(x)$ the number of sets containing $x$, for $x\in[a,b]$, that if $f(x)=\#(\{n\geq1\mid x\in A_n\})$.  Prove that $f:[a,b]\rightarrow\mathbb{N}\cup\{+\infty\}$ is measurable and that $$(b-a)\int_\mathbb{R}f^2(x)dx\geq\left[\sum_{i=1}^\infty\mu(A_i)\right]^2.$$
+
+\section*{Solution}
+We note that by construction $f(x)=\sum_i\chi_{A_i}$.  Since $f$ only assumes nonnegative integer values, to show that $f$ is measurable we need only to show that the sets $\{x\in[a,b]\mid f(x)\geq n,n\in\mathbb{N}\}$ are measurable.  To this end, we note that by construction
+\begin{align*}
+\{x\in[a,b]\mid f(x)\geq 0\}&=[a,b]\\
+\{x\in[a,b]\mid f(x)\geq 1\}&=\bigcup_iA_i\\
+\{x\in[a,b]\mid f(x)\geq 2\}&=\bigcup_{i\neq i'\in\mathbb{N}}(A_i\cap A_{i'})\\
+\{x\in[a,b]\mid f(x)\geq 3\}&=\bigcup_{i,i',i''\text{ distinct}\in\mathbb{N}}(A_i\cap A_{i'}\cap A_{i''})\\
+&\vdots\\
+\{x\in[a,b]\mid f(x)\geq n\}&=\bigcup_{i,i',\cdots,i^{(n)}\text{ distinct}\in\mathbb{N}}(A_i\cap\cdots\cap A_{i^{(n)}})
+&\vdots\\
+\{x\in[a,b]\mid f(x)=\infty\}
+\end{align*}
+Thus, it is clearly the case that $f$ is a measurable function.  Now, we assume that $f\not\in L^2[a,b]$.  In this case, we have by definition that $\infty=(b-a)\int_0^1f^2(x)dx\geq\left[\sum_{i=1}^\infty\mu(A_i)\right]^2$ as desired.  In the case where $f\in L^2[a,b]$, we have by the Cauchy-Schwartz Inequality that $$\int_a^bf(x)dx=\int_a^bf(x)\cdot 1dx\leq||f||_2||1||_2=\sqrt{b-a}\left(\int_a^bf^2(x)dx\right)^\frac{1}{2}.$$  Thus, we have via the Monotone Convergence Theorem that
+\begin{align*}
+(b-a)\int_\mathbb{R}f^2(x)dx&\geq\left(\int_a^bf(x)dx\right)^2\\
+&=\left(\int_a^b\sum_i\chi_{A_i}dx\right)^2\\
+&=\left(\sum_i\int_a^b\chi_{A_i}dx\right)^2\\
+&=\left(\sum_i\mu(A_i)\right)^2
+\end{align*}
+
+\section*{{\it August 2011}}
+Answers are online.
+
+\section*{{\it January 2011}}
+
+\section*{Problem 1}
+Let $\{f_n\}$ be a sequence of measurable real-valued functions on $[0,1]$.  Show that the set of $x$ for which $\lim_{n\rightarrow\infty}f_n(x)$ exists is measurable.
+
+\section*{Solution}
+We claim first that $\sup_nf_n$ and $\inf_nf_n$ are measurable functions.  Indeed, given $c\in\mathbb{R}$, we have that
+\begin{align*}
+\{x\in[0,1]\mid\sup_nf_n(x)\leq c\}&=\bigcap_{n=1}^\infty\{x\in[0,1]\mid f_n(x)\leq c\}\\
+\{x\in[0,1]\mid\inf_nf_n(x)\geq c\}&=\bigcap_{n=1}^\infty\{x\in[0,1]\mid f_n(x)\geq c\}
+\end{align*}
+so that they are by definition measurable functions as desired.  Similarly $\limsup_nf_n=\sup_{n}(\inf_{k\geq n}f_n)$ and $\liminf_nf_n=\sup_n(\inf_{k\geq n}f_n)$ are measurable functions.  Thus we have that the function $\limsup_nf_n-\liminf_nf_n$ is measurable so that by definition
+\begin{align*}
+\{x\in[0,1]\mid \limsup_nf_n(x)-\liminf_nf_n(x)=0\},
+\end{align*}
+that is, the set for which $\lim_{n\rightarrow\infty}f_n(x)$ exists, is a measurable set as desired.\\
+
+\section*{Problem 2}
+Let $\{f_n\}$ be a sequence of measurable functions on $[0,1]$ and suppose that $\sum_{n=1}^\infty m(\{x\in[0,1]\mid f_n(x)>1\})<\infty$ where $m$ is Lebesgue measure on $[0,1]$.  Prove that $\limsup f_n(x)\leq 1$ for almost every $x\in[0,1]$.
+
+\section*{Solution}
+Since $\sum_{n=1}^\infty m(\{x\in[0,1]\mid f_n(x)>1\})<\infty$, we have by the Borel-Cantelli Lemma that almost all $x\in[0,1]$ belong to at most finite many of the sets $\{x\in[0,1]\mid f_n(x)>1\}$.  Thus, for almost all $x\in[0,1]$ we have that there is some $N_x\in\mathbb{N}$ such that for all $n\geq N_x$, $x\not\in\{x\in[0,1]\mid f_n(x)>1\}$.  Thus, we have for all $n\geq N_x$ that $f_n(x)\leq 1$ so that $\limsup_nf_n(x)\leq 1$ as desired.
+
+
+\section*{Problem 3}
+(a) Let $f$ be a real-valued Lebesgue measurable function defined on $[0,1]$.  Give the definition of the essential supremum of $f$, $||f||_\infty$, and prove that if $f$ and $g$ are real-valued functions defined on $[0,1]$ whose essential supremums are finite, then $f+g$ is defined for almost all $x\in[0,1]$.\\
+
+\noindent (b) Let $f:[0,1]\rightarrow\mathbb{R}$ be a Lebesgue measurable function with $||f||_\infty<\infty$.  Prove that $$||f||_\infty=\sup\left\{\left|\int_0^1f(x)g(x)dx\right|:g\in L^1[0,1],||g||=1\right\}.$$
+
+\section*{Solution}
+(a) The definition of the essential supremum for a function $f$ defined on a measurable set $E$ is $||f||_\infty=\inf\{M\in\mathbb{R}_{\geq0}\mid m(\{x\in E\mid f(x)>M\})=0\}$.\\
+
+\noindent Since the essential supremums of $f$ and $g$ are finite, we have that there exist $M,N>0$ such that $m(\{x\in [0,1]\mid f(x)>M\})=0$ and $m(\{x\in [0,1]\mid g(x)>N\})=0$.  In particular, this implies that the $m(\{x\in [0,1]\mid f(x)+g(x)>M+N\})=0$ so that $f+g$ is defined for almost all $x\in[0,1]$ as desired.\\
+
+\noindent (b) First, we note that if $g\in L^1[0,1]$ is arbitrary with $||g||_1=1$, we have that
+\begin{align*}
+\left|\int_0^1f(x)g(x)dx\right|&\leq\int_0^1|f(x)||g(x)|dx\leq\int_0^1||f||_\infty\cdot 1dx=||f||_\infty
+\end{align*}
+so that $||f||_\infty\geq\sup\left\{\left|\int_0^1f(x)g(x)dx\right|:g\in L^1[0,1],||g||=1\right\}$.  Now, we choose some arbitrary $0<a<||f||_\infty$.  We then denote $E_a=\{x\in[0,1]\mid f(x)> a\}$.  By definition of $||f||_\infty$, we necessarily have that $m(E_a)>0$.  Thus, we define the function $g(x)=\frac{\mathrm{sgn}f\cdot\chi_{E_a}}{m(E_a)}$.  Clearly $||g||_1=1$.  Furthermore, we have that
+\begin{align*}
+\left|\int_0^1f(x)g(x)dx\right|=\int_{E_a}\frac{f}{m(E_a)}>\int_{E_a}\frac{a}{m(E_a)}=a.
+\end{align*}
+Since $a$ was arbitrary, this implies that $||f||_\infty\leq\sup\left\{\left|\int_0^1f(x)g(x)dx\right|:g\in L^1[0,1],||g||=1\right\}$ so that $||f||_\infty=\sup\left\{\left|\int_0^1f(x)g(x)dx\right|:g\in L^1[0,1],||g||=1\right\}$ as desired.
+
+\section*{Problem 4}
+Suppose that $\{f_n\}_{n=1}^\infty\in L^\infty[a,b]$, where $-\infty<a<b<\infty$. Let $f\in L^1[a,b]$.\\
+
+\noindent (a) Show that for all $n\geq 1, f_n\in L^1[a,b]$.\\
+
+\noindent (b) If $f_n\rightarrow f\in L^1[a,b]$, and $\sup_{n\geq 1}||f_n||_\infty<\infty$, prove that
+$f\in L^\infty[a,b]$.\\
+
+\noindent (c) Assuming part (b), prove that for all $p\in(1,\infty)$, $f_n\rightarrow f\in L^p[a,b]$.
+
+\section*{Solution}
+(a) Since $m([a,b])<\infty$, we have that $L^\infty[a,b]\subseteq L^1[a,b]$ so that $f_n\in L^1[a,b]$ for all $n\geq 1$.\\
+
+\noindent (b) Since $f_n\rightarrow f$ in $L^1[a,b]$, we have by the Riesz-Fischer Theorem that there is a subsequence $\{f_{n_k}\}$ such that $f_{n_k}\rightarrow f$ pointwise almost everywhere on $[a,b]$.  Furthermore, if $M=\sup_{n\geq 1}||f_n||_\infty$, we have by the definition of pointwise convergence that for almost all $x\in[a,b]$ on which $f_{n_k}(x)\rightarrow f(x)$, $f(x)\leq M$.  Thus, since $f_{n_k}
+\rightarrow f$ pointwise almost everywhere, and since $|f|\leq M$ almost everywhere on the set on which $f_{n_k}$ converges pointwise to $f$, we necessarily have that $|f|\leq M$ almost everywhere on $[a,b]$ so that $||f||_\infty<\infty$.  Then $f\in L^\infty[a,b]$ as desired.\\
+
+\noindent (c) Let $p\in(1,\infty)$ be arbitrary.  By part (b), we have that $f\in L^\infty[a,b]$ so that there is some $M'\geq 0$ such that $|f|\leq M$ almost everywhere on $[a,b]$.  Furthermore, we have by assumption that there is some $M''\geq 0$ such that $|f_n|<M''$ almost everywhere on $[a,b]$.  Thus, we let $M=\max\{M',M''\}$ so that since $f_n\rightarrow f$ in $L^1[a,b]$ we have that
+\begin{align*}
+\lim_{n\rightarrow\infty}\int_a^b|f_n-f|^p\leq\lim_{n\rightarrow\infty}(2M)^{p-1}|f_n-f|=0
+\end{align*}
+so that by definition $f_n\rightarrow f\in L^p[a,b]$ as desired.
+
+\section*{Problem 5}
+(a) Prove that for every $x>0,\frac{1}{x}=\int_0^\infty e^{-xt}dt$\\
+
+\noindent (b) Prove that $$\frac{\delta}{\delta{x}}\left[\frac{e^{-xt}(-t\sin(x)-\cos(x))}{t^2+1}\right]=e^{-xt}\sin(x).$$\\
+
+\noindent (c) Using parts (a) and (b), prove that $$\lim_{A\rightarrow\infty}\int_0^A\frac{\sin(x)}{x}dx=\frac{\pi}{2}.$$ State any theorems that you are using in your proof.
+
+
+\section*{Solution}
+(a) By calculus, we have that
+\begin{align*}
+\int_0^\infty e^{-xt}dt=\lim_{c\rightarrow\infty}\frac{-e^{-cx}}{x}-\left(-\frac{1}{x}\right)=\frac{1}{x}.\\
+\end{align*}
+(b) Again by calculus, we have that
+\begin{align*}
+\frac{\delta}{\delta{x}}\left[\frac{e^{-xt}(-t\sin(x)-\cos(x))}{t^2+1}\right]&=\frac{-te^{-xt}(-t\sin(x)-\cos(x))+e^{-xt}(-t\cos(x)+\sin(x))}{t^2+1}\\
+&=e^{-xt}\left(\frac{t^2\sin(x)+t\cos(x)-t\cos(x)+\sin(x)}{t^2+1}\right)\\
+&=e^{-xt}\sin(x).
+\end{align*}
+
+\noindent (c) By part (a), we have that $$\lim_{A\rightarrow\infty}\int_0^A\frac{\sin(x)}{x}dx=\lim_{A\rightarrow\infty}\int_0^A\int_0^\infty\sin(x)e^{-xt}dtdx.$$  Switching the order of integration, we have by part (b) that
+\begin{align*}
+\int_0^\infty\lim_{A\rightarrow\infty}\int_0^A\sin(x)e^{-xt}dxdt&=\int_0^\infty\lim_{A\rightarrow\infty} \frac{e^{-At}(-t\sin(A)-\cos(A))}{t^2+1}+\frac{1}{t^2+1}dt\\
+&=\int_0^\infty\frac{1}{t^2+1}\\
+&=\lim_{c\rightarrow\infty}\arctan(c)-\arctan(0)=\frac{\pi}{2}
+\end{align*}
+Thus, by Tonelli's Theorem, we have that $$\lim_{A\rightarrow\infty}\int_0^A\frac{\sin(x)}{x}dx=\frac{\pi}{2}$$ as desired.
+
+\section*{Problem 6}
+Let $f_n$ be a sequence of real valued $C^1$ functions on $[0,1]$ such that for all $n$, $|f_n'(x)|\leq\frac{1}{\sqrt{x}}$ for $x>0$, and $\int_0^1f_n(x)dx=0$.  Prove that the sequence has a subsequence that converges uniformly on $[0,1]$.
+
+\section*{Solution}
+We wish to show that $\{f_n\}$ is uniformly bounded and equicontinuous.  If this is the case, then by the Ascoli-Arzela theorem we well have that a subsequence of $f_n$ converges uniformly on $[0,1]$.\\
+
+\noindent Thus, to show that $\{f_n\}$ is uniformly bounded, we choose arbitrary $n\in\mathbb{N}$ and note that by the Mean Value Theorem the fact that $\int_0^1f_ndx=0$ implies that there is some $c\in[0,1]$ such that $f_n(c)=0$.  Thus, we have for $x\in[0,1]$ that if we assume without loss of generality that $x\geq c$:
+\begin{align*}
+|f_n(x)|=|f_n(x)-f_n(c)|&\leq\int_c^x|f_n'(t)|dt\\
+&\leq\int_0^1|f_n'(t)|dt\\
+&\leq\int_0^1\frac{1}{\sqrt{t}}dt\\
+&=2
+\end{align*}
+so that $\{f_n\}$ is uniformly bounded as desired (the first inequality follows from Lebesgue's Criterion for Riemann Integration, since $f_n'(x)$ is continuous).\\
+
+\noindent Now, to show that $f$ is equicontinuous, we choose $\varepsilon>0$ and $x\in[0,1]$.  We note first that since $\sqrt{x}$ is continuous on $[0,1]$ we may choose $\delta$ such that if $|x-y|<\delta$ then $|\sqrt{x}-\sqrt{y}|<\frac{\varepsilon}{2}$.  Thus, making such a choice of $\delta$, assuming without loss of generality that $y\geq x$, and again using Lebesgue's Critereon for Riemann Integration, we have for arbitrary $n$ that
+\begin{align*}
+|f_n(y)-f_n(x)|&\leq\int_x^y|f_n'(t)|dt\leq\int_x^y\frac{1}{\sqrt{t}}dt=2(\sqrt{y}-\sqrt{x})<\varepsilon
+\end{align*}
+so that $\{f_n\}$ is equicontinuous as desired.
+
+
+\section*{{\it Extra Problems}}
+
+\section*{Problem}
+For $K>0$, let $M_K$ be the set of all $f\in C[0,1]$ such that
+\begin{align*}
+|f(t_1)-f(t_2)|\leq K|t_1-t_2|
+\end{align*}
+for all $t_1,t_2\in[0,1]$.\\
+
+\noindent (a) Show that $M_K$ is closed under the supremum norm on $C[0,1]$.\\
+
+\noindent (b) Show that $D_K=\{$differentiable functions $f$ on $[0,1]\mid|f'(t)|\leq K$ for all $t\in[0,1]\}$ is contained in $M_K$ for any $K$.\\
+
+\noindent (c) Show that $M=\bigcup_{K>0}M_K$ is not closed.
+
+\section*{Solution}
+(a) To show this, we let $\{f_n\}$ be a sequence of functions in $M_K$ which converge in $L^\infty$ to the function $f$.  We then wish to show that $f\in M_K$.  To this end, we choose some arbitrary $\varepsilon>0$, $t_1,t_2\in[0,1]$ and note that by definition there is some $N\in\mathbb{N}$ such that for all $n\geq N$ we have that $||f_n-f||_\infty<\frac{\varepsilon}{2}$.  We have then that
+\begin{align*}
+|f(t_1)-f(t_2)|=|f(t_1)-f_n(t_1)+f_n(t_1)-f_n(t_2)+f_n(t_2)-f(t_2)|<\varepsilon+K|t_1-t_2|
+\end{align*}
+Since this holds for arbitrary $\varepsilon>0$, we must have that $|f(t_1)-f(t_2)\leq K|t_1-t_2|$ and therefore that $f\in M_K$.  Thus, $M_K$ is closed as desired.\\
+
+\noindent (b) Choose some $f\in D_K$ and consider $\frac{|f(t_1)-f(t_2)|}{|t_1-t_2|}$ for arbitrary $t_1,t_2\in [0,1]$.  By the Mean Value Theorem we have that there is some $c\in (t_1,t_2)$ such that $\frac{|f(t_1)-f(t_2)|}{|t_1-t_2|}=f'(c)\leq K$.  This implies that $|f(t_1)-f(t_2)|\leq K|t_1-t_2|$ so that $f\in M_K$ as desired.\\
+
+\noindent (c) Consider the sequence of functions $$
+f_n(x) =
+\begin{cases}
+\sqrt{x}, & \text{if }x>\frac{1}{n} \\
+\sqrt{n}x, & \text{if }0\leq x\leq\frac{1}{n}
+\end{cases}
+$$
+We claim that this sequence converges pointwise to $\sqrt{x}$, which is not a Lipschitz function, thus not in $M$.  Furthermore, we have that $||f_n-f||_\infty\leq\sqrt{\frac{1}{n}}$ so that $f_n\rightarrow f$ uniformly.  So we have a sequence in $M$ that converges to a point outside of $M$ so $M$ is not closed.
+
+
+\section*{Problem}
+Define $M$ as in part (c) of the previous problem.  Show that $f\in M$ if and only if there exists an $L^\infty$ function $g$ such that 
+\begin{align*}
+f(t_2)-f(t_1)=\int_{t_1}^{t_2}g(t)dt,
+\end{align*}
+for all $t_1<t_2$ with $t_1, t_2\in[0,1]$.
+
+\section*{Solution}
+First, we assume that $f\in M$.  In particular, we note that by definition $M$ is the set of all Lipschitz functions.  We know that all Lipschitz functions are absolutely continuous, and furthermore we know that all absolutely continuous functions have integrable derivatives which satisfy the Fundamental Theorem of Calculus.  Thus, we have that
+\begin{align*}
+\int_{t_1}^{t_2}f'(t)dt=f(t_2)-f(t_1)
+\end{align*}
+Furthermore, we have since $f$ is Lipschitz that $f'$ is has an essential upper bound and therefore that $f'\in L^\infty[0,1]$.\\
+
+\noindent Now, we assume that $f(t_2)-f(t_1)=\int_{t_1}^{t_2}g(t)dt$ for some $g\in L^\infty$ and for all $t_1<t_2$ in $[0,1]$.  By assumption, since $g\in L^\infty$ we have that there is some $K>0$ such that $|g|\leq K$ almost everywhere on $[0,1]$.  Then in particular we must have for all $t_1,t_2\in[0,1]$ that
+\begin{align*}
+|f(t_2)-f(t_1)|=\left|\int_{t_1}^{t_2}g(t)dt\right|\leq\left|\int_{t_1}^{t_2}Kdt\right|=K|t_2-t_1|
+\end{align*}
+so that $f$ is Lipschitz, therefore continuous, and so is in $M$ as desired.
+
+\section*{Problem}
+Suppose that $f$ is an integrable function on $[0,1]$ and that
+\begin{align*}
+\int_0^1fdm>1
+\end{align*}
+where $m$ is Lebesgue measure.  Prove that there exists an $\varepsilon>0$ such that $m(\{x\in[0,1]\mid f(x)\geq1+\varepsilon\})>0$.
+
+\section*{Solution}
+First, since $f$ is integrable, we must have that $\int_0^1fdm<\infty$ so that in particular there is some $\varepsilon>0$ such that $\int_0^1fdm=1+\varepsilon$.  We then let $E=\{x\in[0,1]\mid f(x)\geq 1+\varepsilon\}$ so that $E^c=\{x\in[0,1]\mid f(x)<1+\varepsilon\}$.  Then we have that $\int_Efdm+\int_{E^c}fdm=1+\varepsilon$ so that in particular
+\begin{align*}
+\int_{E}fdm=1+\varepsilon-\int_{E^c}fdm&>1+\varepsilon-\int_{E^c}(1+\varepsilon)dm\\
+&\geq1+\varepsilon-\int_0^1(1+\varepsilon)dm\\
+&=0.
+\end{align*}
+Thus, $\int_{E}fdm>0$ which necessarily implies that $m(E)>0$ as desired.
+
+\section*{Problem}
+Let $f_n$ be a sequence of functions in $L^1(\mathbb{R})$ for $n=1,2,\cdots$ such that $\lim_{n\rightarrow\infty}\int|f_n|=0$.  For $t>0$, define $E_n(t)=\{x\in\mathbb{R}\mid|f|_n|>t\}$.  Prove or disprove the following:\\
+
+\noindent (a) There is a null set $E\subset\mathbb{R}$ such that $\lim_{n\rightarrow\infty}f_n(x)=0$ for all $x\not\in E$.\\
+
+\noindent (b) $\lim_{n\rightarrow\infty}\frac{1}{\sqrt{n}}m(E_n(\frac{1}{n}))=0$.\\
+
+\noindent (c) $\lim_{n\rightarrow\infty}\frac{1}{n}m(E_n(\frac{1}{n}))=0$.\\
+
+\noindent (d) $\lim_{n\rightarrow\infty}\sqrt{t}m(E_n(t))=0$.\\
+
+\section*{Solution}
+(a) This statement is false.  As a counterexample, consider the sequence of functions $\{f_n\}$ given by
+\begin{align*}
+f_1&=\chi_{[0,\frac{1}{2}]}\\
+f_2&=\chi_{[\frac{1}{2},1]}\\
+f_3&=\chi_{[0,\frac{1}{3}]}\\
+f_4&=\chi_{[\frac{1}{3},\frac{2}{3}]}\\
+f_5&=\chi_{[\frac{2}{3},1]}\\
+f_6&=\chi_{[0,\frac{1}{4}]}\\
+f_7&=\chi_{[\frac{1}{4},\frac{1}{2}]}\\
+f_8&=\chi_{[\frac{1}{2},\frac{3}{4}]}\\
+f_9&=\chi_{[\frac{3}{4},1]}\\
+f_{10}&=\chi_{[0,\frac{1}{5}]}\\
+\vdots
+\end{align*}
+and so on, so that $f_{\sum_{i\in\mathbb{N},i< n}}=\chi_{[0,\frac{1}{i}]}$.  We have then for any $x\in[0,1]$ and $n\in\mathbb{N}$ that there is some $m\in\{0,\cdots,n-1\}$ such that $x\in[\frac{m}{n},\frac{m+1}{n}]$.  Thus, $\{f_n\}$ does not converge pointwise to zero on any subset of $[0,1]$ and consequently there is no null set in $\mathbb{R}$ such that $f_n$ converges pointwise to zero on its complement.\\
+
+\noindent However, we have for any $\varepsilon>0$ that there is some $n\in\mathbb{N}$ such that $\frac{1}{n}<\varepsilon$ and therefore we have that for all $m\geq\sum_{i\in\mathbb{N},i<n}i$ that $||f_m-0||_1=||f_m||_1<\varepsilon$. \\
+
+\noindent (c) This claim is true.  Indeed, by Chebychev's inequality we have that
+\begin{align*}
+\lim_{n\rightarrow\infty}\frac{1}{n}m(E_n(\frac{1}{n}))\leq\lim_{n\rightarrow\infty}\frac{1}{n}\cdot n\int|f_n|=\lim_{n\rightarrow\infty}\int|f_n|=0
+\end{align*}
+as desired.\\
+
+\noindent (d) This claim is true.  Indeed, by Chebychev's inequality we have since $t$ is fixed that that
+\begin{align*}
+\lim_{n\rightarrow\infty}\sqrt{t}m(E_n(t))\leq\lim_{n\rightarrow\infty}\frac{1}{t}\cdot \sqrt{t}\int|f_n|=\frac{1}{\sqrt{t}}\lim_{n\rightarrow\infty}\int|f_n|=0
+\end{align*}
+as desired.
+
+\section*{Problem}
+Consider the functions $f_n(x)=\sin(nx)$ for $-\pi\leq x\leq\pi$ and $n=1,2,\cdots$.  Prove that $\{f_n\}_{n=1}^\infty$ is a bounded, closed subset of $L^2([-\pi,\pi])$ but that it is not compact.\\
+
+\section*{Solution}
+First, we note that the set is clearly bounded in $L^2[-\pi,\pi]$, as for any $n\in\mathbb{N}$, we have that
+\begin{align*}
+\int_{-\pi}^\pi\sin^2(nx)dx=\int_{-\pi}^\pi\frac{1}{2}-\frac{1}{2}\cos(2x)dx=2\left(\frac{\pi}{2}-\frac{1}{4n}\sin(2n\pi)\right)=\pi
+\end{align*}
+So that $||f_n||_2=\sqrt{\pi}$ and is therefore bounded as desired.\\ 
+
+\noindent To prove that the set is closed but not compact, we note that for any natural numbers $n>m$ we have that
+\begin{align*}
+\int_{-\pi}^\pi&\left|\sin(nx)-\sin(mx)\right|^2dx=\int_{-\pi}^\pi\left|\sin^2(nx)+\sin^2(mx)-2\sin(nx)\sin(mx)\right|dx\\
+&\geq\left|\int_{-\pi}^\pi1+\frac{1}{2}\cos(2nx)+\frac{1}{2}\cos(2mx)+\frac{1}{2}\cos((n+m)x)+\frac{1}{2}\cos((n-m)x)dx\right|\\
+&=2\pi
+\end{align*}
+so that $||f_n-f_m||_2=\sqrt{2\pi}$ whenever $n\neq m$.  Thus, we have that a sequence in this set converges only when it becomes a constant sequence after finitely many entries.  Therefore, the limit point of every convergent sequence in this set is contained in the set, and therefore the set is closed.\\
+
+\noindent However, the sequence $\{f_n\}_{n=1}^\infty$ itself has no convergent subsequence by our work above, and therefore the sequence is not sequentially compact, thus not compact, as desired.
+
+\section*{Problem}
+Show that you can translate any dull set of $\mathbb{R}$ into the irrationals.  That is, show that there is some $t$ such that $E+t=\{x+t\mid x\in E\}$ is contained in the irrationals.
+
+\section*{Solution}
+We assume toward the contrary that there exists a null set, $E$, such that $E+r\cap\mathbb{Q}\neq\emptyset$ for any $r\in\mathbb{R}$.  We then define the relation $\sim$ on $\mathbb{R}$ so that $x\sim y$ if and only if $x-y\in\mathbb{Q}$.  It is clear from the definition that $\sim$ is in fact an equivalence relation.  We define $\{r\}$ as the equivalence class of $r\in\mathbb{R}$ and claim that some translate of $E$ intersects each equivalence class.\\
+
+\noindent Indeed, choose some $r\in\mathbb{R}$ and consider $\{-r\}$.  Then by assumption there is some $q\in\mathbb{Q}$ such that $q\in E+(-r)$.  This implies then that $q+r\in E$.  $q+r\in\{r\}$, as we have that $(q+r)-r\in\mathbb{Q}$.  Thus, $E\cap\{r\}\neq\emptyset$ as desired.\\
+
+\noindent Now, we claim that for each $r\in\mathbb{R}$, there is some $q\in\mathbb{R}$ such that $r\in E+q$.  Indeed, by our work above we have that there is some $q\in\mathbb{Q}$ such that $r-q\in E$.  Thus, we have that $r\in E+q$, proving our claim.\\
+
+\noindent Thus, we consider the $\bigcup_{q\in\mathbb{Q}}E+q$.  We have that $\mathbb{R}\subseteq\bigcup_{q\in\mathbb{Q}}E+q$ by our work above, but this implies that
+\begin{align*}
+m(\mathbb{R})\leq m\left(\bigcup_{q\in\mathbb{Q}}E+q\right)\leq\sum_{q\in\mathbb{Q}}m(E+q)=0
+\end{align*}
+which is a contradiction.  Thus, we must have that some translate of $E$ is contained in the irrationals as desired.\\
+
+
+
+\end{document}
