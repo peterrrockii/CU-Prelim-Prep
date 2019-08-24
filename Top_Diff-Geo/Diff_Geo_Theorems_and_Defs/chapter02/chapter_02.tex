@@ -88,7 +88,7 @@ Given any real numbers $r_1$ and $r_2$ such that $r_1 < r_2$, there exists a smo
 \end{lem}
 
 \begin{proof}
-Let $f$ be the function of the previous lemma, and set 
+Let $f$ be the function of the previous lemma, and set
 \[h(t) = \frac{f(r_2 - t)}{f(r_2 - t) + f(t - r_1)}.\]
 Then the denominator is always positive since $r_2 \neq r_1$ and either $r_2 - t$ or $t - r_1$ will always be positive, and the rest follows form the properties of $f$.
 \end{proof}
@@ -107,7 +107,7 @@ A function $f$ is said to be \df{compactly supported} if $\supp(f)$ is a compact
 \begin{enumerate}[(i)]
     \item $0 \leq \psi_\al(x)\leq 1$ for all $\al\in A$ and all $x\in M$.
     \item $\supp(\psi_\al) \seq X_\al$ for each $\al\in A$.
-    \item The family of supports $(\supp(\psi_\al))_{\al\in A}$ is locally finite. 
+    \item The family of supports $(\supp(\psi_\al))_{\al\in A}$ is locally finite.
     \item $\sum_{\al\in A}\psi_\al(x) = 1$ for all $x\in M$.
 \end{enumerate}
 If $M$ is a smooth manifold with or without boundary, a \df{smooth partition of unity} is one for which each of the unctions $\psi_\al$ is smooth.
@@ -127,7 +127,7 @@ Let $M$ be a smooth manifold with or without boundary. For any closed subset $A\
 \dfn Suppose that $M$ and $N$ are smooth manifolds with or  without boundary, and $A\seq M$ is an arbitrary subset. We say that a map $F:A\ra N$ is \df{smooth on A} if it has a smooth extension in a neighborhood of each point: that is, if for every $p\in A$ there is an open subset $W\seq M$ containing $p$ an a smooth map $\td F:W\ra N$ whose restriction to $W\cap A$ agrees with $F$.
 
 \begin{lem}[\hl{Extension Lemma for Smooth Functions}]
-Suppose $M$ is a smooth manifold with or without boundary, $A\seq M$ a closed subset, and $f:M\ra \Rk$ is a smooth function. For any open subset $U$ containing $A$, there exists a smooth function $\td f:M\ra \Rk$ such that $\td f_A = f$ and $\supp(\td f)\seq U$.
+Suppose $M$ is a smooth manifold with or without boundary, $A\seq M$ a closed subset, and $f:A\ra \Rk$ is a smooth function. For any open subset $U$ containing $A$, there exists a smooth function $\td f:M\ra \Rk$ such that $\td f_A = f$ and $\supp(\td f)\seq U$.
 \end{lem}
 
 \dfn Suppose that $M$ is a topological space. An \df{exhaustion function for M} is a continuous function $f:M\ra \R$ with the property that the set $f\inv((-\infty, c])$ (called a \df{sublevel set of f}) is compact for each $c\in \R$. For an example consider the function $f:\Rn\ra \R:x\mapsto |x|^2$.
@@ -141,13 +141,3 @@ Every smooth manifold with or without boundary admits a smooth, positive exhaust
 \begin{thm}[\hlb{Level Sets of Smooth Functions}]
 Let $M$ be a smooth manifold. If $K$ is any closed subset of $M$, there is a smooth, nonnegative function $f:M\ra \R$ such that $f\inv(0) = K$.
 \end{thm}
-
-
-
-
-
-
-
-
-
-

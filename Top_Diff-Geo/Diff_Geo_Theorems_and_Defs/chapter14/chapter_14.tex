@@ -11,7 +11,7 @@ Differential forms are an essential and beautiful part of Differential Geometry.
 \dfn Let $\al,\be\in V^*$. The \df{wedge product} of $\al$ and $\be$ is defined by
 \[\al\wedge\be = \al\otimes \be - \be\otimes \al.\]
 
-\dfn The space of \df{alternating k-vectors} or \df{alternating k-covectors} of $V^*$ is 
+\dfn The space of \df{alternating k-vectors} or \df{alternating k-covectors} of $V^*$ is
 \[\bgw^kV^* = \spn\{\al^1\wedge\cdots\wedge\al^k\ :\ \al^i\in V^*\}\]
 
 \nb For $0\leq k \leq n = \dim(V)$, $\dim(\bgw^kV^*) = {n \choose k}$
@@ -32,16 +32,16 @@ Differential forms are an essential and beautiful part of Differential Geometry.
     \item If $(\vep^i)$ is any basis for $V^*$ and $I = (i_1,\ldots,i_k)$ is any multi-index, then
     \[\vep^{i_1}\wedge\vep^{i_k} = \vep^I.\]
     \item \hl{For any covectors $\omega^1,\ldots,\omega^k$ and vectors $v_1,\ldots,v_k$,}
-    \[\omega^1\wedge\cdots\wedge(v_1,\ldots,v_k) = \det(\omega^j(v_i)).\]
+    \[\omega^1\wedge\cdots\wedge\omega^k(v_1,\ldots,v_k) = \det(\omega^j(v_i)).\]
 \end{enumerate}
 \end{prop}
 
 
-\dfn A $k$-covector $\eta$ is \df{decomposable} if it can be expressed as 
+\dfn A $k$-covector $\eta$ is \df{decomposable} if it can be expressed as
 \[\eta = \omega^1\wedge \cdots\wedge \omega^k\]
 where $\omega^i$ is a covector.
 
-\dfn for any $n$-dimensional vector space $V$, the \df{exterior algebra} of $V$ is the vector space 
+\dfn for any $n$-dimensional vector space $V$, the \df{exterior algebra} of $V$ is the vector space
 \[\bgw(V^*) = \bigotimes_{k = 0}^n \bgw^k V\]
 
 
@@ -64,7 +64,7 @@ Let $V$ be a finite-dimensional vector space and $v\in V$.
 \[\Lambda^k(T^*M) = \bigsqcup_{p\in M} \Lambda(T^*_pM).\]
 
 
-\dfn A \df{differential k-form} on $M$ is a continuous section of $\Lambda^k(T^*M)$. The vector space of smooth $k$-forms is denoted 
+\dfn A \df{differential k-form} on $M$ is a continuous section of $\Lambda^k(T^*M)$. The vector space of smooth $k$-forms is denoted
 \[\Omega^k(M) = \Gamma(\Lambda(T^*M)),\]
 and the integer $k$ is called the \df{degree} of the form.
 
@@ -81,7 +81,7 @@ Suppose $F:M\ra N$ is smooth.
     \item $F^*:\Omega^k(N)\ra \Omega^k(M)$ is linear over $R$.
     \item $F^*(\omega\wedge\eta) = (F^*\omega)\wedge(F^*\eta)$.
     \item In any smooth chart
-    \[F^*\lp{\sum_I}\p\omega_i\,dy^{i_1}\wedge\cdots\wedge dy^{i_k}\rp = {\sum_I}\p(\omega_i\circ F)\,d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)\]
+    \[F^*\lp{\sum_I}\p\omega_I\,dy^{i_1}\wedge\cdots\wedge dy^{i_k}\rp = {\sum_I}\p(\omega_I\circ F)\,d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)\]
 \end{enumerate}
 \end{lem}
 
@@ -112,7 +112,7 @@ where $DF$ represents the Jacobian matrix of $F$ in these coordinates.
 Suppose $M$ is a smooth manifold \wowob. There are unique operators $d:\Omega^k(M)\ra \Omega^{k + 1}(M)$ for all $k$, called \df{exterior differentiation}, satisfying the following four properties:
 \begin{enumerate}[(i)]
     \item $d$ is linear over $\R$.
-    \item IF $\omega\in\Omega^k(M)$ and $\eta \in \Omega^\ell(M)$, then
+    \item If $\omega\in\Omega^k(M)$ and $\eta \in \Omega^\ell(M)$, then
     \[d(\omega\wedge\eta) = d\omega\wedge\eta + (-1)^k\omega\wedge\eta.\]
     \item $d\circ d \equiv 0$.
     \item for $f\in \Omega^0(M) = \Cin(M)$, $df$ is the differential of $f$, given by $df(X) = Xf$.
@@ -159,7 +159,7 @@ Then $b^i_{jk} = -c^i_{jk}$.
 \setcounter{thm}{32}
 
 \begin{prop}
-Suppose $M$ is a smooth manifold $V\in \fkX(M)$, and $\omega\eta\in\Omega^*(M)$. Then 
+Suppose $M$ is a smooth manifold $V\in \fkX(M)$, and $\omega\eta\in\Omega^*(M)$. Then
 \[\LL_V(\omega\wedge\eta) = \LL_V\omega\wedge\eta + \omega\wedge(\LL_V\eta).\]
 \end{prop}
 
@@ -171,22 +171,6 @@ On a smooth manifold $M$, for any smooth vector field $V$ and any smooth differe
 \end{thm}
 
 \begin{cor}
-If $V$ is a smooth vector filed and $\omega$ is a smooth differential form, then 
+If $V$ is a smooth vector filed and $\omega$ is a smooth differential form, then
 \[\LL_V(d\omega) = d(\LL_V\omega).\]
 \end{cor}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

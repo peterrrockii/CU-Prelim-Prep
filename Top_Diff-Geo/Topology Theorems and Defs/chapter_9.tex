@@ -7,24 +7,24 @@
 
 %==========================================================================
 %                    SECTION 51
-%==========================================================================      
+%==========================================================================
 \subsection{Homotopy of Paths}\nl
 \setcounter{section}{51}
 \setcounter{thm}{0}
 
 
-\dfn If $f$ and $f^\p$ are maps of the space $X$ into the space $Y$, we say that $f$ is \textbf{homotopic} to $f^\p$ if there is a continuous map $F:X\times I\ra Y$ ($I = [0,1]$)such that
-\[F(x, 0) = f(x) \qquad F(x,1) = f^\p(x)\]
-for each $x$. The map $F$ is called a \textbf{homotopy} between $f$ and $f^\p$. If $f$ is homotopic to $f^\p$, we write $f\simeq f^\p$. If $f\simeq f^\p$, and $f^\p$ is a constant map, we say that $f$ is \textbf{nullhomotopic}.
+\dfn If $f$ and $f\p$ are maps of the space $X$ into the space $Y$, we say that $f$ is \textbf{homotopic} to $f\p$ if there is a continuous map $F:X\times I\ra Y$ ($I = [0,1]$)such that
+\[F(x, 0) = f(x) \qquad F(x,1) = f\p(x)\]
+for each $x$. The map $F$ is called a \textbf{homotopy} between $f$ and $f\p$. If $f$ is homotopic to $f\p$, we write $f\simeq f\p$. If $f\simeq f\p$, and $f\p$ is a constant map, we say that $f$ is \textbf{nullhomotopic}.
 
 \vs
 
-\dfn Two paths $f$ and $f^\p$, mapping the interval $I = [0,1]$ into $X$, are said to be \textbf{path homotopic} if they have the same initial point $x_0$ and the same final point $x_1$, and if there is a continuous map $F:I\times I\ra X$ such that
+\dfn Two paths $f$ and $f\p$, mapping the interval $I = [0,1]$ into $X$, are said to be \textbf{path homotopic} if they have the same initial point $x_0$ and the same final point $x_1$, and if there is a continuous map $F:I\times I\ra X$ such that
 \begin{align*}
-    F(s, 0) = f(s) \qquad&\text{and}\qquad F(s,1) = f^\p(s),\\
+    F(s, 0) = f(s) \qquad&\text{and}\qquad F(s,1) = f\p(s),\\
     F(0,t) = x_0 \qquad&\text{and}\qquad F(1,t) = x_1,
 \end{align*}
-for each $x\in I$ and for each $t\in I$. We call $F$ a \textbf{path homotopy} between $f$ and $f^\p$. If $f$ is path homotopic to $f^\p$, we write $f\simeq_p f^\p$.
+for each $x\in I$ and for each $t\in I$. We call $F$ a \textbf{path homotopy} between $f$ and $f\p$. If $f$ is path homotopic to $f\p$, we write $f\simeq_p f\p$.
 
 \vs
 
@@ -55,7 +55,7 @@ The operation $*$ on paths in $X$ behaves as a group operation.
 
 %==========================================================================
 %                    SECTION 52
-%==========================================================================      
+%==========================================================================
 \subsection{The Fundamental Group}\nl
 \setcounter{section}{52}
 \setcounter{thm}{0}
@@ -71,7 +71,7 @@ where $H$ is a homotopy.
 
 \vs
 
-\dfn Let $\ff = \{\text{all loops centered at }x_0\}$. Then define, ${\lower 4.5pt \hbox{$\widetilde{\text{\tiny rel. \{0,1\}}}$}}$ as an equivalence relation on $\ff$. We say that the \textbf{fundamental group} of $X$ relative to the point $x_0$ is $\pi_1(X, x_0) = X/{\lower 4.5pt \hbox{$\widetilde{\text{\tiny rel. \{0,1\}}}$}}$.
+\dfn Let $\fF = \{\text{all loops centered at }x_0\}$. Then define, ${\lower 4.5pt \hbox{$\widetilde{\text{\tiny rel. \{0,1\}}}$}}$ as an equivalence relation on $\fF$. We say that the \textbf{fundamental group} of $X$ relative to the point $x_0$ is $\pi_1(X, x_0) = X/{\lower 4.5pt \hbox{$\widetilde{\text{\tiny rel. \{0,1\}}}$}}$.
 
 \vs
 
@@ -90,7 +90,7 @@ The map $\hat \al$ is a group isomorphism.
 
 \textbf{Theorem (Class):} Let $(X, \TT)\ (Y, \WW)$ be topological spaces. Then fix $x_0\in X,\ y_0\in Y$ and consider $\pi_1(X, x_0)$, and $\pi_1(Y, y_0)$ (Recall that the group operation on these groups is concatenation of loops denoted $\al * \be$  standing for $[\al]*[\be] = [\al*\be]$). If $f:X\ra Y:x_0 \mapsto y_0$, then $f$ induces a map $f_*:\pi_1(X,x_0) \ra \pi_1(Y,y_0)$ which is a homeomorphism.
 
-\vs 
+\vs
 
 \textbf{Theorem (Class)} If $(X, \TT)$ is path connected, then for all $x_0, x_1\in X$, $\pi_1(X, x_0)\cong \pi_1(X, x_1)$.
 
@@ -128,7 +128,7 @@ If $h:(X, x_0)\ra (Y, y_0)$ is a homeomorphism of $X$ with $Y$, then $h_*$ is an
 
 %==========================================================================
 %                    SECTION 53
-%==========================================================================      
+%==========================================================================
 \subsection{Covering Spaces}\nl
 \setcounter{section}{53}
 \setcounter{thm}{0}
@@ -144,10 +144,10 @@ If $h:(X, x_0)\ra (Y, y_0)$ is a homeomorphism of $X$ with $Y$, then $h_*$ is an
 \dfn \textbf{(Farsi)} Let $X$ and $\td X$ be topological spaces, and consider the map $\pi:\td X\ra  X$. We say that $\pi$ is a cover if:
 \begin{enumerate}
     \item $\pi$ is surjective
-    \item These is an open cover of $X$, $\UU = \{U_\al\}_{\al\in \Lambda}$ such that 
+    \item These is an open cover of $X$, $\UU = \{U_\al\}_{\al\in \Lambda}$ such that
     \[\pi\inv(U_\al) = \bigsqcup_{z\in Z}\td U_{\al, z}\]
     where the $\td U_{\al, z}$ are open in $\td X$ and $\pi|_{\td U_{\al, z}}\ra U_\al$ is a homeomorphism.
-    \item[2.$^\p$] For all $x\in X$, there exists $U_x$ open such that 
+    \item[2.$\p$] For all $x\in X$, there exists $U_x$ open such that
     \[\pi\inv(U_x) = \bigsqcup_{z\in Z} \td U_{x, z}\]
     which restricts to a homeomorphism.
 \end{enumerate}
@@ -167,7 +167,7 @@ If $h:(X, x_0)\ra (Y, y_0)$ is a homeomorphism of $X$ with $Y$, then $h_*$ is an
 
 \vs
 
-\textbf{Example:} Consider $\pi:\R \ra S^1:t \mapsto e^{2\pi i t}$. Fix $x = 1$ and take $U_1 = S^1 \backslash \{-1\}$. Then we have that 
+\textbf{Example:} Consider $\pi:\R \ra S^1:t \mapsto e^{2\pi i t}$. Fix $x = 1$ and take $U_1 = S^1 \backslash \{-1\}$. Then we have that
 \[\pi\inv(U_k) = \lp -\frac{1}{2}, \frac{1}{2}\rp + k\qquad k \in \Z.\]
 
 This gives us that $\pi|_{\td U_k}:\td U_k\ra U_k$ is a homeomorphism by calculus using $\ln$.
@@ -180,7 +180,7 @@ This gives us that $\pi|_{\td U_k}:\td U_k\ra U_k$ is a homeomorphism by calculu
 
 %==========================================================================
 %                    SECTION 54
-%==========================================================================      
+%==========================================================================
 \subsection{The Fundamental Group of the Circle}\nl
 \setcounter{section}{54}
 \setcounter{thm}{0}
@@ -218,14 +218,14 @@ such that $\td F(0,0) = e_0$. If $F$ is a path homotopy, then $\tilde F$ is a pa
 
 \vs
 
-\textbf{Homotopy Lifting (Farci)} Let $p: \td X \ra X:\tilde x_0 \mapsto x_0$ be a covering map. Define a map $F: I \times I \ra X$ with $x_0 = \al(0) = \be(0)$ and 
+\textbf{Homotopy Lifting (Farci)} Let $p: \td X \ra X:\tilde x_0 \mapsto x_0$ be a covering map. Define a map $F: I \times I \ra X$ with $x_0 = \al(0) = \be(0)$ and
 \[F(x, 0) = \al(s) \qquad\text{and}\qquad F(s, 1) = \be(s).\]
 Then there exists a unique homotopy of paths $\td F: I\times I \ra \td X$ such that
 \[\td F(0,0) = \tilde\al(0) = \tilde x_0.\]
 
 
 
-\vs 
+\vs
 
 
 \textbf{Theorem (Farci)} $\pi_1(S^1, 1) \cong \Z$.

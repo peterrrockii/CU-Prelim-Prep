@@ -22,7 +22,7 @@ Suppose $F:M\ra  N$ is a smooth map and $p\in M$. If $dF_p$ is surjective, then 
 \setcounter{thm}{4}
 
 \begin{thm}[\hlb{Inverse Function Theorem for Manifolds}]
-Suppose $M$ and $N$ are sooth manifolds, and $F:M\ra N$ is a smooth map. If $p\in M$ is a point such that $dF_p$ is invertible, then there are connected neighborhoods $U_0$ of $p$ and $V_)$ of $F(p)$ such that $F|_{U_0}:U_0\ra V_)$ is a diffeomorphism.
+Suppose $M$ and $N$ are smooth manifolds, and $F:M\ra N$ is a smooth map. If $p\in M$ is a point such that $dF_p$ is invertible, then there are connected neighborhoods $U_0$ of $p$ and $V_0$ of $F(p)$ such that $F|_{U_0}:U_0\ra V_0$ is a diffeomorphism.
 \end{thm}
 
 \setcounter{thm}{7}
@@ -38,7 +38,7 @@ Suppose $M$ and $N$ are smooth manifolds (without boundary), and $F:M\ra N$ is a
 \setcounter{thm}{11}
 
 \begin{thm}[\hlb{Rank Theorem}]
-Suppose $M$ and $N$ are smooth manifolds of dimensions $m$ and $n$, respectively, and $F:M\ra N$ is a smooth map \hl{with constant rank} $r$. For each $p\in M$ there exist smooth charts $(U,\vphi)$ for $M$ centered at $p$ and $(V,\psi)$ for $N$ centered at $F(p)$ such that $F(U)\seq V$, in which $F$ has a coordinate representation of the form 
+Suppose $M$ and $N$ are smooth manifolds of dimensions $m$ and $n$, respectively, and $F:M\ra N$ is a smooth map \hl{with constant rank} $r$. For each $p\in M$ there exist smooth charts $(U,\vphi)$ for $M$ centered at $p$ and $(V,\psi)$ for $N$ centered at $F(p)$ such that $F(U)\seq V$, in which $F$ has a coordinate representation of the form
 \[\wh F(x^1,\ldots,x^r,x^{r+1},\dots x^m) = (x^1,\ldots,x^r,0,\ldots,0).\]
 In particular, if $F$ is a smooth submersion, this becomes
 \[\wh F(x^1,\ldots,x^n,x^{n+1},\dots x^m) = (x^1,\ldots,x^n),\]
@@ -64,7 +64,7 @@ Let $M$ and $N$ be smooth manifolds, and suppose $F:M\ra N$ is a smooth map of c
 \end{enumerate}
 \end{thm}
 
-\subsection{Embeddings and Submersions}\nl 
+\subsection{Embeddings and Submersions}\nl
 
 \dfn If $M$ and $N$ are smooth manifolds with or without boundary, a \df{smooth embedding of M into N} is a smooth immersion $F:M\ra N$ that is also a topological embedding (i.e. a homeomorphism onto its image in the subspace topology).
 
@@ -88,14 +88,14 @@ Suppose $M$ and $N$ are smooth manifolds with or without boundary, and $F:M\ra N
     \item $F$ is an open or closed map
     \item $F$ is a proper map.
     \item $M$ is compact.
-    \item $M$ has empty boundary an d$\dim(M) = \dim(N)$.
+    \item $M$ has empty boundary and $\dim(M) = \dim(N)$.
 \end{enumerate}
 \end{prop}
 
 \setcounter{thm}{24}
 
 \begin{thm}[\hl{Local Embedding Theorem}]
-Suppose $M$ an d$N$ are smooth manifolds with or without boundary, and $F:M\ra N$ is a smooth map. Then $F$ is a smooth immersion if and only if every point in $M$ has a neighborhood $U\seq M$ such that $F|_U:U\ra N$ is a smooth embedding.
+Suppose $M$ and $N$ are smooth manifolds with or without boundary, and $F:M\ra N$ is a smooth map. Then $F$ is a smooth immersion if and only if every point in $M$ has a neighborhood $U\seq M$ such that $F|_U:U\ra N$ is a smooth embedding.
 \end{thm}
 
 \dfn If $\pi:M\ra N$ is any continuous map, a \df{section of $\boldsymbol{\pi}$} is a continuous right inverse for $\pi$, i.e., a continuous map $\sigma:N\ra M$ such that $\pi\circ \sig = \Id_N$.

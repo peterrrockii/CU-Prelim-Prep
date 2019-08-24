@@ -35,14 +35,14 @@ Elements of $T^*_pM$ are called \df{tangent covectors at p}, or just \df{covecto
 \[T^*M = \bigsqcup_{p\in M} T^*_pM\]
 is called the \df{cotangent bundle of $M$}.
 
-\dfn Given a local coordinate chart $(x^i)$ on $U\seq M$ the sections $dx^i:U\ra T^*M$ defined by 
+\dfn Given a local coordinate chart $(x^i)$ on $U\seq M$ the sections $dx^i:U\ra T^*M$ defined by
 \[dx^i(p) = dx^i|_p\in T^*M\]
-are the \df{coordinate covector fields} on $M$. The give rise to natural coordinates for $T^*U$ defined by 
+are the \df{coordinate covector fields} on $M$. The give rise to natural coordinates for $T^*U$ defined by
 \[\pi\inv(U) = T^*U\seq T^*M.\]
 
 \dfn A (local or global) section of $T^*M$ is called a \df{covector field} of a \df{(differential) 1-form}.
 
-\dfn In any smooth local coordinates on an open subset $U\seq M$, a (rough) covector filed $\omega$ cam be written in terms of the coordinate covector fields $(\lambda^i)$ as $\omega = \omega_i\lambda^i$ for $n$ functions $\omega_i:U\ra \R$ called the \df{component functions of $\boldsymbol{\omega}$}. They are characterized by 
+\dfn In any smooth local coordinates on an open subset $U\seq M$, a (rough) covector filed $\omega$ cam be written in terms of the coordinate covector fields $(\lambda^i)$ as $\omega = \omega_i\lambda^i$ for $n$ functions $\omega_i:U\ra \R$ called the \df{component functions of $\boldsymbol{\omega}$}. They are characterized by
 \[\omega_i(p) = \omega_p\lp\ev{\pdd{x^i}}{p}\rp.\]
 
 \nb If $\omega$ is a (rough) covector field and $X$, then we can form a function $\omega(X):M\ra \R$ by
@@ -91,11 +91,11 @@ Suppose $M$ is a smooth manifold \wowob, $\ga:J\ra M$ is a smooth curve, and $f:
 \[(f\circ \ga)\p(t)= df_{\ga(t)} (\ga\p(t)).\]
 \end{prop}
 
-\dfng Let $F>M\ra N$ be a smooth map between smooth manifolds \wowob, and let $p\in M$ be arbitrary. The differential $dF_p:T_pM\ra T_{F(p)}N$ yields a dual linear map
+\dfng Let $F:M\ra N$ be a smooth map between smooth manifolds \wowob, and let $p\in M$ be arbitrary. The differential $dF_p:T_pM\ra T_{F(p)}N$ yields a dual linear map
 \[dF_p^*:T^*_pN\ra T^*_pM,\]
 called the \df{(pointwise) pullback by F at p}, or the \df{cotangent map of F}.
 
-\dfn Given a smooth map $F:M\ra N$ and a covector field $\omega$ on $N$, define a rough covector field $F^*\omega$ on $M$, called the \df{pullback of $\boldsymbol{\omega}$ by F}, by 
+\dfn Given a smooth map $F:M\ra N$ and a covector field $\omega$ on $N$, define a rough covector field $F^*\omega$ on $M$, called the \df{pullback of $\boldsymbol{\omega}$ by F}, by
 \[(F^*\omega)_p = dF^*_p(\omega_{F(p)}).\]
 \hl{It acts on a vector $v\in T_pM$ by}
 \[(F^*\omega)_p(v) = \omega_{F(p)}(dF_p(v)).\]
@@ -136,7 +136,7 @@ If $\ga:[a,b]\ra M$ is a piecewise smooth curve segment, the line integral of $\
 \end{prop}
 
 \begin{thm}[\hlb{Fundamental Theorem for Line Integrals}]
-Let $M$ be a smooth manifold \wowob. Suppose $f$ is a smooth real-valued function on $M$ and $\ga:[a,b]\ra M$ is a piecewise smooth curve segment in $M$. Then 
+Let $M$ be a smooth manifold \wowob. Suppose $f$ is a smooth real-valued function on $M$ and $\ga:[a,b]\ra M$ is a piecewise smooth curve segment in $M$. Then
 \[\int_\ga df = f(\ga(b)) - f(\ga(a)).\]
 \end{thm}
 
@@ -154,17 +154,17 @@ A smooth covector field $\omega$ is conservative if and only if its line integra
 \hl{Let $M$ be a smooth manifold with or without boundary. A smooth covector field on $M$ is conservative if and only if it is exact.}
 \end{thm}
 
-\crly If $\omega = df$ is exact then 
+\crly If $\omega = df$ is exact then
 \[\omega = a_i(x)dx^i\]
-where 
+where
 \[a_i(x) = \pd{f}{x^i}(x).\]
 Then for all $i,j$ we have
 \[\pd{a_i}{x^j} = \pd{a_j}{x^i} = \frac{\bd^2 f}{\bd x^i \bd x^j}.\]
 
-\dfn A covector field $\omega = a_i dx^i$ is called \df{closed} if 
+\dfn A covector field $\omega = a_i dx^i$ is called \df{closed} if
 \[\pd{a_i}{x^j} = \pd{a_j}{x^i}.\]
 
-\setcounter{thm}{43} 
+\setcounter{thm}{43}
 
 \begin{prop}
 Every exact covector field is closed.
@@ -193,4 +193,3 @@ Let $\omega$ be a closed covector field on a smooth manifold $M$ \wowob. Then ev
 \end{cor}
 
 \nb Pullbacks preserve closedness and exactness.
-

@@ -4,7 +4,7 @@
 Really all we want to talk about here is Stokes's Theorem.
 
 \begin{prop}
-Suppose $D$ and $E$ are open domains of integration in $\Rn$ or $\Hn$, and $G:\ol D \ra \ol E$ is a smooth map that restricts to an orientation-preserving or orientation-reversing diffeomorphism from $D$ to $E$. If $\omega$ is an $n$-form on $\ol E$, then 
+Suppose $D$ and $E$ are open domains of integration in $\Rn$ or $\Hn$, and $G:\ol D \ra \ol E$ is a smooth map that restricts to an orientation-preserving or orientation-reversing diffeomorphism from $D$ to $E$. If $\omega$ is an $n$-form on $\ol E$, then
 \[\int_D G^*\omega = \begin{cases} \int_E \omega & \text{if $G$ is orientation-preserving},\\
 -\int_E \omega & \text{if $G$ is orientation-reversing}.\end{cases}\]
 \end{prop}
@@ -71,3 +71,9 @@ Suppose $M$ is a smooth manifold \wowob, $S\seq M$ is an oriented compact smooth
 \end{enumerate}
 \end{cor}
 
+\setcounter{thm}{25}
+
+\begin{thm}
+  \hl{Suppose $M$ is a smooth manifold and $\ga_0, \ga_1:[a,b]\ra M$ are path-homotopic, piecewise smooth curve segments. For every closed 1-form $\omega$ on $M$,}
+  \[\int_{\ga_0}\omega = \int_{\ga_1}\omega.\]
+\end{thm}

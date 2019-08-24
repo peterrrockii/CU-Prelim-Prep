@@ -94,7 +94,7 @@ Let $\iota\Hn\into \Rn$ denote the inclusion map. For any $a\in \bd \Hn$, the di
 Suppose $M$ is an $n$-dimensional smooth manifold with boundary. For each $p\in M$, $T_pM$ is an $n$-dimensional vector space.
 \end{prop}
 
-\dfn Suppose $V$ is a finite-dimensional vector space and $a\in V$. For any vector $v\in V$, we define a map $D_v|_a:\Cin(V) \ra \R$ by 
+\dfn Suppose $V$ is a finite-dimensional vector space and $a\in V$. For any vector $v\in V$, we define a map $D_v|_a:\Cin(V) \ra \R$ by
 \[D_v|_a f = \ev{\frac{d}{dt}}{t=0}f(a + tv).\]
 
 \begin{prop}[\hlb{The Tangent Space to a Vector Space}]
@@ -125,12 +125,12 @@ Let $M$ be a smooth $n$-manifold with or without boundary, and let $p\in M$. The
 \[v = v^i\ev{\pdd{x^i}}{p}.\]
 The ordered basis $\lp\ev{\pdd{x^i}}{p}\rp$ is called a \df{coordinate basis for $\boldsymbol{T_pM}$}, and the numbers $(v^1,\ldots,v^n)$ are called the \df{components of v} with respect to the coordinate basis.
 
-\dfn In the case where $F:U\ra V$ is a smooth map between $U\seq \Rn$ and $V\seq \Rm$ with $U$ and $V$ open subsets of Euclidean spaces with coordinates $x^1,\ldots,x^n)$ and $(y^1,\ldots, y^m)$ respectively. For any $p\in U$, we can use the chian rule to compute that the action of $dF_p$ on a typical basis vector as follows:
+\dfn In the case where $F:U\ra V$ is a smooth map between $U\seq \Rn$ and $V\seq \Rm$ with $U$ and $V$ open subsets of Euclidean spaces with coordinates $(x^1,\ldots,x^n)$ and $(y^1,\ldots, y^m)$ respectively. For any $p\in U$, we can use the chain rule to compute that the action of $dF_p$ on a typical basis vector as follows:
 \[dF_p\lp \ev{\pdd{x^i}}{p}\rp f = \lp\pd{F^j}{x^i}(p) \ev{\pdd{y^j}}{F(p)}\rp f.\]
 Thus
 \[dF_p\lp \ev{\pdd{x^i}}{p}\rp = \pd{F^j}{x^i}(p) \ev{\pdd{y^j}}{F(p)}.\]
 And this gives us that the matrix of $dF_p$ in terms of the coordinate bases is
-\[\bpm \pd{F^1}{x^1}(p) & \cdots & \pd{F^1}{x^n}\\ 
+\[\bpm \pd{F^1}{x^1}(p) & \cdots & \pd{F^1}{x^n}\\
        \vdots & \ddots & \vdots\\
        \pd{F^m}{x^1}(p) & \cdots & \pd{F^m}{x^n}(p)\epm.\]
 
@@ -154,7 +154,7 @@ The transition map between polar coordinates and standard coordinates in suitabl
 Applying the rule in the above definition, we get that
 \begin{align*}
     \ev{\pdd{r}}{p} &= \cos\lp\frac{\pi}{2}\rp\ev{\pdd{x}}{p} + \sin\lp\frac{\pi}{2}\rp\ev{\pdd{y}}{p} = \ev{\pdd{y}}{p},\\
-    \ev{\pdd{\theta}}{p} &= 
+    \ev{\pdd{\theta}}{p} &=
     -2\sin\lp\frac{\pi}{2}\rp\ev{\pdd{x}}{p} + 2\cos\lp\frac{\pi}{2}\rp\ev{\pdd{y}}{p} = -2\ev{\pdd{x}}{p},
 \end{align*}
 and thus $v$ has the following coordinate representation in standard coordinates:
@@ -217,13 +217,7 @@ Let $F:M\ra N$ be a smooth map, and let $\ga:J\ra M$ be a smooth curve. For any 
 \end{prop}
 
 \begin{cor}[Computing the Differential Using a Velocity Vector]
-Suppose $F:M\ra N$ is a smooth map, $p\in M$, and $v\in T_pM$. Then 
+Suppose $F:M\ra N$ is a smooth map, $p\in M$, and $v\in T_pM$. Then
 \[dF_p(v) = (F\circ \ga)\p(0)\]
 for any smooth curve $\ga:J\ra M$ such that $0\in J, \ga(0) = p$, and $\ga\p(0) = v$.
 \end{cor}
-
-
-
-
-
-

@@ -27,7 +27,7 @@ Every smooth $n$-manifold \wowob admits a proper smooth embedding into $\R^{2n +
 Let $M$ be a smooth manifold \wowob. If $F:M\ra \Rk$ is continuous, then given any positive continuous function $\de:M\ra \R$, there exists a smooth function $\td F$ such that $|F(x) - \td F(x)|< \de(x)$ for all $x\in M$. Furthermore, if $F$ is smooth on a closed subset, then $\td F$ can be chosen to agree with $F$ on that set.
 \end{thm}
 
-\dfn If $M$ is a $m$-dimensional embedded submanifold of $\Rn$ then the \df{normal bundle of M} is defined to be 
+\dfn If $M$ is a $m$-dimensional embedded submanifold of $\Rn$ then the \df{normal bundle of M} is defined to be
 \[NM = \{(x,v)\in T\Rn\cong \Rn\x\Rn\ :\ x\in M,v\in T_x\Rn\ s.t.\,\,\, v\cdot w = 0 \,\,\,\forall w\in T_xM\}\]
 
 \setcounter{thm}{22}
@@ -39,7 +39,7 @@ If $M\seq \Rn$ is an embedded $m$-dimensional submanifold, then $NM$ is an embed
 \dfn Thinking of $NM$ as a submanifold of $\Rn\x\Rn$, we define $E:NM\ra \Rn$ by
 \[E(x,v) = x + v.\]
 
-\dfn If $M\seq \Rn$ is an embedded $m$-dimensional submanifold, a \df{tubular neighborhood of M} is a neighborhood $U$ of $M$ in $\Rn$ that is the diffeomorphic image under $E$ of an open subset $V\seq NM$ of the form 
+\dfn If $M\seq \Rn$ is an embedded $m$-dimensional submanifold, a \df{tubular neighborhood of M} is a neighborhood $U$ of $M$ in $\Rn$ that is the diffeomorphic image under $E$ of an open subset $V\seq NM$ of the form
 \[V = \{(x, v)\in NM\ :\ |v| < \de(x)\},\]
 for some positive continuous function $\de:M\ra \R$.
 
@@ -49,11 +49,11 @@ Every embedded submanifold of $\Rn$ has a tubular neighborhood.
 
 \subsection{Transversality}\nl
 
-\dfn Suppose $M$ is a smooth manifold. Two embedded submanifolds $S,\S\p\seq M$ are said to \df{intersect transversely} if for each $p\in S\cap S\p$, the tangent spaces $T_pS$ and $T_pS\p$ together span $T_pM$.
+\dfn Suppose $M$ is a smooth manifold. Two embedded submanifolds $S,S\p\seq M$ are said to \df{intersect transversely} if for each $p\in S\cap S\p$, the tangent spaces $T_pS$ and $T_pS\p$ together span $T_pM$.
 
 \nb $T_pS$ and $T_pS\p$ are allowed to intersect non-trivially.
 
-\dfn I f$F:N\ra M$ is a smooth map and $S\seq M$ is an embedded submanifold, we say that $F$ is \df{transverse to S} if for every $x\in F\inv(S)$, the spaces $T_{F(x)}S$ and $dF_x(T_xN)$ together span $T_{F(x)}M$.
+\dfn If $F:N\ra M$ is a smooth map and $S\seq M$ is an embedded submanifold, we say that $F$ is \df{transverse to S} if for every $x\in F\inv(S)$, the spaces $T_{F(x)}S$ and $dF_x(T_xN)$ together span $T_{F(x)}M$.
 
 \setcounter{thm}{29}
 
@@ -64,6 +64,3 @@ Suppose $M$ and $N$ are smooth manifolds and $S\seq M$ is an embedded submanifol
     \item If $S\p\seq M$ is an embedded submanifold that intersects $S$ transversely, then $S\cap S\p$ is an embedded submanifold of $M$ whose codimension is equal to the sum of the codimensions of $S$ and $S\p$.
 \end{enumerate}
 \end{thm}
-
-
-

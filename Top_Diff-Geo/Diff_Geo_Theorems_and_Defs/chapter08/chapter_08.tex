@@ -20,7 +20,7 @@ Let $M$ be a smooth manifold \wowob, and let $X:M\ra TM$ be a rough vector field
 \end{prop}
 
 \begin{ex}[Coordinate Vector Fields]
-If $(U, (x^i))$ is any smooth chart on $M$, the assignment 
+If $(U, (x^i))$ is any smooth chart on $M$, the assignment
 \[p\mapsto\ev{\pdd{x^i}}{p}\]
 determines a vector field on $U$, called the \df{i$^{\df{th}}$ coordinate vector field} and denoted by $\pdd{x^i}$. It is smooth because its component functions are constant.
 \end{ex}
@@ -28,7 +28,7 @@ determines a vector field on $U$, called the \df{i$^{\df{th}}$ coordinate vector
 \setcounter{thm}{3}
 
 \begin{ex}[\hlo{The Angle Coordinate Vector Field on the Circle}]
-Let $\theta$ be any angle coordinate on a proper open subset $U\seq \BSS$, and let $d/d\theta$ denote the corresponding coordinate vector field. Because any other angle coordinate $\td\theta$ on $V\seq \BSS$ is related to $\theta$ on $U\cap V$ by $\td\theta = \theta + 2\pi n$. Then we have that 
+Let $\theta$ be any angle coordinate on a proper open subset $U\seq \BSS$, and let $d/d\theta$ denote the corresponding coordinate vector field. Because any other angle coordinate $\td\theta$ on $V\seq \BSS$ is related to $\theta$ on $U\cap V$ by $\td\theta = \theta + 2\pi n$. Then we have that
 \[\frac{d}{d\td \theta} = \frac{d}{d\theta}\]
 so there is a \ul{globally defined} coordinate vector field even though there is no globally defined $\theta$.
 \end{ex}
@@ -99,7 +99,7 @@ Let $M$ be a smooth manifold \wowob, and let $X:M\ra TM$ be a rough vector field
 \end{enumerate}
 \end{prop}
 
-\dfn A map $X\Cin(M)\ra \Cin(M)$ is called a \df{derivation} if it is linear over $\R$, and if 
+\dfn A map $X\Cin(M)\ra \Cin(M)$ is called a \df{derivation} if it is linear over $\R$, and if
 \[X(fg) = f\,Xg + g\,Xf\]
 for all $f,g\in \Cin(M)$.
 
@@ -116,12 +116,12 @@ Let $F:M\ra N$ be a smooth pan and let $X\in \fkX(M)$. For each $p\in M$ the dif
 \[dF_p(X_p)\in T_{F(p)}N.\]
 However, this does NOT generally produce a vector filed on $N$:
 \begin{itemize}
-    \item If $F$ is not surjective, then parts of the produce vector field will be undefined.
+    \item If $F$ is not surjective, then parts of the produced vector field will be undefined.
     \item If $F$ is not injective, then $dF$ may assign multiple vectors to some points in $N$.
 \end{itemize}
 This leads us to the following definition:
 
-\dfn Let $F:M\ra N$ be smooth $X\in \fkX(M)$. For each $p\in M$, $dF$ gives a vector $dF_p(X_p)\in T_{F(p)}N$. If there exists a $Y\in \fkX(N)$ such that 
+\dfn Let $F:M\ra N$ be smooth $X\in \fkX(M)$. For each $p\in M$, $dF$ gives a vector $dF_p(X_p)\in T_{F(p)}N$. If there exists a $Y\in \fkX(N)$ such that
 \[dF_p(X_p) = Y_{F(p)}\]
 we say that $X$ and $Y$ are \df{F-related}.
 
@@ -129,7 +129,7 @@ we say that $X$ and $Y$ are \df{F-related}.
 
 \begin{prop}
 Suppose $F:M\ra N$ is a smooth map between manifolds \wowob, $X\in \fkX(M)$, and $Y\in \fkX(N)$. \hl{Then $X$ and $Y$ are $F$-related if and only if for every smooth real-valued function $f$ defined on an open subset of $N$,}
-\[X(f\circ F) = (Yf)\circ F.)\]
+\[X(f\circ F) = (Yf)\circ F.\]
 \end{prop}
 
 \setcounter{thm}{18}
@@ -176,7 +176,7 @@ The Lie bracket satisfies the following identities for all $X,Y,Z\in \fkX(M)$:
         [Z, aX + bY] &= a[Z,X] + b[Z,Y].
     \end{align*}
     \item {\scshape Antisymmetry:}
-    \[[X,Y] = [Y,X]\]
+    \[[X,Y] = -[Y,X]\]
     \item {\scshape Jacobi Identity:}
     \[[X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0.\]
     \item For $f,g\in \Cin(M)$,
@@ -213,7 +213,7 @@ Let $G$ be a Lie group, and suppose $X$ and $Y$ are smooth left-invariant vector
         [Z, aX + bY] &= a[Z,X] + b[Z,Y].
     \end{align*}
     \item {\scshape Antisymmetry:}
-    \[[X,Y] = [Y,X]\]
+    \[[X,Y] = -[Y,X]\]
     \item {\scshape Jacobi Identity:}
     \[[X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0.\]
 \end{enumerate}
@@ -239,7 +239,7 @@ Let $G$ be a Lie group, and suppose $X$ and $Y$ are smooth left-invariant vector
 \dfn The Lie algebra of all smooth left-invariant vector on a Lie group $G$ is called the \df{Lie algebra of G}, and is denoted by $\Lie(G)$.
 
 \begin{thm}
-\hlb{Let $G$ e a Lie group. The evaluation map $\vep:\Lie(G)\ra T_eG$, given by $\vep(X) = X_e$, is a vector space isomorphism. Thus, $\Lie(G)$ is finite-dimensional, with dimension equal to $\dim(G)$.}
+\hlb{Let $G$ be a Lie group. The evaluation map $\vep:\Lie(G)\ra T_eG$, given by $\vep(X) = X_e$, is a vector space isomorphism. Thus, $\Lie(G)$ is finite-dimensional, with dimension equal to $\dim(G)$.}
 \end{thm}
 
 \begin{cor}
@@ -292,12 +292,10 @@ Suppose $H\seq G$ is a Lie subgroup, and $\iota:H\into G$ is the inclusion map. 
 \end{thm}
 
 \begin{ex}[The Lie Algebra of $O(n)$]
-The orthogonal group $O(n)$ is a Lie subgroup of $GL_n(\R)$ that turns out to be equal to the level set $\Phi\inv(I_n)$, where $\Phi:GL_n(\R)\ra M_n(\R):A\mapsto A^T A$. We have that $T_{I_n}O(n)$ is the same as the kernel of $d\Phi_{I_n}$, which with a little computation, we have that $d\Phi_{I_n}(B) = B^T + B$, so 
+The orthogonal group $O(n)$ is a Lie subgroup of $GL_n(\R)$ that turns out to be equal to the level set $\Phi\inv(I_n)$, where $\Phi:GL_n(\R)\ra M_n(\R):A\mapsto A^T A$. We have that $T_{I_n}O(n)$ is the same as the kernel of $d\Phi_{I_n}$, which with a little computation, we have that $d\Phi_{I_n}(B) = B^T + B$, so
 \begin{align*}
     T_{I_n}O(n) &= \{B\in \fkgl_n(\R)\ :\ B^T + B = 0\}\\
     &= \{\text{skew-symmetric $n\x n$ matrices}\}.
 \end{align*}
 We denote this subspace of $\fkgl_n(\R)$ by $\fko(n)$. Theorem 8.46 them implies that $\fko(n)$ is a Lie subalgebra of $\fkgl_n(\R)$ that is canonically isomorphic to $\Lie(O(n))$.
 \end{ex}
-
-
