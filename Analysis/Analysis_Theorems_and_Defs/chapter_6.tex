@@ -9,12 +9,12 @@ where $[A,B]$ denotes a general product.
 
 \vs
 
-\textbf{Corollary.} If $a,b\geq 0$ and $p>1$ then 
+\textbf{Corollary.} If $a,b\geq 0$ and $p>1$ then
 \[a^\frac{1}{p}b^\frac{1}{q} \leq \frac{a}{p} + \frac{b}{q}.\]
 
 \vs
 
-\dfn Let $p\in (0,\infty)$ and letr $(X, \MM, \mu)$ ve a measure space. We say that a function $f:X\ra \C$ is in $L^p(X)$ if 
+\dfn Let $p\in (0,\infty)$ and letr $(X, \MM, \mu)$ ve a measure space. We say that a function $f:X\ra \C$ is in $L^p(X)$ if
 \[\int_X|f|^p\, d\mu < \infty.\]
 In this case, we write that
 \[||f||_p = \left[\int_X |f|^p\,d\mu\right].\]
@@ -33,11 +33,11 @@ Also, if $p = 1$, we define the conjugate exponent $q$ by $q = \infty$.
 
 \textbf{H\"older's Inequality.} Let $p\in (1,\infty)$ and $q$ be its conjugate exponent in $(X, \MM, \mu)$ a measure space. Then if $f$ and $g$ are measureable functions, then
 \[||fg||_1 \leq ||f||_p||g||_q.\]
-In particular, if $f\in L^p$ and $g\in L^&q$, then $fg\in L^1$, and in this case equality holds iff $\al|f|^p = \be|g|^q$ a.e. for some constants $\al,\be$ with $\al\be \neq 0$.
+In particular, if $f\in L^p$ and $g\in L^q$, then $fg\in L^1$, and in this case equality holds iff $\al|f|^p = \be|g|^q$ a.e. for some constants $\al,\be$ with $\al\be \neq 0$.
 
 \vs
 
-\textbf{Minkowski's Inequality.} If $1\leq p < \infty$ and $f,g\in L^p$, then 
+\textbf{Minkowski's Inequality.} If $1\leq p < \infty$ and $f,g\in L^p$, then
 \[||f + g||_p \leq ||f||_p + ||g||_p.\]
 
 \vs
@@ -55,10 +55,10 @@ For $1\leq p < \infty$, the set of simple functions is dense in $L^p$.
 
 \vs
 
-\dfn Let $f:X\ra \C$ be a $\MM$-measurable function. We say that $f$ is \textbf{\textit{essentially bounded}} with respect to $\MM$ if there exits an $N$, $0\leq N < \infty$ such that 
+\dfn Let $f:X\ra \C$ be a $\MM$-measurable function. We say that $f$ is \textbf{\textit{essentially bounded}} with respect to $\MM$ if there exits an $N$, $0\leq N < \infty$ such that
 \[|f(x)|\leq N\quad \mu-a.e.\]
 i.e.
-\[\mu(\{x\in \X\ :\ |f(x)| > N\}) = 0.\]
+\[\mu(\{x\in X\ :\ |f(x)| > N\}) = 0.\]
 
 \vs
 
@@ -109,12 +109,12 @@ If $\mu(X) < \infty$ and $0< p < q \leq \infty$, then $L^q(\mu)\subset L^p(\mu)$
 \vs
 
 \begin{prop}
-Let $p\in[1,\infty]$, let $(X, \MM, \mu)$ be a measure space, let $q$ be the conjugate exponent to $p$. Then, each $g\in L^q$ defines a continuous bounded linear functional $T_g$ on $L^q$ by 
+Let $p\in[1,\infty]$, let $(X, \MM, \mu)$ be a measure space, let $q$ be the conjugate exponent to $p$. Then, each $g\in L^q$ defines a continuous bounded linear functional $T_g$ on $L^q$ by
 \[T_g(f) = \int_X fg\,dx.\]
-and 
+and
 \[||g||_q = ||T_g|| = \sup\left\{\left|\int fg\right|\ :\ ||f||_p = 1\right\}\]
 if $q < \infty$. If $(X,\MM,\mu)$ is semifinite, then equality holds for all $q$.
-\end{prop} 
+\end{prop}
 
 \vs
 
@@ -138,7 +138,7 @@ If $1 < p < \infty$, $L^p$ is reflexive.
 
 \vs
 
-\textbf{Chebyshev's Inequality.} If $f\in L^p\ (0<p<\infty)$, the for any $\al > 0$, 
+\textbf{Chebyshev's Inequality.} If $f\in L^p\ (0<p<\infty)$, the for any $\al > 0$,
 \[\mu(\{x\ :\ |f(x)| > \al\}) \leq \left[\frac{||f||_p}{\al}\right]^p.\]
 
 \vs
@@ -156,7 +156,7 @@ converges absolutely for a.e. $x\in X$, the function $Tf$ thus defined is in $L^
 \begin{enumerate}
     \item If $f\geq 0$ and $1 \leq p < \infty$, then
     \[\left[\int\lp \int f(x,y)\,d\nu(y)\rp^p\,d\mu(x)\right]^\frac{1}{p}\leq\int\left[\int f(x,y)^p\,d\mu(x)\right]^\frac{1}{p}\,d\nu(y).\]
-    \item If $1 \leq p \leq \infty$, $f(\cdot, y)\in L^p(\mu)$ for a.e. $y$, and the function $y\mapsto ||f(\cdot, y)||_p$ is in $L^1(\nu)$, then $f(x,\cdot)\in L^1(\nu)$ for a.e. $x$, the function $x\mapsto \int f(x,y)\,d\nu(y)$ is in $L^p(\mu)$, and 
+    \item If $1 \leq p \leq \infty$, $f(\cdot, y)\in L^p(\mu)$ for a.e. $y$, and the function $y\mapsto ||f(\cdot, y)||_p$ is in $L^1(\nu)$, then $f(x,\cdot)\in L^1(\nu)$ for a.e. $x$, the function $x\mapsto \int f(x,y)\,d\nu(y)$ is in $L^p(\mu)$, and
     \[\llp\int f(\cdot,y)\,d\nu(y)\rrp_p\leq\int ||f(\cdot, y)||_p\,d\nu(y).\]
 \end{enumerate}
 
