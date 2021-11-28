@@ -1,0 +1,141 @@
+\documentclass[11pt]{article}
+ 
+\usepackage[margin=2cm]{geometry} 
+\usepackage[oldstylenums]{kpfonts}
+\usepackage{mathrsfs} %includes mathscript font
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usetikzlibrary{matrix}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{stmaryrd}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\usepackage{titling}
+
+%setting legth for author/date
+\setlength{\droptitle}{-5em}
+
+%mapsto arrow with labeling on top
+\makeatletter
+\newcommand{\xMapsto}[2][]{\ext@arrow 0599{\Mapstofill@}{#1}{#2}}
+\def\Mapstofill@{\arrowfill@{\Mapstochar\Relbar}\Relbar\Rightarrow}
+\makeatother
+
+%floor function
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+
+%standard sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Hq}{\mathbb{H}}
+\newcommand{\F}{\mathbb{F}}
+
+%Quaternions
+\newcommand{\1}{\textbf{1}}
+\newcommand{\bi}{\textbf{i}}
+\newcommand{\bj}{\textbf{j}}
+\newcommand{\bk}{\textbf{k}}
+
+ 
+\usepackage{amsthm}
+
+\newtheorem{stheorem}{Theorem}[section]
+\newtheorem{scor}{Corollary}[section]
+\newtheorem{slemma}{Lemma}[section]
+\newtheorem{sprop}{Proposition}[section]
+\newtheorem{sconj}{Conjecture}[section]
+\newtheorem{sex}{Exercise}[section]
+\newtheorem{sdefi}{Definition}[section]
+\newtheorem{sexa}{Example}[section]
+\newtheorem{sprob}{Problem}[section]
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{conj}{Conjecture}
+\newtheorem{ex}{Exercise}
+\newtheorem{defi}{Definition}
+\newtheorem{exa}{Example}
+\newtheorem{prob}{Problem}
+
+
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{cor*}{Corollary}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{prop*}{Proposition}
+\newtheorem*{conj*}{Conjecture}
+\newtheorem*{ex*}{Exercise}
+\newtheorem*{defi*}{Definition}
+\newtheorem*{exa*}{Example}
+
+\newtheorem*{sol*}{\textit{Solution}}
+
+%transverse sign as in Guillemin & Pollack
+\newcommand{\transv}{\mathrel{\text{\tpitchfork}}}
+\makeatletter
+\newcommand{\tpitchfork}{%
+  \vbox{
+    \baselineskip\z@skip
+    \lineskip-.52ex
+    \lineskiplimit\maxdimen
+    \m@th
+    \ialign{##\crcr\hidewidth\smash{$-$}\hidewidth\crcr$\pitchfork$\crcr}
+  }%
+}
+\makeatother
+
+
+
+\begin{document}
+
+\title{\LARGE \textbf{CU Boulder: \textit{Algebra} %subject of exam
+Prelim \\ \textit{August 2008}} %date exam was administered
+\vspace{-.75cm}}% vspace sets margin between title and author
+\author{Juan Moreno
+} 
+\date{\vspace{-0.45cm}April 2019} % can input date if desired, vspace sets margin between author and date
+
+ 
+\maketitle
+
+%remove abstract title
+\renewcommand{\abstractname}{\vspace{-\baselineskip}}
+%insert description/ abstract
+\begin{abstract}
+\noindent These are my solutions to the questions on the CU Boulder \textit{Algebra} preliminary exam from \textit{August 2008} found  \href{http://math.colorado.edu/documents/graduate/prelim/Algebra_Aug_2008.pdf}{here}. I worked on these solutions over the summer of 2019 in preparation for the preliminary exam in the Fall 2019. Please send any questions, comments, or corrections to \href{mailto: juan.moreno-1@boulder.edu}{juan.moreno-1@boulder.edu.} \\
+\end{abstract}
+
+\begin{prob}
+(17 pts) Show that a group G of order $2^3 \cdot 5 \cdot 13$ cannot be simple.
+
+\begin{proof}
+By Sylow's Theorem, the number of Sylow $13$-subgroups of $G$ must satisfy $n_{13}\equiv 1(\textnormal{mod} 13) $ and $n_{13}\big| 2^3\cdot 5$. The only possibilities are $n_{13} = 1$ or $40$. If $n_{13} = 40$, then since the order of these Sylow $13$-subgroups is prime, these subgroups must all have trivial intersection. So we count $12\cdot 40 = 480$ distinct elements of order $13$ in $G$. Similarly the number of Sylow $5$-subgroups of $G$ must satisfy $n_5 \equiv 1(\textnormal{mod}5)$ and $n_5\big| 104$. The only possibilities are $n_5 = 1$ or $26$. If $n_5 = 26$ then by the same reasoning as above we count $4\cdot 26 = 104$ distinct elements of order $5$. If both $n_{13} = 40$ and $n_5 = 26$ then we would have $480 + 104 = 584 > |G|$ distinct elements, a contradiction. We then have that at least one of these must be $1$, implying $G$ has a unique Sylow subgoup which, by Sylow's Theorem must be normal. Thus $G$ cannot be simple.
+\end{proof}
+\end{prob}
+
+\begin{prob}
+(17 pts) Let $G$ be a finite group which acts on a set $S$ on both the left and the right. For an element $s \in S$, let $Gs$ and $sG$ denote the orbit of $s$ under these respective actions.These actions can be combined into a single (left) action of$G \times G$ on $S$ via $(g, h)s = gsh^{-1}$. The corresponding orbit of $s$ under this action is denoted $GsG$. There are two independent questions one wants to answer about such orbits: what is their size, and how many of them are there?
+
+\noindent (a) (12 pts) Show that for $s\in S$ the size of $GsG$ is \[ | GsG| = \frac{|Gs||sG|}{|Gs\bigcap sG|}.\]
+
+\begin{proof}
+
+\end{proof}
+\end{prob}
+
+
+\end{document}
